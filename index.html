@@ -56,14 +56,31 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--fg);min-he
 .z1info{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,#f9e04b,#f39c12);color:#2c3e50;padding:16px 22px;border-radius:14px;text-align:center;font-size:.95em;line-height:1.8;min-width:230px;z-index:10;border:3px solid #e67e22;box-shadow:0 4px 18px rgba(0,0,0,.35);}
 /* NEWS TICKER */
 .z1-ticker{position:absolute;bottom:0;left:0;right:0;height:24px;background:rgba(26,122,67,.85);overflow:hidden;display:flex;align-items:center;}
-.z1-ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:tickerScroll 42s linear infinite;}
+.z1-ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:tickerScroll 84s linear infinite;}
 .z1-ticker-inner span{color:#f9e04b;font-size:.72em;font-weight:700;padding:0 32px;}
 @keyframes tickerScroll{0%{transform:translateX(100vw);}100%{transform:translateX(-100%);}}
 /* TOOLTIP BUBBLE — fixed top-right corner */
-.z1-tooltip{position:absolute;top:36px;right:8px;background:rgba(26,44,80,.92);color:#fff;border-radius:9px;padding:5px 9px;font-size:.72em;font-weight:700;max-width:148px;text-align:left;pointer-events:none;z-index:20;line-height:1.4;border:2px solid #f9c74f;}
-.z1-tooltip.green{border-color:#27ae60;}
-.z1-tooltip.red{border-color:#e74c3c;}
+.z1-tooltip{position:absolute;top:36px;right:8px;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);border-radius:16px 16px 16px 4px;padding:5px 8px;font-size:.65em;font-weight:600;max-width:122px;text-align:left;pointer-events:none;z-index:20;line-height:1.35;border:1.5px solid rgba(255,255,255,.32);backdrop-filter:blur(3px);box-shadow:0 2px 8px rgba(0,0,0,.12);}
+.z1-tooltip.green{border-color:rgba(39,174,96,.55);color:rgba(210,255,210,.95);}
+.z1-tooltip.red{border-color:rgba(231,76,60,.55);color:rgba(255,210,210,.95);}
+.z1-tooltip::before{content:'';position:absolute;top:-7px;left:10px;width:11px;height:11px;background:rgba(255,255,255,.15);border-radius:50%;border:1.5px solid rgba(255,255,255,.32);}
+.z1-tooltip::after{content:'';position:absolute;top:-5px;left:21px;width:8px;height:8px;background:rgba(255,255,255,.15);border-radius:50%;border:1.5px solid rgba(255,255,255,.32);}
+.z1-tooltip.green::before,.z1-tooltip.green::after{border-color:rgba(39,174,96,.55);}
+.z1-tooltip.red::before,.z1-tooltip.red::after{border-color:rgba(231,76,60,.55);}
 @keyframes tooltipFade{0%{opacity:0;transform:translateY(-4px);}15%{opacity:1;transform:translateY(0);}75%{opacity:1;}100%{opacity:0;}}
+@keyframes learnPulse{0%,100%{box-shadow:0 0 0 0 rgba(41,128,185,.5);transform:scale(1);}50%{box-shadow:0 0 0 8px rgba(41,128,185,0);transform:scale(1.025);}}
+.learn-more-btn{animation:learnPulse 2.2s ease-in-out infinite;}
+.learn-card{background:#fff;border-radius:18px;padding:22px 20px;max-width:380px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.3);max-height:88vh;overflow-y:auto;}
+.learn-card h2{font-family:'Fredoka One',cursive;font-size:1.5em;text-align:center;margin-bottom:4px;color:#1a5276;}
+.learn-resource{border-radius:12px;padding:13px 14px;margin-bottom:10px;border:2px solid #dee2e6;background:#f8f9fa;display:flex;flex-direction:column;gap:6px;}
+.learn-resource-type{font-size:.72em;font-weight:800;text-transform:uppercase;letter-spacing:.5px;}
+.learn-resource.video .learn-resource-type{color:#e74c3c;}
+.learn-resource.article .learn-resource-type{color:#2980b9;}
+.learn-resource-title{font-weight:800;font-size:.92em;color:#2c3e50;line-height:1.4;}
+.learn-resource-desc{font-size:.8em;color:#7f8c8d;line-height:1.5;}
+.learn-resource-link{display:inline-block;padding:7px 14px;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.82em;text-decoration:none;margin-top:2px;}
+.learn-resource.video .learn-resource-link{background:#e74c3c;color:#fff;}
+.learn-resource.article .learn-resource-link{background:#2980b9;color:#fff;}
 .chip{background:#fff;border:2px solid #dee2e6;border-radius:8px;padding:4px 9px;font-size:.82em;font-weight:700;}
 .chip.sf{border-color:#27ae60;color:#1a7a43;}.chip.dg{border-color:#e74c3c;color:#c0392b;}
 @keyframes cfl{0%{opacity:1;}100%{opacity:0;transform:translateY(-26px) scale(1.4);}}
@@ -340,7 +357,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     <p id="zpop-hint" style="display:none;font-size:.88em;color:#e67e22;font-weight:700;font-style:italic;margin-bottom:13px;text-align:center;"></p>
     <div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;">
       <button class="btn btn-gr" id="zpop-nxt" onclick="zpopGo()" style="display:none;font-size:.95em;"></button>
-      <button class="btn btn-gy" onclick="closeZpop()" style="font-size:.95em;">Stay Here</button>
+      <button class="btn btn-gy" id="zpop-close" onclick="closeZpop()" style="font-size:.95em;">Stay Here</button>
     </div>
   </div>
 </div>
@@ -407,12 +424,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <div style="font-size:.88em;text-align:center;color:var(--mg);margin-bottom:3px;">Player: <strong id="final-player-name" style="color:#2c3e50;"></strong></div>
       <div class="score-total" id="final-total">0</div>
       <div class="prow" id="rpills"></div>
-      <div class="bonus-breakdown" id="bonus-breakdown"></div>
-      <div style="display:flex;gap:9px;margin-top:13px;flex-wrap:wrap;">
+      <div style="display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;">
         <button class="btn btn-gr" onclick="restartAll()" style="flex:1;font-size:.95em;">🔄 Play Again</button>
         <button class="btn btn-or" onclick="replayZ1FromFinal()" style="flex:1;font-size:.9em;line-height:1.4;">🌾 Back to Zone 1<br><span style="font-size:.78em;font-weight:600;">if you want to replay</span></button>
       </div>
-      <button class="btn btn-gy" style="width:100%;margin-top:10px;font-size:.9em;font-weight:800;color:#8e44ad;border:2px solid #8e44ad;background:#f5eef8;" onclick="document.getElementById('tips-ov').classList.add('show')">Psst!! Wanna know how to score more? 💡</button>
+      <button class="btn learn-more-btn" style="width:100%;margin-top:10px;font-size:.95em;font-weight:800;background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border:none;padding:12px;" onclick="document.getElementById('learn-ov').classList.add('show')">📚 Want to Learn More? <span style="font-size:.78em;opacity:.85;">(Brownie points!)</span></button>
+      <button class="btn btn-gy" style="width:100%;margin-top:8px;font-size:.88em;font-weight:800;color:#8e44ad;border:2px solid #8e44ad;background:#f5eef8;" onclick="document.getElementById('tips-ov').classList.add('show')">Psst!! Wanna know how to score more? 💡</button>
     </div>
     <div class="lb-card" style="margin-top:0;">
       <h3>🏆 Leaderboard</h3>
@@ -425,11 +442,32 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   </div>
 </div>
 
+<!-- LEARN MORE POPUP -->
+<div class="ov" id="learn-ov">
+  <div class="learn-card">
+    <h2>📚 Want to Learn More?</h2>
+    <div style="text-align:center;font-size:.85em;color:var(--mg);margin-bottom:14px;">Go deeper into the science behind what you just played!</div>
+    <div class="learn-resource video">
+      <div class="learn-resource-type">🎬 YouTube Video</div>
+      <div class="learn-resource-title">Milk. White Poison or Healthy Drink?</div>
+      <div class="learn-resource-desc">Kurzgesagt explores whether milk is actually good for you — the science of milk nutrition, types of milk, and what the research really says.</div>
+      <a class="learn-resource-link" href="https://www.youtube.com/watch?v=oakWgLqCwUc" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+    </div>
+    <div class="learn-resource article">
+      <div class="learn-resource-type">📄 WHO / FAO Publication</div>
+      <div class="learn-resource-title">Food Safety in Primary Milk Production — WHO &amp; FAO (2023)</div>
+      <div class="learn-resource-desc">The official WHO and FAO joint document on milk safety standards, hygiene in dairy production, and the evidence behind the practices you just practised in this game.</div>
+      <a class="learn-resource-link" href="https://www.who.int/publications/i/item/WHO-HEP-NFS-AFS-2023.2" target="_blank" rel="noopener">📖 Read on WHO.int</a>
+    </div>
+    <button class="btn btn-gy" style="width:100%;margin-top:4px;font-size:.95em;" onclick="document.getElementById('learn-ov').classList.remove('show')">← Back to Results</button>
+  </div>
+</div>
+
 <!-- GAME UI -->
 <div id="game-body" style="display:none;">
 <div class="hdr" style="position:relative;">
   <h1>🥛 The Dairy Dean</h1>
-  <p>Milk Safety Challenge — Park's Preventive &amp; Social Medicine &nbsp;|&nbsp; v12</p>
+  <p>Milk Safety Challenge — Park's Preventive &amp; Social Medicine &nbsp;|&nbsp; v13</p>
   <button class="snd-btn" id="snd-btn" onclick="toggleSnd()">🔊 Sound ON</button>
 </div>
 <div class="scorebar">
@@ -788,7 +826,20 @@ function unlock(n){
 function updHUD(){document.getElementById('tsco').textContent=S.tsco;document.getElementById('livd').textContent=S.lives;document.getElementById('streak-disp').textContent=S.z1streak;}
 function addSco(p){S.tsco+=p;updHUD();}
 function showFB(msg,ok,type){const b=document.getElementById('fb');b.textContent=msg;b.className='fb show '+(type==='bonus'?'bonus':ok?'ok':'bad');setTimeout(()=>b.className='fb',2700);}
-function showZpop(title,msg,nextZone,hint){zpopNextZone=nextZone;document.getElementById('zpop-title').textContent=title;document.getElementById('zpop-msg').textContent=msg;const hEl=document.getElementById('zpop-hint');if(hint){hEl.textContent=hint;hEl.style.display='block';}else{hEl.style.display='none';}const nb=document.getElementById('zpop-nxt');if(nextZone){nb.textContent='→ Go to Zone '+nextZone;nb.style.display='inline-block';}else{nb.style.display='none';}document.getElementById('zpop-ov').classList.add('show');}
+function showZpop(title,msg,nextZone,hint,closeLbl,closeStyle){
+  zpopNextZone=nextZone;
+  document.getElementById('zpop-title').textContent=title;
+  document.getElementById('zpop-msg').textContent=msg;
+  const hEl=document.getElementById('zpop-hint');
+  if(hint){hEl.textContent=hint;hEl.style.display='block';}else{hEl.style.display='none';}
+  const nb=document.getElementById('zpop-nxt');
+  if(nextZone){nb.textContent='→ Go to Zone '+nextZone;nb.style.display='inline-block';}else{nb.style.display='none';}
+  const closeBtn=document.getElementById('zpop-close');
+  closeBtn.textContent=closeLbl||'Stay Here';
+  closeBtn.className='btn '+(closeStyle||'btn-gy');
+  closeBtn.style.fontSize='.95em';
+  document.getElementById('zpop-ov').classList.add('show');
+}
 function zpopGo(){closeZpop();if(zpopNextZone)jumpTo(zpopNextZone);}
 function closeZpop(){document.getElementById('zpop-ov').classList.remove('show');}
 
@@ -1127,7 +1178,7 @@ function checkDrag(){
     if(S.mbPredCorrect)predBonus=30;
   }
   const pts=correct*40+predBonus;addSco(pts);
-  let html='';res.forEach(r=>{const col=r.ok?'#eafaf1':'#fdf0f0';const bc=r.ok?'#27ae60':'#e74c3c';html+=`<span class="mb-result-chip" style="background:${col};border:1.5px solid ${bc};color:${bc};">${r.ok?'✅':'❌'} ${r.label}: ${r.placed}${r.ok?'':' → correct: '+r.correct}</span>`;});
+  let html='';res.forEach((r,i)=>{const col=r.ok?'#eafaf1':'#fdf0f0';const bc=r.ok?'#27ae60':'#e74c3c';const daStr=mb.smp[i].da<60?mb.smp[i].da+' min':Math.round(mb.smp[i].da/60*10)/10+' hrs';html+=`<span class="mb-result-chip" style="background:${col};border:1.5px solid ${bc};color:${bc};">${r.ok?'✅':'❌'} ${r.label} (${daStr}): ${r.placed}${r.ok?'':' → correct: '+r.correct}</span>`;});
   let predTxt=S.mbPrediction!==null?`<div style="margin-top:6px;font-size:.88em;font-weight:700;color:${S.mbPredCorrect?'#27ae60':'#e74c3c'};">${S.mbPredCorrect?'🎯 Correct prediction! +30 points':'❌ Prediction incorrect — the worst sample was '+dispNames[fastestIdx]}</div>`:'';
   document.getElementById('mb-result-row').innerHTML=`<div style="line-height:2.1;">${html}</div><div style="margin-top:5px;font-size:.88em;font-weight:700;color:#1a5276;">${correct} out of ${mb.smp.length} correct — +${pts} points</div>${predTxt}`;
   if(correct===mb.smp.length){sndDone();showFB('🎉 Perfect score on the Methylene Blue Reduction Test!',true);}else sndWrong();
@@ -1139,9 +1190,9 @@ function checkDrag(){
 
 // ===== ZONE 3 =====
 const Z3_METHODS={
-  HOLDER:{name:'Holder (Vat) Method',temp:'63–66°C',target:30,lo:27,hi:33,unit:'min',tMin:63,tMax:66,intervalMs:500,label:'Holder (Vat): stop at exactly 30 minutes'},
-  HTST:{name:'High Temperature Short Time (HTST)',temp:'72°C',target:15,lo:12,hi:18,unit:'sec',tMin:70,tMax:74,intervalMs:100,label:'HTST: stop at exactly 15 seconds'},
-  UHT:{name:'Ultra High Temperature (UHT)',temp:'125°C',target:3,lo:2,hi:4,unit:'sec',tMin:123,tMax:127,intervalMs:200,label:'UHT: stop between 2 and 4 seconds'}
+  HOLDER:{name:'Holder (Vat) Method',temp:'63–66°C',target:30,lo:27,hi:33,unit:'min',tMin:63,tMax:66,intervalMs:333,label:'Holder (Vat): stop at exactly 30 minutes'},
+  HTST:{name:'High Temperature Short Time (HTST)',temp:'72°C',target:15,lo:12,hi:18,unit:'sec',tMin:70,tMax:74,intervalMs:67,label:'HTST: stop at exactly 15 seconds'},
+  UHT:{name:'Ultra High Temperature (UHT)',temp:'125°C',target:3,lo:2,hi:4,unit:'sec',tMin:123,tMax:127,intervalMs:133,label:'UHT: stop between 2 and 4 seconds'}
 };
 function selectMethod(key){
   selectedMethod=key;
@@ -1214,7 +1265,7 @@ function stopHold(){
     const prec=calcPrecisionBonus(e,m);S.bonusPrecision=Math.max(S.bonusPrecision,prec);sndDone();S.z3hc=true;
     resEl.innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:10px;font-size:.9em;">✅ Correct hold time! <strong>${disp}</strong>.${prec>0?' 🎯 Precision bonus: +'+prec+' points!':''}</div>`;
     if(prec>0){addSco(prec);sndBonus();showFB('🎯 Precision hold! +'+prec+' bonus points!',true,'bonus');}else showFB('✅ Correct hold time!',true);
-    setTimeout(()=>{showZpop('🧊 Now Cool the Milk!','Milk must be cooled immediately to 4°C or below. Above 4°C allows microorganisms to grow — cool it now!',null,null);document.getElementById('z3cb').style.display='inline-block';},600);
+    setTimeout(()=>{showZpop('🧊 Now Cool the Milk!','Milk must be cooled immediately to 4°C or below. Above 4°C allows microorganisms to grow — cool it now!',null,null,"Let's Cool! ❄️",'btn-bl');document.getElementById('z3cb').style.display='inline-block';},600);
   }else if(e<m.lo){
     sndFail();S.wrongAnswers++;resEl.innerHTML=`<div style="background:#fdf0f0;border:2px solid #e74c3c;border-radius:8px;padding:10px;font-size:.9em;">❌ Too short! <strong>${disp}</strong> — minimum is ${m.lo} ${m.unit}. Pathogens may survive! Reset and try again.</div>`;
     showFB('❌ Too short — pathogens may survive!',false);document.getElementById('z3-heat-btn-wrap').style.display='block';
@@ -1224,18 +1275,43 @@ function stopHold(){
   }
 }
 function coolDown(){
-  if(!S.z3hc)return;closeZpop();S.z3cd=true;sndCool();
-  document.getElementById('z3sl').value=4;
+  if(!S.z3hc)return;closeZpop();S.z3cd=true;
+  // Animate slider to 4°C with visual + sound cue
+  const sl=document.getElementById('z3sl');
+  let cur=parseInt(sl.value);
+  const target=4;
+  if(cur>target){
+    const step=setInterval(()=>{
+      cur=Math.max(target,cur-3);sl.value=cur;
+      document.getElementById('z3tv').textContent=cur;
+      // Update visual as it cools
+      const ratio=Math.max(0,(cur-target)/(60-target));
+      const r=Math.round(100+ratio*120),g=Math.round(190-ratio*60),b=Math.round(255-ratio*20);
+      document.getElementById('tmf').style.background=`rgba(${r},${g},${b},.7)`;
+      document.getElementById('tv').style.background=`linear-gradient(180deg,hsl(${195+ratio*20},70%,${75-ratio*20}%),hsl(${200+ratio*15},80%,${65-ratio*15}%))`;
+      if(cur<=target){clearInterval(step);finishCoolDown();}
+    },40);
+  }else{finishCoolDown();}
+}
+function finishCoolDown(){
+  sndCool();
   const vis=document.getElementById('tv'),fill=document.getElementById('tmf'),sb=document.getElementById('z3sb'),hp=document.getElementById('hp');
-  hp.innerHTML='';vis.style.background='linear-gradient(180deg,#a8edea,#d0ecfe)';fill.style.background='rgba(100,190,255,.5)';
-  sb.style.cssText='background:#e8f8f5;color:#2980b9;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;';
+  hp.innerHTML='';
+  vis.style.background='linear-gradient(180deg,#a8edea,#d0ecfe)';
+  vis.style.boxShadow='0 0 20px 6px rgba(41,128,185,.45)';
+  setTimeout(()=>{vis.style.boxShadow='';},900);
+  fill.style.background='rgba(100,190,255,.5)';
+  document.getElementById('z3sl').value=4;document.getElementById('z3tv').textContent='4';
+  sb.style.cssText='background:#e8f8f5;color:#2980b9;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;border:2px solid #2980b9;';
   sb.textContent='❄️ Milk cooled to 4°C or below — safe for storage!';
+  const m=Z3_METHODS[S.z3m];
+  const disp=S.z3m==='HOLDER'?Math.round(S.z3el)+' minutes':S.z3el.toFixed(1)+' seconds';
   addSco(80);document.getElementById('z3cb').style.display='none';
-  document.getElementById('z3res').innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:10px;font-size:.9em;">🎉 Zone 3 Complete! Milk pasteurised and chilled to ≤4°C. (+80 points)</div>`;
+  document.getElementById('z3res').innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:10px;font-size:.9em;">🎉 Zone 3 Complete! <strong>${m.name}</strong> — held at ${m.temp} for ${disp}. Chilled to ≤4°C. (+80 points)</div>`;
   if(!S.zd[2]){S.zd[2]=true;updHUD();unlock(4);document.getElementById('tab3').innerHTML='🔥 Zone 3 ✅';document.getElementById('z3nb').disabled=false;}
   showFB('🎉 Zone 3 Complete! Milk safely chilled.',true);
   const hint=S.z3methods.length<3?'💡 Did you try all three pasteurisation methods? Reset and try the others!':null;
-  setTimeout(()=>showZpop('🔥 Zone 3 Complete!','Milk safely pasteurised and cooled to 4°C or below!',4,hint),1000);
+  setTimeout(()=>showZpop('🔥 Zone 3 Complete! Now verify it worked.','Pasteurisation alone is not enough — we need to test the milk to confirm it is safe. That is exactly what Zone 4 is for!',4,hint),1000);
 }
 function resetZ3(){
   sndClk();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}
@@ -1291,6 +1367,16 @@ function z4ans(test,userPass){
   const allDone=['phos','spc','coli'].every(k=>S.z4a[k]);
   if(allDone){
     if(!S.zd[3]){S.zd[3]=true;updHUD();document.getElementById('tab4').innerHTML='🔬 Zone 4 ✅';}
+    // Batch verdict
+    const allPass=['phos','spc','coli'].every(k=>{
+      if(k==='phos')return!S.z4b.phosFail;
+      if(k==='spc')return!S.z4b.spcHigh;
+      if(k==='coli')return!S.z4b.coliPresent;
+    });
+    const verdictEl=document.createElement('div');
+    verdictEl.style.cssText=`margin-top:12px;border-radius:10px;padding:11px 13px;font-weight:800;font-size:.95em;text-align:center;border:2px solid ${allPass?'#27ae60':'#e74c3c'};background:${allPass?'#eafaf1':'#fdf0f0'};color:${allPass?'#1a7a43':'#c0392b'};`;
+    verdictEl.textContent=allPass?'✅ This batch is safe for consumption':'❌ This batch must be discarded';
+    document.getElementById('lbs').after(verdictEl);
     document.getElementById('z4fb').disabled=false;document.getElementById('z4msg').textContent='🎉 All three tests done!';
     setTimeout(showFinalScreen,50);
   }
@@ -1308,18 +1394,7 @@ async function showFinalScreen(){
   document.getElementById('final-player-name').textContent=playerName;
   document.getElementById('final-total').textContent=finalScore+' pts';
   document.getElementById('rpills').innerHTML=S.zd.map(d=>`<div class="ppill ${d?'done':'fail'}"></div>`).join('');
-  const rows=[
-    {label:'🌾 Zone 1 base score',val:S.z1s,always:true},
-    {label:'🔥 Maximum streak bonus (x'+S.z1maxStreak+')',val:S.bonusStreak||0,earned:S.z1maxStreak>=2},
-    {label:'❤️ Lives remaining ('+S.z1l+' × 25 points)',val:S.bonusLives,earned:S.bonusLives>0},
-    {label:'🔵 Zone 2 — Methylene Blue Test score',val:null,always:true},
-    {label:'🎯 Zone 3 precision bonus',val:S.bonusPrecision,earned:S.bonusPrecision>0},
-    {label:'🔬 Zone 4 first-try double points',val:S.bonusAccuracy,earned:S.bonusAccuracy>0},
-    {label:'⚡ Speed bonus ('+S.globalElapsed+' seconds total)',val:S.bonusSpeed,earned:S.bonusSpeed>0},
-    {label:'🏆 Perfect game bonus (zero wrong answers)',val:S.bonusPerfect,earned:S.bonusPerfect>0},
-    {label:'TOTAL SCORE',val:finalScore,always:true},
-  ];
-  document.getElementById('bonus-breakdown').innerHTML=rows.map(r=>{if(r.val===null)return'';const cls=r.earned?'bonus-earned':'bonus-missed';const valTxt=r.val!==null?(r.earned||r.always?'+'+r.val+' pts':'—'):'';return`<div class="bonus-row"><span>${r.label}</span><span class="${r.always?'':cls}">${valTxt}</span></div>`;}).join('');
+  // Bonus breakdown removed — only total score shown on final screen
   document.getElementById('rov').classList.add('show');
   launchConfetti(true);[0,160,320,480,640].forEach(d=>setTimeout(sndDone,d));
   // Load leaderboard
