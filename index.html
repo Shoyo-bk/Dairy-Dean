@@ -56,12 +56,11 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--fg);min-he
 .z1info{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,#f9e04b,#f39c12);color:#2c3e50;padding:16px 22px;border-radius:14px;text-align:center;font-size:.95em;line-height:1.8;min-width:230px;z-index:10;border:3px solid #e67e22;box-shadow:0 4px 18px rgba(0,0,0,.35);}
 /* NEWS TICKER */
 .z1-ticker{position:absolute;bottom:0;left:0;right:0;height:24px;background:rgba(26,122,67,.85);overflow:hidden;display:flex;align-items:center;}
-.z1-ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:tickerScroll 28s linear infinite;}
+.z1-ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:tickerScroll 42s linear infinite;}
 .z1-ticker-inner span{color:#f9e04b;font-size:.72em;font-weight:700;padding:0 32px;}
 @keyframes tickerScroll{0%{transform:translateX(100vw);}100%{transform:translateX(-100%);}}
-/* TOOLTIP BUBBLE */
-.z1-tooltip{position:absolute;background:rgba(26,44,80,.92);color:#fff;border-radius:10px;padding:6px 10px;font-size:.76em;font-weight:700;max-width:160px;text-align:center;pointer-events:none;z-index:20;line-height:1.4;border:2px solid #f9c74f;}
-.z1-tooltip::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:rgba(26,44,80,.92);}
+/* TOOLTIP BUBBLE — fixed top-right corner */
+.z1-tooltip{position:absolute;top:36px;right:8px;background:rgba(26,44,80,.92);color:#fff;border-radius:9px;padding:5px 9px;font-size:.72em;font-weight:700;max-width:148px;text-align:left;pointer-events:none;z-index:20;line-height:1.4;border:2px solid #f9c74f;}
 .z1-tooltip.green{border-color:#27ae60;}
 .z1-tooltip.red{border-color:#e74c3c;}
 @keyframes tooltipFade{0%{opacity:0;transform:translateY(-4px);}15%{opacity:1;transform:translateY(0);}75%{opacity:1;}100%{opacity:0;}}
@@ -430,7 +429,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div id="game-body" style="display:none;">
 <div class="hdr" style="position:relative;">
   <h1>🥛 The Dairy Dean</h1>
-  <p>Milk Safety Challenge — Park's Preventive &amp; Social Medicine &nbsp;|&nbsp; v11</p>
+  <p>Milk Safety Challenge — Park's Preventive &amp; Social Medicine &nbsp;|&nbsp; v12</p>
   <button class="snd-btn" id="snd-btn" onclick="toggleSnd()">🔊 Sound ON</button>
 </div>
 <div class="scorebar">
@@ -488,17 +487,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   • Less than 30 minutes → <strong>Very Poor</strong> &nbsp;|&nbsp; 30–120 minutes → <strong>Poor</strong><br>
   • 2–5 hours → <strong>Satisfactory</strong> &nbsp;|&nbsp; More than 5 hours → <strong>Good to Excellent</strong></div>
 
-  <!-- START PROMPT -->
-  <div id="mb-start-prompt" style="background:linear-gradient(135deg,#1a5276,#2980b9);border-radius:10px;padding:18px;text-align:center;color:#fff;margin:10px 0;">
-    <p style="font-family:'Fredoka One',cursive;font-size:1.4em;margin-bottom:7px;">🔬 Ready to Test?</p>
-    <span style="font-size:.9em;opacity:.9;">Tap <strong>New Batch</strong> to begin!</span>
-  </div>
-
   <!-- PREDICTION PHASE -->
   <div id="mb-phase-predict" style="display:none;margin-bottom:11px;">
     <div class="mb-hint">🧠 <strong>Before we start</strong> — look at the hygiene clues for each sample. Which one do you think will decolourise <strong>first</strong> (worst quality)?</div>
     <div style="display:flex;gap:8px;margin-bottom:12px;" id="mb-pred-cards"></div>
-    <div style="font-size:.85em;color:var(--mg);text-align:center;margin-bottom:8px;">More bad hygiene emojis = more microorganisms = decolorises faster!</div>
     <button class="btn btn-bl" style="width:100%;" id="pred-confirm-btn" onclick="confirmPrediction()" disabled>✅ Confirm Prediction &amp; Start Test</button>
   </div>
 
@@ -713,7 +705,7 @@ function renderLeaderboard(entries,playerName,listId,rankId,rankLblId,rankScoId)
 
 // ===== STATE =====
 let playerName='Player';
-let S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z1seen:{},z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,mbPrediction:null,mbPredCorrect:false};
+let S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z1seen:{},z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z3InRange:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,mbPrediction:null,mbPredCorrect:false};
 let mb={run:false,iv:null,el:0,smp:[],placed:{},dragId:null,selectedTube:null,firstDecIdx:-1};
 let zpopNextZone=0,z3Iv=null,zoneStdSeen={1:false,2:false,3:false,4:false},selectedMethod=null;
 
@@ -783,9 +775,6 @@ function sw(n,fromJump){
   document.getElementById('tab'+n).classList.add('active');
   if(!bgmPlaying&&sndOn)startBGM();
   showZoneStd(n);
-  if(n===2&&!mb.run&&document.getElementById('mb-start-prompt').style.display!=='none'){
-    setTimeout(()=>showZpop('🔬 Start the Test!','Tap the New Batch button below to begin the Methylene Blue Reduction Test!',null,null),400);
-  }
 }
 function jumpTo(n){sndClk();stopMB();sw(n,true);}
 function unlock(n){
@@ -861,12 +850,12 @@ function spawnFL(xp,y,txt,col){const cv=document.getElementById('gcv');const el=
 function showTooltip(em,xp,y){
   if(S.z1seen[em])return;S.z1seen[em]=true;
   const info=TOOLTIP_INFO[em];const cv=document.getElementById('gcv');
+  cv.querySelectorAll('.z1-tooltip').forEach(t=>t.remove());
   const el=document.createElement('div');el.className='z1-tooltip '+info.cls;
   el.textContent=info.text;
-  el.style.left=Math.max(5,Math.min(55,xp-15))+'%';
-  el.style.top=Math.max(10,y-60)+'px';
-  el.style.animation='tooltipFade 3s forwards';
-  cv.appendChild(el);setTimeout(()=>el.remove(),3000);
+  el.style.right='8px';el.style.top='38px';el.style.left='auto';el.style.maxWidth='150px';
+  el.style.animation='tooltipFade 3.5s forwards';
+  cv.appendChild(el);setTimeout(()=>el.remove(),3500);
 }
 function updZ1(){
   const cv=document.getElementById('gcv');const H=cv.clientHeight,bY=H-70,bL=S.z1bx-5,bR=S.z1bx+5;
@@ -960,14 +949,16 @@ const ALL_GRADES=['vp','po','sa','go'];
 function pickMBSamples(){
   // Pick 3 random grades from 4, then pick 1 random tube from each
   const grades=[...ALL_GRADES].sort(()=>Math.random()-.5).slice(0,3);
-  return grades.map(g=>{const pool=MB_POOL.filter(t=>t.grade===g);return pool[Math.floor(Math.random()*pool.length)];});
+  const picked=grades.map(g=>{const pool=MB_POOL.filter(t=>t.grade===g);return {...pool[Math.floor(Math.random()*pool.length)]};});
+  // Always display as Sample A, B, C regardless of pool name
+  picked[0].label='Sample A';picked[1].label='Sample B';picked[2].label='Sample C';
+  return picked;
 }
 function getBucket(da){if(da<30)return'vp';if(da<120)return'po';if(da<300)return'sa';return'go';}
 function stopMB(){if(mb.iv){clearInterval(mb.iv);mb.iv=null;}mb.run=false;}
 
 function startMB(){
   sndClk();stopMB();closeZpop();
-  document.getElementById('mb-start-prompt').style.display='none';
   document.getElementById('mb-phase-predict').style.display='block';
   document.getElementById('mb-phase-watch').style.display='none';
   document.getElementById('mb-phase-drag').style.display='none';
@@ -980,9 +971,11 @@ function startMB(){
 
 function renderPredictionCards(){
   const c=document.getElementById('mb-pred-cards');c.innerHTML='';
+  // Always display as Sample A, B, C regardless of pool name
+  const displayNames=['Sample A','Sample B','Sample C'];
   mb.smp.forEach((s,i)=>{
     const card=document.createElement('div');card.className='pred-card';card.id='pred'+i;
-    card.innerHTML=`<div class="pred-emoji">${s.clue}</div><div class="pred-lbl">${s.label}</div>`;
+    card.innerHTML=`<div class="pred-emoji">${s.clue}</div><div class="pred-lbl">${displayNames[i]}</div>`;
     card.addEventListener('click',()=>selectPrediction(i));
     c.appendChild(card);
   });
@@ -1018,12 +1011,13 @@ function confirmPrediction(){
 
 function renderMBWatch(){
   const c=document.getElementById('mbc');c.innerHTML='';
+  const displayNames=['Sample A','Sample B','Sample C'];
   mb.smp.forEach((s,i)=>{
     c.innerHTML+=`<div class="mb-card" id="mwc${i}" style="cursor:default;">
       <div class="mb-tube-sm" style="position:relative;" id="mwt_wrap${i}">
         <div id="mwf${i}" style="position:absolute;bottom:0;left:0;right:0;height:90%;background:#3498db;transition:background .8s;"></div>
       </div>
-      <div class="mb-card-lbl">${s.label}</div>
+      <div class="mb-card-lbl">${displayNames[i]}</div>
       <div class="mb-card-time" id="mwt${i}">Watching...</div>
     </div>`;
   });
@@ -1067,10 +1061,11 @@ function revealDrag(){
   ['vp','po','sa','go'].forEach(k=>{document.getElementById('bkt-'+k+'-c').innerHTML='';});
   mb.placed={};mb.selectedTube=null;mb.dragId=null;updateDragProgress();
   const row=document.getElementById('mb-drag-tubes');row.innerHTML='';
+  const displayNames=['Sample A','Sample B','Sample C'];
   mb.smp.forEach((s,i)=>{
     const srcFill=document.getElementById('mwf'+i);const bg=srcFill?srcFill.style.background:'#ecf0f1';
     const el=document.createElement('div');el.className='mb-card';el.id='dtube'+i;el.setAttribute('draggable','true');
-    el.innerHTML=`<div class="mb-tube-sm" style="position:relative;"><div style="position:absolute;bottom:0;left:0;right:0;height:90%;background:${bg};"></div></div><div class="mb-card-lbl">${s.label}</div><div class="mb-card-time">${mb.el>=s.da?'Decolorised at '+s.da+' min':'Still blue at '+mb.el+' min'}</div>`;
+    el.innerHTML=`<div class="mb-tube-sm" style="position:relative;"><div style="position:absolute;bottom:0;left:0;right:0;height:90%;background:${bg};"></div></div><div class="mb-card-lbl">${displayNames[i]}</div><div class="mb-card-time">${mb.el>=s.da?'Decolorised at '+s.da+' min':'Still blue at '+mb.el+' min'}</div>`;
     el.addEventListener('dragstart',e=>{mb.dragId=i;el.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(i));});
     el.addEventListener('dragend',()=>el.classList.remove('dragging'));
     el.addEventListener('click',e=>{e.stopPropagation();tubeTap(i);});
@@ -1079,13 +1074,14 @@ function revealDrag(){
 }
 
 function tubeTap(idx){
+  const displayNames=['Sample A','Sample B','Sample C'];
   if(Object.keys(mb.placed).some(k=>mb.placed[k]===idx))return;
   mb.smp.forEach((_,i)=>{const c=document.getElementById('dtube'+i);if(c)c.classList.remove('selected');});
   if(mb.selectedTube===idx){mb.selectedTube=null;mb.dragId=null;['vp','po','sa','go'].forEach(k=>{const bk=document.getElementById('bkt-'+k);if(bk)bk.classList.remove('bucket-highlight');});updateDragProgress();return;}
   mb.selectedTube=idx;mb.dragId=idx;
   const card=document.getElementById('dtube'+idx);if(card)card.classList.add('selected');
   ['vp','po','sa','go'].forEach(k=>{const bk=document.getElementById('bkt-'+k);if(bk)bk.classList.add('bucket-highlight');});
-  document.getElementById('drag-progress').textContent='✅ '+mb.smp[idx].label+' selected — tap a quality bucket below!';
+  document.getElementById('drag-progress').textContent='✅ '+displayNames[idx]+' selected — tap a quality bucket below!';
   sndClk();
 }
 function bucketTap(bktKey){const idx=mb.selectedTube!==null?mb.selectedTube:(mb.dragId!==null?mb.dragId:null);if(idx===null)return;placeTube(idx,bktKey);}
@@ -1106,30 +1102,33 @@ function placeTube(idx,bktKey){
 function dOver(e){e.preventDefault();e.currentTarget.classList.add('drag-over');}
 function dDrop(e,bktKey){e.preventDefault();e.currentTarget.classList.remove('drag-over');const idx=mb.dragId!==null?mb.dragId:mb.selectedTube;if(idx===null)return;placeTube(idx,bktKey);}
 function updateDragProgress(){
+  const displayNames=['Sample A','Sample B','Sample C'];
   const placed=Object.keys(mb.placed).length,total=mb.smp.length;
   if(placed>=total){document.getElementById('drag-progress').textContent='All tubes placed! Checking automatically...';}
-  else if(mb.selectedTube!==null){document.getElementById('drag-progress').textContent='✅ '+mb.smp[mb.selectedTube].label+' selected — tap a quality bucket!';}
+  else if(mb.selectedTube!==null){document.getElementById('drag-progress').textContent='✅ '+displayNames[mb.selectedTube]+' selected — tap a quality bucket!';}
   else{document.getElementById('drag-progress').textContent='Tap a tube to select it ('+placed+'/'+total+' placed)';}
 }
 
 function checkDrag(){
   sndClk();let correct=0;const res=[];const bktLabels={vp:'Very Poor',po:'Poor',sa:'Satisfactory',go:'Good / Excellent'};
+  const displayNames=['Sample A','Sample B','Sample C'];
   mb.smp.forEach((s,i)=>{
     const cb=getBucket(s.da);
-    const pb=mb.placed[i]; // now keyed by tube index
+    const pb=mb.placed[i];
     const ok=pb===cb;if(ok)correct++;
-    res.push({label:s.label,ok,placed:bktLabels[pb]||'—',correct:bktLabels[cb]});
+    res.push({label:displayNames[i],ok,placed:bktLabels[pb]||'—',correct:bktLabels[cb]});
   });
-  // Prediction bonus
+  // Prediction bonus — compare by index not label
+  const fastestIdx=mb.smp.indexOf(mb.smp.reduce((a,b)=>a.da<b.da?a:b));
+  const dispNames=['Sample A','Sample B','Sample C'];
   let predBonus=0;
   if(S.mbPrediction!==null){
-    const predSample=mb.smp[S.mbPrediction];const fastestSample=mb.smp.reduce((a,b)=>a.da<b.da?a:b);
-    S.mbPredCorrect=(predSample.label===fastestSample.label);
+    S.mbPredCorrect=(S.mbPrediction===fastestIdx);
     if(S.mbPredCorrect)predBonus=30;
   }
   const pts=correct*40+predBonus;addSco(pts);
   let html='';res.forEach(r=>{const col=r.ok?'#eafaf1':'#fdf0f0';const bc=r.ok?'#27ae60':'#e74c3c';html+=`<span class="mb-result-chip" style="background:${col};border:1.5px solid ${bc};color:${bc};">${r.ok?'✅':'❌'} ${r.label}: ${r.placed}${r.ok?'':' → correct: '+r.correct}</span>`;});
-  let predTxt=S.mbPrediction!==null?`<div style="margin-top:6px;font-size:.88em;font-weight:700;color:${S.mbPredCorrect?'#27ae60':'#e74c3c'};">${S.mbPredCorrect?'🎯 Correct prediction! +30 points':'❌ Prediction incorrect — the worst sample was '+mb.smp.reduce((a,b)=>a.da<b.da?a:b).label}</div>`:'';
+  let predTxt=S.mbPrediction!==null?`<div style="margin-top:6px;font-size:.88em;font-weight:700;color:${S.mbPredCorrect?'#27ae60':'#e74c3c'};">${S.mbPredCorrect?'🎯 Correct prediction! +30 points':'❌ Prediction incorrect — the worst sample was '+dispNames[fastestIdx]}</div>`:'';
   document.getElementById('mb-result-row').innerHTML=`<div style="line-height:2.1;">${html}</div><div style="margin-top:5px;font-size:.88em;font-weight:700;color:#1a5276;">${correct} out of ${mb.smp.length} correct — +${pts} points</div>${predTxt}`;
   if(correct===mb.smp.length){sndDone();showFB('🎉 Perfect score on the Methylene Blue Reduction Test!',true);}else sndWrong();
   if(S.mbPredCorrect){sndBonus();}
@@ -1149,36 +1148,50 @@ function selectMethod(key){
   ['HOLDER','HTST','UHT'].forEach(k=>{document.getElementById('mbtn-'+k.toLowerCase()).classList.remove('selected');});
   document.getElementById('mbtn-'+key.toLowerCase()).classList.add('selected');
   document.getElementById('z3-slider-section').style.display='block';
-  const m=Z3_METHODS[key];const sl=document.getElementById('z3sl');
-  sl.min=0;sl.max=150;sl.value=Math.round((m.tMin+m.tMax)/2);
-  document.getElementById('z3tv').textContent=sl.value;
-  updT();sndClk();
+  const m=Z3_METHODS[key];
+  const sl=document.getElementById('z3sl');sl.min=0;sl.max=150;sl.value=20;sl.disabled=false;
+  document.getElementById('z3tv').textContent='20';
+  // Reset visual
+  const vis=document.getElementById('tv'),fill=document.getElementById('tmf'),sb=document.getElementById('z3sb'),hp=document.getElementById('hp');
+  hp.innerHTML='';
+  vis.style.background='linear-gradient(180deg,#dfe6e9,#b2bec3)';
+  fill.style.background='rgba(180,180,180,.4)';
+  sb.style.cssText='background:#e8f4fd;color:#1a5276;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;border:2px solid #2980b9;';
+  sb.textContent='🌡️ Slide to '+m.temp+' for the '+m.name;
+  document.getElementById('z3-heat-btn-wrap').style.display='none';
+  sndClk();
 }
 function updT(){
   if(!selectedMethod)return;
   const t=parseInt(document.getElementById('z3sl').value);document.getElementById('z3tv').textContent=t;
   const m=Z3_METHODS[selectedMethod];
   const vis=document.getElementById('tv'),fill=document.getElementById('tmf'),sb=document.getElementById('z3sb'),hp=document.getElementById('hp');
-  hp.innerHTML='';sndHeat();
+  hp.innerHTML='';
   const inRange=(t>=m.tMin&&t<=m.tMax);
   if(selectedMethod==='HOLDER'){vis.style.background='linear-gradient(180deg,#ffecd2,#fcb69f)';fill.style.background=inRange?'rgba(255,180,80,.8)':'rgba(200,200,200,.5)';}
   else if(selectedMethod==='HTST'){vis.style.background='linear-gradient(180deg,#ff9a9e,#fecfef)';fill.style.background=inRange?'rgba(255,100,100,.8)':'rgba(200,200,200,.5)';}
   else{vis.style.background='linear-gradient(180deg,#c0392b,#e74c3c)';fill.style.background=inRange?'rgba(220,50,50,.9)':'rgba(200,200,200,.5)';}
   if(inRange){
-    sb.style.cssText='background:#fff3e0;color:#d35400;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;';
-    sb.textContent='✅ Temperature in correct range for '+m.name+'! Now press Start Heating.';
+    // Satisfying glow + sound only on first entry into range
+    if(!S.z3InRange){S.z3InRange=true;sndUnlock();vis.style.boxShadow='0 0 18px 4px rgba(39,174,96,.55)';setTimeout(()=>{vis.style.boxShadow='';},700);}
+    sb.style.cssText='background:#eafaf1;color:#1a7a43;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;border:2px solid #27ae60;';
+    sb.textContent='✅ '+t+'°C — correct range for '+m.name+'! Now press Start Heating.';
     document.getElementById('z3-heat-btn-wrap').style.display='block';
     addPt(hp,selectedMethod==='HOLDER'?'#e67e22':selectedMethod==='HTST'?'#e74c3c':'#c0392b',selectedMethod==='UHT'?22:selectedMethod==='HTST'?14:8);
   }else{
-    sb.style.cssText='background:#fdf0f0;color:#c0392b;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;';
-    sb.textContent='🌡️ Adjust to '+m.temp+' for '+m.name;
+    S.z3InRange=false;
+    sb.style.cssText='background:#e8f4fd;color:#1a5276;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;border:2px solid #2980b9;';
+    sb.textContent='🌡️ Slide to '+m.temp+' — target for '+m.name+' (currently '+t+'°C)';
     document.getElementById('z3-heat-btn-wrap').style.display='none';
+    vis.style.boxShadow='';
   }
 }
 function addPt(c,col,n){for(let i=0;i<n;i++){const p=document.createElement('div');p.className='pt';p.style.background=col;p.style.left=(10+Math.random()*80)+'%';p.style.bottom=(5+Math.random()*30)+'%';p.style.animationDelay=(Math.random()*2)+'s';p.style.animationDuration=(.85+Math.random()*.85)+'s';c.appendChild(p);}}
 function startHold(){
   if(!selectedMethod||S.z3hr)return;sndClk();S.z3m=selectedMethod;S.z3hr=true;S.z3el=0;
   if(!S.z3methods.includes(S.z3m))S.z3methods.push(S.z3m);
+  // Lock method buttons — cannot change method mid-heat
+  ['mbtn-holder','mbtn-htst','mbtn-uht'].forEach(id=>{const b=document.getElementById(id);if(b){b.disabled=true;b.style.opacity='.4';b.style.cursor='not-allowed';}});
   document.getElementById('z3-heat-btn-wrap').style.display='none';document.getElementById('z3sl').disabled=true;document.getElementById('z3tb').classList.add('vis');
   const m=Z3_METHODS[S.z3m];document.getElementById('z3th').textContent='🎯 '+m.label+' — press Stop Heating at the right moment!';
   const clk=document.getElementById('z3clk'),bar=document.getElementById('z3br');
@@ -1226,15 +1239,16 @@ function coolDown(){
 }
 function resetZ3(){
   sndClk();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}
-  S.z3m=null;S.z3hr=false;S.z3el=0;S.z3hc=false;S.z3cd=false;selectedMethod=null;
+  S.z3m=null;S.z3hr=false;S.z3el=0;S.z3hc=false;S.z3cd=false;S.z3InRange=false;selectedMethod=null;
   document.getElementById('z3sl').value=20;document.getElementById('z3sl').disabled=false;
   document.getElementById('z3tb').classList.remove('vis');document.getElementById('z3res').innerHTML='';
   document.getElementById('z3cb').style.display='none';document.getElementById('z3clk').textContent='0:00';document.getElementById('z3br').style.width='0%';
   document.getElementById('z3-slider-section').style.display='none';document.getElementById('z3-heat-btn-wrap').style.display='none';
   document.getElementById('z3tv').textContent='20';
-  ['mbtn-holder','mbtn-htst','mbtn-uht'].forEach(id=>{const b=document.getElementById(id);if(b)b.classList.remove('selected');});
+  // Unlock and deselect all method buttons
+  ['mbtn-holder','mbtn-htst','mbtn-uht'].forEach(id=>{const b=document.getElementById(id);if(b){b.classList.remove('selected');b.disabled=false;b.style.opacity='1';b.style.cursor='pointer';}});
   const vis=document.getElementById('tv'),fill=document.getElementById('tmf'),sb=document.getElementById('z3sb'),hp=document.getElementById('hp');
-  hp.innerHTML='';vis.style.background='#dfe6e9';fill.style.background='#fff';
+  hp.innerHTML='';vis.style.background='#dfe6e9';vis.style.boxShadow='';fill.style.background='#fff';
   sb.style.cssText='background:#ecf0f1;color:#7f8c8d;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;';
   sb.textContent='Select a pasteurisation method above to begin';
 }
@@ -1317,14 +1331,13 @@ function replayZ1FromFinal(){sndClk();document.getElementById('rov').classList.r
 
 function restartAll(){
   sndClk();stopMB();stopGlobalTimer();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}
-  S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z1seen:{},z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,mbPrediction:null,mbPredCorrect:false};
+  S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z1seen:{},z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z3InRange:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,mbPrediction:null,mbPredCorrect:false};
   mb={run:false,iv:null,el:0,smp:[],placed:{},dragId:null,selectedTube:null,firstDecIdx:-1};selectedMethod=null;
   document.getElementById('rov').classList.remove('show');closeZpop();
   ['🌾 Zone 1','🔵 Zone 2','🔥 Zone 3','🔬 Zone 4'].forEach((l,i)=>{const t=document.getElementById('tab'+(i+1));t.innerHTML=l;t.disabled=(i>0);});
   document.getElementById('z1done').style.display='none';
   ['z2nb','z3nb'].forEach(id=>document.getElementById(id).disabled=true);
   document.getElementById('z4fb').disabled=true;
-  document.getElementById('mb-start-prompt').style.display='block';
   document.getElementById('mb-phase-predict').style.display='none';
   document.getElementById('mb-phase-watch').style.display='none';document.getElementById('mb-phase-drag').style.display='none';
   document.getElementById('mbc').innerHTML='';document.getElementById('mbfb').innerHTML='';
