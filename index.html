@@ -274,6 +274,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 @keyframes tabConf{0%{transform:scale(1);}50%{transform:scale(1.3);}100%{transform:scale(1);}}
 .tab-celebrate{animation:tabConf .4s ease-out;}
 #confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:1150;}
+#tips-ov,#learn-ov{z-index:1300;}
 @keyframes popIn{0%{transform:scale(.7);opacity:0;}80%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
 .pop-in{animation:popIn .4s forwards;}
 @keyframes revealPulse{0%,100%{box-shadow:0 5px 0 #1a3a52,0 0 0 4px rgba(41,128,185,.3);}50%{box-shadow:0 5px 0 #1a3a52,0 0 0 10px rgba(41,128,185,.1),0 0 28px rgba(41,128,185,.35);}}
@@ -392,6 +393,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     <div class="tip-zone tz2"><h4>🔵 Zone 2 — Methylene Blue Test</h4><ul>
       <li>Use the hygiene clues on each sample card — more bad hygiene emojis means faster decolorisation</li>
       <li>Predict correctly which tube decolorises first to earn a prediction bonus</li>
+      <li>Wait for all tubes to fully decolorise before revealing — projecting an unfinished tube costs you points per projected tube</li>
       <li>Classify all tubes correctly to maximise your score</li>
     </ul></div>
     <div class="tip-zone tz3"><h4>🔥 Zone 3 — Pasteurisation</h4><ul>
@@ -401,6 +403,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     <div class="tip-zone tz4"><h4>🔬 Zone 4 — Quality Tests</h4><ul>
       <li>Answer every test correctly on your very first attempt — first-try correct answers earn double points</li>
       <li>Get all three tests right with no wrong answers</li>
+      <li>After the tests, you will be asked whether to pass or reject the batch — a correct verdict earns bonus points, a wrong verdict costs you points</li>
     </ul></div>
     <div class="tip-zone tz5"><h4>⚡ Overall Game</h4><ul>
       <li>Complete all four zones as fast as possible — finishing quickly earns a speed bonus</li>
@@ -424,11 +427,15 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <div style="font-size:.88em;text-align:center;color:var(--mg);margin-bottom:3px;">Player: <strong id="final-player-name" style="color:#2c3e50;"></strong></div>
       <div class="score-total" id="final-total">0</div>
       <div class="prow" id="rpills"></div>
-      <div style="display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;">
+      <!-- Learn More — prominent, right below score -->
+      <button class="btn learn-more-btn" style="width:100%;margin-top:14px;font-size:1.1em;font-weight:800;background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border:none;padding:15px 18px;border-radius:12px;letter-spacing:.3px;" onclick="document.getElementById('learn-ov').classList.add('show')">
+        📚 Want to Learn More?
+        <span style="display:block;font-size:.72em;opacity:.88;margin-top:3px;font-weight:600;">Brownie points await! 🎓</span>
+      </button>
+      <div style="display:flex;gap:9px;margin-top:10px;flex-wrap:wrap;">
         <button class="btn btn-gr" onclick="restartAll()" style="flex:1;font-size:.95em;">🔄 Play Again</button>
         <button class="btn btn-or" onclick="replayZ1FromFinal()" style="flex:1;font-size:.9em;line-height:1.4;">🌾 Back to Zone 1<br><span style="font-size:.78em;font-weight:600;">if you want to replay</span></button>
       </div>
-      <button class="btn learn-more-btn" style="width:100%;margin-top:10px;font-size:.95em;font-weight:800;background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border:none;padding:12px;" onclick="document.getElementById('learn-ov').classList.add('show')">📚 Want to Learn More? <span style="font-size:.78em;opacity:.85;">(Brownie points!)</span></button>
       <button class="btn btn-gy" style="width:100%;margin-top:8px;font-size:.88em;font-weight:800;color:#8e44ad;border:2px solid #8e44ad;background:#f5eef8;" onclick="document.getElementById('tips-ov').classList.add('show')">Psst!! Wanna know how to score more? 💡</button>
     </div>
     <div class="lb-card" style="margin-top:0;">
@@ -460,6 +467,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <a class="learn-resource-link" href="https://www.who.int/publications/i/item/WHO-HEP-NFS-AFS-2023.2" target="_blank" rel="noopener">📖 Read on WHO.int</a>
     </div>
     <button class="btn btn-gy" style="width:100%;margin-top:4px;font-size:.95em;" onclick="document.getElementById('learn-ov').classList.remove('show')">← Back to Results</button>
+  </div>
+</div>
+
+<!-- BATCH VERDICT POPUP -->
+<div class="ov" id="batch-verdict-ov" style="z-index:1300;">
+  <div class="gen-popup" style="max-width:340px;">
+    <h2 style="color:#8e44ad;">🔬 Final Verdict</h2>
+    <p style="font-size:.95em;color:var(--fg);font-weight:700;margin-bottom:14px;text-align:center;line-height:1.6;">Based on all three test results — should this batch be passed or rejected?</p>
+    <div style="display:flex;gap:10px;flex-direction:column;">
+      <button class="btn btn-gr" style="font-size:1em;padding:13px;" onclick="batchVerdict(true)">✅ Pass This Batch</button>
+      <button class="btn btn-re" style="font-size:1em;padding:13px;" onclick="batchVerdict(false)">❌ Reject This Batch</button>
+    </div>
   </div>
 </div>
 
@@ -743,7 +762,7 @@ function renderLeaderboard(entries,playerName,listId,rankId,rankLblId,rankScoId)
 
 // ===== STATE =====
 let playerName='Player';
-let S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z1seen:{},z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z3InRange:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,mbPrediction:null,mbPredCorrect:false};
+let S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z1seen:{},z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z3InRange:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,mbPrediction:null,mbPredCorrect:false,z4batchCorrectVerdict:null,z4batchReason:''};
 let mb={run:false,iv:null,el:0,smp:[],placed:{},dragId:null,selectedTube:null,firstDecIdx:-1};
 let zpopNextZone=0,z3Iv=null,zoneStdSeen={1:false,2:false,3:false,4:false},selectedMethod=null;
 
@@ -1113,10 +1132,21 @@ function revealDrag(){
   mb.placed={};mb.selectedTube=null;mb.dragId=null;updateDragProgress();
   const row=document.getElementById('mb-drag-tubes');row.innerHTML='';
   const displayNames=['Sample A','Sample B','Sample C'];
+  // Fully decolorised colour for projected tubes
+  const decoColor='rgb(236,240,241)';
   mb.smp.forEach((s,i)=>{
-    const srcFill=document.getElementById('mwf'+i);const bg=srcFill?srcFill.style.background:'#ecf0f1';
+    const alreadyDone=mb.el>=s.da;
+    const srcFill=document.getElementById('mwf'+i);
+    // If tube hasn't decolorised yet, show its final decolorised colour
+    const bg=alreadyDone?(srcFill?srcFill.style.background:decoColor):decoColor;
+    const timeLabel=alreadyDone
+      ?'Decolorised at '+s.da+' min'
+      :'Decolorised at '+s.da+' min';
+    const projectedTag=!alreadyDone
+      ?'<div style="font-size:.62em;color:#e67e22;font-weight:800;margin-top:3px;background:#fff3e0;border-radius:5px;padding:1px 5px;display:inline-block;">⚡ projected</div>'
+      :'';
     const el=document.createElement('div');el.className='mb-card';el.id='dtube'+i;el.setAttribute('draggable','true');
-    el.innerHTML=`<div class="mb-tube-sm" style="position:relative;"><div style="position:absolute;bottom:0;left:0;right:0;height:90%;background:${bg};"></div></div><div class="mb-card-lbl">${displayNames[i]}</div><div class="mb-card-time">${mb.el>=s.da?'Decolorised at '+s.da+' min':'Still blue at '+mb.el+' min'}</div>`;
+    el.innerHTML=`<div class="mb-tube-sm" style="position:relative;"><div style="position:absolute;bottom:0;left:0;right:0;height:90%;background:${bg};transition:background .4s;"></div></div><div class="mb-card-lbl">${displayNames[i]}</div><div class="mb-card-time">${timeLabel}</div>${projectedTag}`;
     el.addEventListener('dragstart',e=>{mb.dragId=i;el.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(i));});
     el.addEventListener('dragend',()=>el.classList.remove('dragging'));
     el.addEventListener('click',e=>{e.stopPropagation();tubeTap(i);});
@@ -1177,10 +1207,14 @@ function checkDrag(){
     S.mbPredCorrect=(S.mbPrediction===fastestIdx);
     if(S.mbPredCorrect)predBonus=30;
   }
-  const pts=correct*40+predBonus;addSco(pts);
-  let html='';res.forEach((r,i)=>{const col=r.ok?'#eafaf1':'#fdf0f0';const bc=r.ok?'#27ae60':'#e74c3c';const daStr=mb.smp[i].da<60?mb.smp[i].da+' min':Math.round(mb.smp[i].da/60*10)/10+' hrs';html+=`<span class="mb-result-chip" style="background:${col};border:1.5px solid ${bc};color:${bc};">${r.ok?'✅':'❌'} ${r.label} (${daStr}): ${r.placed}${r.ok?'':' → correct: '+r.correct}</span>`;});
+  // Projection penalty: -15 per tube that was projected
+  const projectedCount=mb.smp.filter(s=>S.z2RevealTime<s.da).length;
+  const projPenalty=projectedCount*15;
+  const pts=correct*40+predBonus-projPenalty;addSco(pts);
+  let projPenaltyTxt=projPenalty>0?`<div style="color:#e74c3c;font-weight:800;font-size:.88em;margin-top:5px;">⚡ ${projectedCount} projected tube${projectedCount>1?'s':''} — penalty: −${projPenalty} points</div>`:''; 
+  let html='';res.forEach((r,i)=>{const col=r.ok?'#eafaf1':'#fdf0f0';const bc=r.ok?'#27ae60':'#e74c3c';const daStr=mb.smp[i].da<60?mb.smp[i].da+' min':Math.round(mb.smp[i].da/60*10)/10+' hrs';const wasProjected=S.z2RevealTime<mb.smp[i].da;const projTag=wasProjected?' <span style="font-size:.75em;color:#e67e22;">⚡projected</span>':'';html+=`<span class="mb-result-chip" style="background:${col};border:1.5px solid ${bc};color:${bc};">${r.ok?'✅':'❌'} ${r.label} (${daStr}${projTag}): ${r.placed}${r.ok?'':' → correct: '+r.correct}</span>`;});
   let predTxt=S.mbPrediction!==null?`<div style="margin-top:6px;font-size:.88em;font-weight:700;color:${S.mbPredCorrect?'#27ae60':'#e74c3c'};">${S.mbPredCorrect?'🎯 Correct prediction! +30 points':'❌ Prediction incorrect — the worst sample was '+dispNames[fastestIdx]}</div>`:'';
-  document.getElementById('mb-result-row').innerHTML=`<div style="line-height:2.1;">${html}</div><div style="margin-top:5px;font-size:.88em;font-weight:700;color:#1a5276;">${correct} out of ${mb.smp.length} correct — +${pts} points</div>${predTxt}`;
+  document.getElementById('mb-result-row').innerHTML=`<div style="line-height:2.1;">${html}</div><div style="margin-top:5px;font-size:.88em;font-weight:700;color:#1a5276;">${correct} out of ${mb.smp.length} correct — +${pts} points</div>${predTxt}${projPenaltyTxt}`;
   if(correct===mb.smp.length){sndDone();showFB('🎉 Perfect score on the Methylene Blue Reduction Test!',true);}else sndWrong();
   if(S.mbPredCorrect){sndBonus();}
   if(!S.zd[1]&&correct>0){S.zd[1]=true;updHUD();unlock(3);document.getElementById('tab2').innerHTML='🔵 Zone 2 ✅';document.getElementById('z2nb').disabled=false;}
@@ -1367,19 +1401,62 @@ function z4ans(test,userPass){
   const allDone=['phos','spc','coli'].every(k=>S.z4a[k]);
   if(allDone){
     if(!S.zd[3]){S.zd[3]=true;updHUD();document.getElementById('tab4').innerHTML='🔬 Zone 4 ✅';}
-    // Batch verdict
+    // Calculate and store correct batch verdict
     const allPass=['phos','spc','coli'].every(k=>{
       if(k==='phos')return!S.z4b.phosFail;
       if(k==='spc')return!S.z4b.spcHigh;
       if(k==='coli')return!S.z4b.coliPresent;
     });
+    S.z4batchCorrectVerdict=allPass;
+    // Build reason string for feedback
+    const reasons=[];
+    if(S.z4b.phosFail)reasons.push('Phosphatase was positive (yellow)');
+    if(S.z4b.spcHigh)reasons.push('Standard Plate Count exceeded 30,000/mL');
+    if(S.z4b.coliPresent)reasons.push('Coliforms were detected');
+    S.z4batchReason=allPass
+      ?'All three tests passed — this batch is safe for consumption.'
+      :'Failed: '+reasons.join('; ')+'.';
+    // Show test results banner on screen
+    const existing=document.getElementById('batch-verdict-banner');if(existing)existing.remove();
     const verdictEl=document.createElement('div');
-    verdictEl.style.cssText=`margin-top:12px;border-radius:10px;padding:11px 13px;font-weight:800;font-size:.95em;text-align:center;border:2px solid ${allPass?'#27ae60':'#e74c3c'};background:${allPass?'#eafaf1':'#fdf0f0'};color:${allPass?'#1a7a43':'#c0392b'};`;
-    verdictEl.textContent=allPass?'✅ This batch is safe for consumption':'❌ This batch must be discarded';
+    verdictEl.id='batch-verdict-banner';
+    verdictEl.style.cssText=`margin-top:12px;border-radius:10px;padding:11px 13px;font-weight:800;font-size:.92em;text-align:center;border:2px solid ${allPass?'#27ae60':'#e74c3c'};background:${allPass?'#eafaf1':'#fdf0f0'};color:${allPass?'#1a7a43':'#c0392b'};`;
+    verdictEl.textContent=allPass?'✅ Test results: all three passed':'❌ Test results: one or more tests failed';
     document.getElementById('lbs').after(verdictEl);
-    document.getElementById('z4fb').disabled=false;document.getElementById('z4msg').textContent='🎉 All three tests done!';
-    setTimeout(showFinalScreen,50);
+    document.getElementById('z4fb').disabled=false;
+    document.getElementById('z4msg').textContent='🔬 Review the results — then give your verdict!';
+    // After 1 second, show verdict popup
+    setTimeout(()=>document.getElementById('batch-verdict-ov').classList.add('show'),1000);
   }
+}
+
+// ===== ZONE 4 BATCH VERDICT =====
+function batchVerdict(playerSaysPass){
+  const correct=(playerSaysPass===S.z4batchCorrectVerdict);
+  // Apply points silently
+  if(correct)addSco(10);else addSco(-20);
+  // Show feedback inside popup
+  const pop=document.getElementById('batch-verdict-ov');
+  const inner=pop.querySelector('.gen-popup');
+  const col=correct?'#1a7a43':'#c0392b';
+  const bg=correct?'#eafaf1':'#fdf0f0';
+  const border=correct?'#27ae60':'#e74c3c';
+  const icon=correct?'✅':'❌';
+  const headline=correct
+    ?'Correct! Well judged.'
+    :'Not quite — here is the correct verdict:';
+  const verdictLine=S.z4batchCorrectVerdict
+    ?'✅ This batch should be <strong>Passed</strong>.'
+    :'❌ This batch should be <strong>Rejected</strong>.';
+  inner.innerHTML=`
+    <h2 style="color:${col};">${icon} ${headline}</h2>
+    <div style="background:${bg};border:2px solid ${border};border-radius:10px;padding:12px 14px;margin:12px 0;font-size:.88em;line-height:1.7;color:${col};">
+      <div style="font-weight:800;margin-bottom:4px;">${verdictLine}</div>
+      <div style="font-weight:600;color:#2c3e50;">${S.z4batchReason}</div>
+    </div>
+    <div style="font-size:.82em;color:var(--mg);text-align:center;">Final results loading in 3 seconds...</div>`;
+  // After 3 seconds fire final screen
+  setTimeout(()=>{pop.classList.remove('show');showFinalScreen();},3000);
 }
 
 // ===== FINAL SCREEN =====
@@ -1406,7 +1483,7 @@ function replayZ1FromFinal(){sndClk();document.getElementById('rov').classList.r
 
 function restartAll(){
   sndClk();stopMB();stopGlobalTimer();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}
-  S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z1seen:{},z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z3InRange:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,mbPrediction:null,mbPredCorrect:false};
+  S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z1seen:{},z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z3InRange:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,mbPrediction:null,mbPredCorrect:false,z4batchCorrectVerdict:null,z4batchReason:''};
   mb={run:false,iv:null,el:0,smp:[],placed:{},dragId:null,selectedTube:null,firstDecIdx:-1};selectedMethod=null;
   document.getElementById('rov').classList.remove('show');closeZpop();
   ['🌾 Zone 1','🔵 Zone 2','🔥 Zone 3','🔬 Zone 4'].forEach((l,i)=>{const t=document.getElementById('tab'+(i+1));t.innerHTML=l;t.disabled=(i>0);});
