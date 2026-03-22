@@ -8,161 +8,179 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
 :root{--fg:#2c3e50;--mg:#7f8c8d;--bg:#f0f4f0;--gr:#27ae60;--re:#e74c3c;--bl:#2980b9;--or:#e67e22;--pu:#8e44ad;--yw:#f9c74f;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden;}
-.hdr{background:linear-gradient(135deg,#1a7a43,#2ecc71 50%,#f9e04b);padding:14px 24px 11px;text-align:center;position:relative;overflow:hidden;}
-.hdr::before{content:'🐄';font-size:60px;position:absolute;left:-6px;top:50%;transform:translateY(-50%);opacity:.14;}
-.hdr::after{content:'🧪';font-size:60px;position:absolute;right:-6px;top:50%;transform:translateY(-50%);opacity:.14;}
-.hdr h1{font-family:'Fredoka One',cursive;font-size:1.75em;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.3);}
-.hdr p{color:rgba(255,255,255,.88);font-size:.78em;margin-top:2px;}
-.snd-btn{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.22);border:none;border-radius:20px;padding:4px 10px;color:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:.73em;cursor:pointer;}
-.scorebar{display:flex;justify-content:space-around;background:#2c3e50;padding:7px 10px;color:#fff;font-weight:700;font-size:.82em;flex-wrap:wrap;gap:4px;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden;font-size:16px;}
+.hdr{background:linear-gradient(135deg,#1a7a43,#2ecc71 50%,#f9e04b);padding:16px 24px 13px;text-align:center;position:relative;overflow:hidden;}
+.hdr::before{content:'🐄';font-size:62px;position:absolute;left:-6px;top:50%;transform:translateY(-50%);opacity:.14;}
+.hdr::after{content:'🧪';font-size:62px;position:absolute;right:-6px;top:50%;transform:translateY(-50%);opacity:.14;}
+.hdr h1{font-family:'Fredoka One',cursive;font-size:2em;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.3);}
+.hdr p{color:rgba(255,255,255,.92);font-size:.9em;margin-top:3px;}
+.snd-btn{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.22);border:none;border-radius:20px;padding:5px 12px;color:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:.8em;cursor:pointer;}
+.scorebar{display:flex;justify-content:space-around;background:#2c3e50;padding:8px 10px;color:#fff;font-weight:700;font-size:.9em;flex-wrap:wrap;gap:4px;}
 .scorebar-item{display:flex;align-items:center;gap:4px;}
-.timer-display{font-family:'Fredoka One',cursive;color:#f9c74f;font-size:1em;}
+.timer-display{font-family:'Fredoka One',cursive;color:#f9c74f;font-size:1.05em;}
 .tabs{display:flex;background:#2c3e50;padding:0 10px;}
-.tab-btn{flex:1;padding:8px 3px;border:none;background:transparent;color:rgba(255,255,255,.4);font-family:'Nunito',sans-serif;font-weight:700;font-size:.67em;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;text-align:center;}
+.tab-btn{flex:1;padding:9px 3px;border:none;background:transparent;color:rgba(255,255,255,.4);font-family:'Nunito',sans-serif;font-weight:700;font-size:.75em;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;text-align:center;}
 .tab-btn.active{color:#fff;border-bottom-color:#2ecc71;}
 .tab-btn:disabled{opacity:.28;cursor:not-allowed;}
-.zone{display:none;padding:12px;}
+.zone{display:none;padding:14px;}
 .zone.active{display:block;}
-.zh{border-radius:10px;padding:10px 14px;margin-bottom:10px;color:#fff;}
-.zh h2{font-family:'Fredoka One',cursive;font-size:1.15em;}
-.zh p{font-size:.75em;opacity:.9;margin-top:2px;}
+.zh{border-radius:10px;padding:12px 16px;margin-bottom:12px;color:#fff;}
+.zh h2{font-family:'Fredoka One',cursive;font-size:1.3em;}
+.zh p{font-size:.88em;opacity:.92;margin-top:3px;}
 #zone1 .zh{background:linear-gradient(135deg,#27ae60,#2ecc71);}
 #zone2 .zh{background:linear-gradient(135deg,#1a5276,#2980b9);}
 #zone3 .zh{background:linear-gradient(135deg,#d35400,#e67e22);}
 #zone4 .zh{background:linear-gradient(135deg,#6c3483,#8e44ad);}
-.tip{background:#fff8e1;border-left:4px solid #f9c74f;border-radius:0 6px 6px 0;padding:8px 11px;font-size:.76em;color:#5d4037;margin-bottom:10px;line-height:1.55;}
-.nav-banner{border-radius:10px;padding:10px 13px;color:#fff;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap;}
+.tip{background:#fff8e1;border-left:5px solid #f9c74f;border-radius:0 8px 8px 0;padding:11px 14px;font-size:.92em;color:#4a3000;margin-bottom:12px;line-height:1.7;font-weight:600;}
+.nav-banner{border-radius:10px;padding:11px 14px;color:#fff;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:8px;flex-wrap:wrap;}
 .nav-banner.gr{background:linear-gradient(135deg,#27ae60,#2ecc71);}
 .nav-banner.pu{background:linear-gradient(135deg,#6c3483,#8e44ad);}
-.next-btn{background:#fff;border:none;border-radius:8px;padding:7px 13px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.81em;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.15);transition:transform .1s;}
+.next-btn{background:#fff;border:none;border-radius:8px;padding:8px 15px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88em;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.15);transition:transform .1s;}
 .next-btn:active{transform:translateY(2px);}
 .next-btn:disabled{opacity:.35;cursor:not-allowed;}
 .next-btn.gr{color:#27ae60;}.next-btn.pu{color:#8e44ad;}
-.btn{padding:8px 15px;border:none;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.84em;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.2);transition:transform .1s;}
+.btn{padding:10px 18px;border:none;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.95em;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.2);transition:transform .1s;}
 .btn:active{transform:translateY(2px);}
 .btn-gr{background:#27ae60;color:#fff;}.btn-bl{background:#2980b9;color:#fff;}
 .btn-or{background:#e67e22;color:#fff;}.btn-re{background:#e74c3c;color:#fff;}
 .btn-pu{background:#8e44ad;color:#fff;}.btn-gy{background:#ecf0f1;color:#2c3e50;}
-.gcv{background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#7ec850 40%,#5a9e35 100%);border-radius:12px;height:260px;position:relative;overflow:hidden;cursor:none;user-select:none;border:3px solid #5a9e35;}
-.bkt{width:54px;height:41px;background:linear-gradient(180deg,#c0392b,#e74c3c);border-radius:0 0 10px 10px;border-top:4px solid #922b21;position:absolute;bottom:10px;display:flex;align-items:center;justify-content:center;font-size:1.15em;box-shadow:0 4px 8px rgba(0,0,0,.3);}
-.fitem{position:absolute;font-size:1.45em;pointer-events:none;}
-.bgnd{position:absolute;bottom:0;left:0;right:0;height:17px;background:#5a9e35;}
-.z1sc{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.5);color:#fff;padding:3px 8px;border-radius:20px;font-weight:700;font-size:.78em;}
-.z1lv{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.5);color:#fff;padding:3px 8px;border-radius:20px;font-weight:700;font-size:.78em;}
-.z1streak{position:absolute;top:8px;left:50%;transform:translateX(-50%);background:rgba(249,196,79,.9);color:#2c3e50;padding:3px 10px;border-radius:20px;font-weight:800;font-size:.78em;display:none;}
-.z1info{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,#f9e04b,#f39c12);color:#2c3e50;padding:15px 20px;border-radius:14px;text-align:center;font-size:.86em;line-height:1.75;min-width:225px;z-index:10;border:3px solid #e67e22;box-shadow:0 4px 18px rgba(0,0,0,.35);}
-.chip{background:#fff;border:2px solid #dee2e6;border-radius:8px;padding:3px 7px;font-size:.72em;font-weight:700;}
+/* ZONE 1 */
+.gcv{background:linear-gradient(180deg,#87CEEB 0%,#87CEEB 40%,#7ec850 40%,#5a9e35 100%);border-radius:12px;height:265px;position:relative;overflow:hidden;cursor:none;user-select:none;border:3px solid #5a9e35;}
+.bkt{width:56px;height:43px;background:linear-gradient(180deg,#c0392b,#e74c3c);border-radius:0 0 10px 10px;border-top:4px solid #922b21;position:absolute;bottom:10px;display:flex;align-items:center;justify-content:center;font-size:1.2em;box-shadow:0 4px 8px rgba(0,0,0,.3);}
+.fitem{position:absolute;font-size:1.5em;pointer-events:none;}
+.bgnd{position:absolute;bottom:0;left:0;right:0;height:18px;background:#5a9e35;}
+.z1sc{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.55);color:#fff;padding:4px 10px;border-radius:20px;font-weight:700;font-size:.85em;}
+.z1lv{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.55);color:#fff;padding:4px 10px;border-radius:20px;font-weight:700;font-size:.85em;}
+.z1streak{position:absolute;top:8px;left:50%;transform:translateX(-50%);background:rgba(249,196,79,.92);color:#2c3e50;padding:4px 12px;border-radius:20px;font-weight:800;font-size:.85em;display:none;white-space:nowrap;}
+.z1info{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,#f9e04b,#f39c12);color:#2c3e50;padding:16px 22px;border-radius:14px;text-align:center;font-size:.95em;line-height:1.8;min-width:230px;z-index:10;border:3px solid #e67e22;box-shadow:0 4px 18px rgba(0,0,0,.35);}
+.chip{background:#fff;border:2px solid #dee2e6;border-radius:8px;padding:4px 9px;font-size:.82em;font-weight:700;}
 .chip.sf{border-color:#27ae60;color:#1a7a43;}.chip.dg{border-color:#e74c3c;color:#c0392b;}
 @keyframes cfl{0%{opacity:1;}100%{opacity:0;transform:translateY(-26px) scale(1.4);}}
-.cfl{position:absolute;font-size:.88em;font-weight:800;pointer-events:none;animation:cfl .65s forwards;}
-.mb-card{width:86px;background:#f8f9fa;border:2px solid #dee2e6;border-radius:10px;padding:9px 7px;text-align:center;cursor:pointer;user-select:none;transition:all .2s;touch-action:manipulation;}
+.cfl{position:absolute;font-size:.95em;font-weight:800;pointer-events:none;animation:cfl .65s forwards;}
+/* ZONE 2 */
+.mb-card{width:88px;background:#f8f9fa;border:2px solid #dee2e6;border-radius:10px;padding:9px 7px;text-align:center;cursor:pointer;user-select:none;transition:all .2s;touch-action:manipulation;}
 .mb-card.placed{opacity:.6;cursor:default;pointer-events:none;border-color:#27ae60;background:#eafaf1;}
-.mb-tube-sm{width:28px;height:105px;border:3px solid #bdc3c7;border-top:none;border-radius:0 0 14px 14px;margin:0 auto 6px;position:relative;overflow:hidden;background:#ecf0f1;}
-.mb-card-lbl{font-weight:700;font-size:.7em;color:var(--fg);}
-.mb-card-time{font-size:.63em;color:var(--mg);margin-top:2px;}
-.mb-buckets{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:11px;}
-.mb-bucket{min-height:75px;border:2.5px dashed #bdc3c7;border-radius:10px;padding:7px;text-align:center;transition:all .2s;cursor:pointer;touch-action:manipulation;}
+.mb-tube-sm{width:28px;height:108px;border:3px solid #bdc3c7;border-top:none;border-radius:0 0 14px 14px;margin:0 auto 6px;position:relative;overflow:hidden;background:#ecf0f1;}
+.mb-card-lbl{font-weight:700;font-size:.78em;color:var(--fg);}
+.mb-card-time{font-size:.7em;color:var(--mg);margin-top:2px;}
+.mb-buckets{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.mb-bucket{min-height:80px;border:2.5px dashed #bdc3c7;border-radius:10px;padding:8px;text-align:center;transition:all .2s;cursor:pointer;touch-action:manipulation;}
 .mb-bucket.drag-over{border-color:#2980b9;background:#e8f4fd;}
-.mb-bucket-lbl{font-weight:800;font-size:.73em;margin-bottom:2px;}
-.mb-bucket-time{font-size:.62em;color:var(--mg);margin-bottom:4px;}
+.mb-bucket-lbl{font-weight:800;font-size:.82em;margin-bottom:2px;}
+.mb-bucket-time{font-size:.72em;color:var(--mg);margin-bottom:4px;}
 .mb-bucket.q-vp{border-color:#e74c3c;}.mb-bucket.q-po{border-color:#e67e22;}
 .mb-bucket.q-sa{border-color:#f9c74f;}.mb-bucket.q-go{border-color:#27ae60;}
 .mb-bucket.q-vp .mb-bucket-lbl{color:#e74c3c;}.mb-bucket.q-po .mb-bucket-lbl{color:#e67e22;}
 .mb-bucket.q-sa .mb-bucket-lbl{color:#b7a100;}.mb-bucket.q-go .mb-bucket-lbl{color:#27ae60;}
 .mb-bucket-contents{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;}
-.mb-placed-chip{background:#fff;border:1.5px solid #bdc3c7;border-radius:6px;padding:2px 6px;font-size:.66em;font-weight:700;}
-.mb-hint{font-size:.76em;color:#1a5276;background:#e8f4fd;border-radius:8px;padding:7px 10px;margin-bottom:9px;line-height:1.5;}
-.mb-result-chip{display:inline-block;border-radius:8px;padding:3px 9px;font-size:.72em;font-weight:800;margin:2px;}
+.mb-placed-chip{background:#fff;border:1.5px solid #bdc3c7;border-radius:6px;padding:3px 7px;font-size:.74em;font-weight:700;}
+.mb-hint{font-size:.88em;color:#1a5276;background:#e8f4fd;border-radius:8px;padding:9px 12px;margin-bottom:10px;line-height:1.6;}
+.mb-result-chip{display:inline-block;border-radius:8px;padding:4px 10px;font-size:.8em;font-weight:800;margin:2px;}
 .mb-card.selected{border:3px solid #2980b9 !important;background:#dbeeff !important;box-shadow:0 0 0 3px rgba(41,128,185,.3);transform:scale(1.08);}
 .mb-bucket.bucket-highlight{border-style:solid !important;border-width:3px !important;transform:scale(1.02);}
 .mb-bucket.q-vp.bucket-highlight{border-color:#e74c3c !important;background:#fff0f0;}
 .mb-bucket.q-po.bucket-highlight{border-color:#e67e22 !important;background:#fff5ee;}
 .mb-bucket.q-sa.bucket-highlight{border-color:#b7a100 !important;background:#fffde0;}
 .mb-bucket.q-go.bucket-highlight{border-color:#27ae60 !important;background:#eafaf1;}
-.tv{width:100%;height:140px;border-radius:12px;border:3px solid #dee2e6;position:relative;overflow:hidden;margin-bottom:12px;background:#dfe6e9;display:flex;align-items:center;justify-content:center;transition:background .5s;}
-.tmk{width:52px;height:88px;background:#fff;border-radius:6px;border:3px solid #bdc3c7;position:relative;overflow:hidden;z-index:2;}
+/* ZONE 3 */
+.z3-method-btns{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;}
+.z3-method-btn{padding:13px 16px;border:3px solid #dee2e6;border-radius:12px;background:#f8f9fa;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:800;font-size:.95em;text-align:left;transition:all .2s;line-height:1.5;}
+.z3-method-btn:active{transform:scale(.98);}
+.z3-method-btn.selected{background:#fff3e0;border-color:#e67e22;box-shadow:0 0 0 3px rgba(230,126,34,.2);}
+.z3-method-btn .method-name{font-size:1.05em;color:#2c3e50;}
+.z3-method-btn .method-detail{font-size:.82em;color:#7f8c8d;margin-top:2px;}
+.z3-method-btn.selected .method-name{color:#d35400;}
+.z3-method-btn.selected .method-detail{color:#e67e22;}
+.tv{width:100%;height:145px;border-radius:12px;border:3px solid #dee2e6;position:relative;overflow:hidden;margin-bottom:12px;background:#dfe6e9;display:flex;align-items:center;justify-content:center;transition:background .5s;}
+.tmk{width:54px;height:90px;background:#fff;border-radius:6px;border:3px solid #bdc3c7;position:relative;overflow:hidden;z-index:2;}
 .tmf{position:absolute;bottom:0;left:0;right:0;height:80%;background:#fff;transition:background .5s;}
 .hp{position:absolute;width:100%;height:100%;pointer-events:none;}
 .pt{position:absolute;width:6px;height:6px;border-radius:50%;animation:fu 2s infinite;opacity:0;}
-@keyframes fu{0%{transform:translateY(0);opacity:.8;}100%{transform:translateY(-60px);opacity:0;}}
-.z3sb{border-radius:10px;padding:10px;font-weight:700;text-align:center;transition:all .4s;margin:8px 0;}
-.z3tb{display:none;background:#f8f9fa;border:2px solid #dee2e6;border-radius:12px;padding:12px;margin:8px 0;}
+@keyframes fu{0%{transform:translateY(0);opacity:.8;}100%{transform:translateY(-62px);opacity:0;}}
+.z3sb{border-radius:10px;padding:12px;font-weight:700;text-align:center;transition:all .4s;margin:8px 0;font-size:.95em;}
+.z3tb{display:none;background:#f8f9fa;border:2px solid #dee2e6;border-radius:12px;padding:14px;margin:8px 0;}
 .z3tb.vis{display:block;}
-.z3clk{font-family:'Fredoka One',cursive;font-size:2.6em;text-align:center;letter-spacing:2px;margin:4px 0;}
-.z3th{font-size:.76em;color:var(--mg);text-align:center;margin-bottom:8px;}
-.z3bw{background:#ecf0f1;border-radius:20px;height:14px;overflow:hidden;margin:6px 0;}
+.z3clk{font-family:'Fredoka One',cursive;font-size:2.8em;text-align:center;letter-spacing:2px;margin:5px 0;}
+.z3th{font-size:.88em;color:var(--mg);text-align:center;margin-bottom:9px;}
+.z3bw{background:#ecf0f1;border-radius:20px;height:15px;overflow:hidden;margin:7px 0;}
 .z3br{height:100%;border-radius:20px;transition:width .15s,background .3s;width:0%;}
-.lbs{display:flex;gap:10px;flex-wrap:wrap;}
-.ls{flex:1;min-width:110px;background:#f8f9fa;border:2px solid #dee2e6;border-radius:12px;padding:10px;text-align:center;}
-.ls h4{font-size:.79em;font-weight:800;margin-bottom:6px;color:var(--fg);}
-.ltb{width:31px;height:78px;border:3px solid #bdc3c7;border-top:none;border-radius:0 0 15px 15px;margin:0 auto 6px;background:#ecf0f1;position:relative;overflow:hidden;}
+.slider-wrap{margin:10px 0;}
+.slider-wrap label{font-weight:700;font-size:.92em;display:block;margin-bottom:6px;}
+input[type=range]{width:100%;-webkit-appearance:none;height:9px;border-radius:4px;outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #2c3e50;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.28);}
+/* ZONE 4 */
+.lbs{display:flex;gap:11px;flex-wrap:wrap;}
+.ls{flex:1;min-width:112px;background:#f8f9fa;border:2px solid #dee2e6;border-radius:12px;padding:11px;text-align:center;}
+.ls h4{font-size:.88em;font-weight:800;margin-bottom:7px;color:var(--fg);}
+.ltb{width:33px;height:82px;border:3px solid #bdc3c7;border-top:none;border-radius:0 0 16px 16px;margin:0 auto 7px;background:#ecf0f1;position:relative;overflow:hidden;}
 .ltf{position:absolute;bottom:0;left:0;right:0;height:85%;}
-.mvw{width:74px;height:74px;border-radius:50%;border:4px solid #bdc3c7;margin:0 auto 5px;background:#f0f4f0;position:relative;overflow:hidden;}
+.mvw{width:76px;height:76px;border-radius:50%;border:4px solid #bdc3c7;margin:0 auto 5px;background:#f0f4f0;position:relative;overflow:hidden;}
 .bd{position:absolute;border-radius:50%;pointer-events:none;}
-.spc-num{font-family:'Fredoka One',cursive;font-size:1.28em;color:var(--fg);margin:3px 0 4px;}
-.col-num{font-family:'Fredoka One',cursive;font-size:1.28em;margin:3px 0 4px;}
-.lbtns{display:flex;gap:4px;justify-content:center;margin-top:4px;flex-wrap:wrap;}
-.lbtn{padding:6px 9px;font-size:.7em;font-weight:800;border:none;border-radius:6px;cursor:pointer;font-family:'Nunito',sans-serif;transition:transform .1s;}
+.spc-num{font-family:'Fredoka One',cursive;font-size:1.35em;color:var(--fg);margin:3px 0 5px;}
+.col-num{font-family:'Fredoka One',cursive;font-size:1.35em;margin:3px 0 5px;}
+.lbtns{display:flex;gap:5px;justify-content:center;margin-top:6px;flex-wrap:wrap;}
+.lbtn{padding:7px 11px;font-size:.82em;font-weight:800;border:none;border-radius:6px;cursor:pointer;font-family:'Nunito',sans-serif;transition:transform .1s;}
 .lbtn:active{transform:scale(.95);}
 .lbtn-p{background:#27ae60;color:#fff;}.lbtn-r{background:#e74c3c;color:#fff;}
-.fb{position:fixed;bottom:0;left:0;right:0;padding:9px 18px;font-weight:800;text-align:center;font-size:.88em;transform:translateY(100%);transition:transform .3s;z-index:998;border-radius:12px 12px 0 0;}
+/* FEEDBACK */
+.fb{position:fixed;bottom:0;left:0;right:0;padding:11px 18px;font-weight:800;text-align:center;font-size:.95em;transform:translateY(100%);transition:transform .3s;z-index:998;border-radius:12px 12px 0 0;}
 .fb.show{transform:translateY(0);}.fb.ok{background:#27ae60;color:#fff;}.fb.bad{background:#e74c3c;color:#fff;}.fb.bonus{background:#f9c74f;color:#2c3e50;}
-.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:1100;align-items:center;justify-content:center;padding:12px;overflow-y:auto;}
+/* OVERLAYS */
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.64);z-index:1100;align-items:center;justify-content:center;padding:14px;overflow-y:auto;}
 .ov.show{display:flex;}
-.welcome-card{background:#fff;border-radius:18px;padding:24px 22px;max-width:360px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,.3);text-align:center;}
-.welcome-card h2{font-family:'Fredoka One',cursive;font-size:1.8em;color:#1a7a43;margin-bottom:6px;}
-.welcome-card p{font-size:.84em;color:var(--mg);margin-bottom:18px;line-height:1.6;}
-.name-input{width:100%;padding:12px 16px;border:2.5px solid #dee2e6;border-radius:10px;font-family:'Nunito',sans-serif;font-size:1em;font-weight:700;text-align:center;margin-bottom:14px;outline:none;transition:border-color .2s;}
+.welcome-card{background:#fff;border-radius:18px;padding:26px 24px;max-width:380px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,.3);text-align:center;}
+.welcome-card h2{font-family:'Fredoka One',cursive;font-size:2em;color:#1a7a43;margin-bottom:8px;}
+.welcome-card p{font-size:.95em;color:var(--mg);margin-bottom:20px;line-height:1.65;}
+.name-input{width:100%;padding:13px 16px;border:2.5px solid #dee2e6;border-radius:10px;font-family:'Nunito',sans-serif;font-size:1.05em;font-weight:700;text-align:center;margin-bottom:14px;outline:none;transition:border-color .2s;}
 .name-input:focus{border-color:#27ae60;}
-.intro-card{background:#fff;border-radius:18px;padding:20px 18px;max-width:380px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,.3);}
-.intro-card h2{font-family:'Fredoka One',cursive;font-size:1.45em;text-align:center;margin-bottom:4px;}
-.std-zone{border-radius:10px;padding:9px 11px;margin-bottom:9px;}
-.std-zone h3{font-family:'Fredoka One',cursive;font-size:.95em;margin-bottom:4px;}
-.std-zone ul{padding-left:15px;font-size:.76em;line-height:1.75;}
+.intro-card{background:#fff;border-radius:18px;padding:22px 20px;max-width:400px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,.3);}
+.intro-card h2{font-family:'Fredoka One',cursive;font-size:1.55em;text-align:center;margin-bottom:5px;}
+.std-zone{border-radius:10px;padding:11px 13px;margin-bottom:10px;}
+.std-zone h3{font-family:'Fredoka One',cursive;font-size:1.05em;margin-bottom:5px;}
+.std-zone ul{padding-left:16px;font-size:.9em;line-height:1.85;}
 .sz1{background:#eafaf1;border-left:4px solid #27ae60;}.sz1 h3{color:#1a7a43;}
 .sz2{background:#e8f4fd;border-left:4px solid #2980b9;}.sz2 h3{color:#1a5276;}
 .sz3{background:#fef5e7;border-left:4px solid #e67e22;}.sz3 h3{color:#d35400;}
 .sz4{background:#f5eef8;border-left:4px solid #8e44ad;}.sz4 h3{color:#6c3483;}
-.zpop-card{background:#fff;border-radius:16px;padding:20px 18px;max-width:330px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.25);}
-.zpop-card h2{font-family:'Fredoka One',cursive;font-size:1.35em;margin-bottom:7px;text-align:center;}
-.std-block{border-radius:9px;padding:9px 11px;font-size:.78em;line-height:1.65;margin-bottom:13px;}
-.gen-popup{background:#fff;border-radius:16px;padding:20px 18px;max-width:330px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.25);}
-.gen-popup h2{font-family:'Fredoka One',cursive;font-size:1.45em;text-align:center;margin-bottom:6px;}
-.rov{display:none;position:fixed;inset:0;z-index:1200;overflow-y:auto;padding:12px;}
+.zpop-card{background:#fff;border-radius:16px;padding:22px 20px;max-width:350px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.25);}
+.zpop-card h2{font-family:'Fredoka One',cursive;font-size:1.45em;margin-bottom:9px;text-align:center;}
+.std-block{border-radius:9px;padding:11px 13px;font-size:.9em;line-height:1.7;margin-bottom:14px;}
+.gen-popup{background:#fff;border-radius:16px;padding:22px 20px;max-width:350px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.25);}
+.gen-popup h2{font-family:'Fredoka One',cursive;font-size:1.5em;text-align:center;margin-bottom:8px;}
+.gen-popup p{font-size:.92em;color:var(--mg);text-align:center;margin-bottom:6px;line-height:1.6;}
+/* FINAL SCREEN */
+.rov{display:none;position:fixed;inset:0;z-index:1200;overflow-y:auto;padding:14px;}
 .rov.show{display:block;}
 .rov-bg{position:fixed;inset:0;background:linear-gradient(135deg,#1a7a43,#2c3e50 50%,#6c3483);opacity:.95;z-index:-1;}
-.final-wrap{position:relative;z-index:2;max-width:400px;width:100%;margin:0 auto;padding:12px 0;}
-.score-card{background:#fff;border-radius:18px;padding:22px 20px;margin-bottom:12px;box-shadow:0 8px 32px rgba(0,0,0,.3);}
-.congrats-line{font-family:'Fredoka One',cursive;font-size:1.0em;line-height:1.3;margin-bottom:6px;text-align:center;}
-.sub-line{font-family:'Fredoka One',cursive;font-size:.88em;color:#2c3e50;line-height:1.4;text-align:center;margin-bottom:12px;}
-.score-total{font-family:'Fredoka One',cursive;font-size:3.2em;color:#27ae60;text-align:center;margin:4px 0;}
-.bonus-breakdown{background:#f8f9fa;border-radius:10px;padding:10px 12px;margin:10px 0;}
-.bonus-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #ecf0f1;font-size:.78em;}
-.bonus-row:last-child{border-bottom:none;font-weight:800;font-size:.82em;}
+.final-wrap{position:relative;z-index:2;max-width:420px;width:100%;margin:0 auto;padding:12px 0;}
+.score-card{background:#fff;border-radius:18px;padding:24px 22px;margin-bottom:14px;box-shadow:0 8px 32px rgba(0,0,0,.3);}
+.congrats-line{font-family:'Fredoka One',cursive;font-size:1.1em;line-height:1.3;margin-bottom:7px;text-align:center;}
+.sub-line{font-family:'Fredoka One',cursive;font-size:.95em;color:#2c3e50;line-height:1.45;text-align:center;margin-bottom:13px;}
+.score-total{font-family:'Fredoka One',cursive;font-size:3.4em;color:#27ae60;text-align:center;margin:5px 0;}
+.bonus-breakdown{background:#f8f9fa;border-radius:10px;padding:11px 13px;margin:11px 0;}
+.bonus-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #ecf0f1;font-size:.85em;}
+.bonus-row:last-child{border-bottom:none;font-weight:800;font-size:.9em;}
 .bonus-earned{color:#27ae60;font-weight:800;}
 .bonus-missed{color:#bdc3c7;font-weight:700;}
-.prow{display:flex;gap:5px;justify-content:center;margin:10px 0;}
-.ppill{flex:1;height:7px;border-radius:4px;background:#ecf0f1;}
+.prow{display:flex;gap:5px;justify-content:center;margin:11px 0;}
+.ppill{flex:1;height:8px;border-radius:4px;background:#ecf0f1;}
 .ppill.done{background:#27ae60;}.ppill.fail{background:#e74c3c;}
-.lb-card{background:#fff;border-radius:18px;padding:20px 18px;box-shadow:0 8px 32px rgba(0,0,0,.3);}
-.lb-card h3{font-family:'Fredoka One',cursive;font-size:1.3em;text-align:center;margin-bottom:12px;color:#1a7a43;}
-.lb-row{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;margin-bottom:6px;background:#f8f9fa;border:2px solid #ecf0f1;}
+.lb-card{background:#fff;border-radius:18px;padding:22px 20px;box-shadow:0 8px 32px rgba(0,0,0,.3);}
+.lb-card h3{font-family:'Fredoka One',cursive;font-size:1.4em;text-align:center;margin-bottom:13px;color:#1a7a43;}
+.lb-row{display:flex;align-items:center;gap:10px;padding:10px 11px;border-radius:10px;margin-bottom:7px;background:#f8f9fa;border:2px solid #ecf0f1;}
 .lb-row.gold{background:#fff9e6;border-color:#f9c74f;}
 .lb-row.silver{background:#f5f5f5;border-color:#bdc3c7;}
 .lb-row.bronze{background:#fff3ee;border-color:#e67e22;}
 .lb-row.me{border-color:#27ae60 !important;background:#eafaf1 !important;}
-.lb-rank{font-family:'Fredoka One',cursive;font-size:1.2em;width:28px;text-align:center;flex-shrink:0;}
-.lb-name{flex:1;font-weight:700;font-size:.84em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.lb-score{font-family:'Fredoka One',cursive;font-size:1.1em;color:#27ae60;flex-shrink:0;}
-.lb-you{font-size:.65em;background:#27ae60;color:#fff;border-radius:8px;padding:1px 6px;margin-left:4px;font-weight:800;font-family:'Nunito',sans-serif;}
-.lb-empty{text-align:center;color:var(--mg);font-size:.82em;padding:18px;}
-.lb-personal{background:#eafaf1;border:2px solid #27ae60;border-radius:10px;padding:9px 12px;margin-top:10px;display:flex;align-items:center;justify-content:space-between;}
-.lb-personal-lbl{font-size:.78em;color:#1a7a43;font-weight:700;}
-.lb-personal-score{font-family:'Fredoka One',cursive;font-size:1.2em;color:#27ae60;}
+.lb-rank{font-family:'Fredoka One',cursive;font-size:1.25em;width:30px;text-align:center;flex-shrink:0;}
+.lb-name{flex:1;font-weight:700;font-size:.9em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lb-score{font-family:'Fredoka One',cursive;font-size:1.15em;color:#27ae60;flex-shrink:0;}
+.lb-you{font-size:.7em;background:#27ae60;color:#fff;border-radius:8px;padding:1px 7px;margin-left:5px;font-weight:800;font-family:'Nunito',sans-serif;}
+.lb-empty{text-align:center;color:var(--mg);font-size:.88em;padding:20px;}
+.lb-personal{background:#eafaf1;border:2px solid #27ae60;border-radius:10px;padding:10px 13px;margin-top:11px;display:flex;align-items:center;justify-content:space-between;}
+.lb-personal-lbl{font-size:.84em;color:#1a7a43;font-weight:700;}
+.lb-personal-score{font-family:'Fredoka One',cursive;font-size:1.25em;color:#27ae60;}
 #confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:1150;}
-input[type=range]{width:100%;-webkit-appearance:none;height:8px;border-radius:4px;background:linear-gradient(to right,#5dade2,#f39c12,#e74c3c);outline:none;cursor:pointer;}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #2c3e50;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.28);}
 @keyframes popIn{0%{transform:scale(.7);opacity:0;}80%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
 .pop-in{animation:popIn .4s forwards;}
 @keyframes revealPulse{0%,100%{box-shadow:0 5px 0 #1a3a52,0 0 0 4px rgba(41,128,185,.3);}50%{box-shadow:0 5px 0 #1a3a52,0 0 0 10px rgba(41,128,185,.1),0 0 28px rgba(41,128,185,.35);}}
@@ -175,12 +193,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 <!-- WELCOME -->
 <div class="ov show" id="welcome-ov">
   <div class="welcome-card pop-in">
-    <div style="font-size:2.2em;margin-bottom:8px;">🥛</div>
+    <div style="font-size:2.4em;margin-bottom:9px;">🥛</div>
     <h2>The Dairy Dean</h2>
-    <p>Test your milk pasteurisation knowledge — Park's Preventive & Social Medicine. Compete for the top spot!</p>
+    <p>Test your milk pasteurisation knowledge based on Park's Preventive and Social Medicine. Compete for the top spot on the leaderboard!</p>
     <input type="text" class="name-input" id="player-name" placeholder="Enter your name..." maxlength="20">
-    <button class="btn btn-gr" style="width:100%;font-size:1em;padding:12px;" onclick="startWithName()">🎮 Let's Play!</button>
-    <div style="margin-top:10px;"><button class="btn btn-bl" style="width:100%;font-size:.85em;padding:9px;" onclick="viewLeaderboardOnly()">🏆 View Leaderboard</button></div>
+    <button class="btn btn-gr" style="width:100%;font-size:1.05em;padding:13px;" onclick="startWithName()">🎮 Let's Play!</button>
+    <div style="margin-top:11px;"><button class="btn btn-bl" style="width:100%;font-size:.92em;padding:10px;" onclick="viewLeaderboardOnly()">🏆 View Leaderboard</button></div>
   </div>
 </div>
 
@@ -188,38 +206,75 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 <div class="ov" id="intro-ov">
   <div class="intro-card">
     <h2>📋 Park's Standards</h2>
-    <div style="text-align:center;font-size:.76em;color:var(--mg);margin-bottom:12px;">Your guide for every zone — read before playing!</div>
-    <div class="std-zone sz1"><h3>🌾 Zone 1 — Hygiene</h3><ul><li>Milk from <strong>healthy udders</strong> only</li><li>Sanitary animal premises essential</li><li>Handlers must be <strong>disease-free</strong></li><li>Use <strong>sterile, tight-lidded pails</strong></li><li>No carriers of typhoid / streptococcal disease</li></ul></div>
-    <div class="std-zone sz2"><h3>🔵 Zone 2 — MBRT</h3><ul><li><strong>&lt;30 min</strong> decolorisation → Very Poor 🔴</li><li><strong>30–120 min</strong> → Poor 🟠</li><li><strong>2–5 hrs</strong> → Satisfactory 🟡</li><li><strong>&gt;5 hrs</strong> (stays blue) → Good/Excellent 🟢</li></ul></div>
-    <div class="std-zone sz3"><h3>🔥 Zone 3 — Pasteurisation</h3><ul><li>Holder/LTLT: <strong>63–66°C for 30 min</strong></li><li>HTST: <strong>72°C for 15 sec</strong></li><li>Cool to <strong>&lt;5°C</strong> immediately after</li><li>Overheating (&gt;72°C) → nutrient loss</li></ul></div>
-    <div class="std-zone sz4"><h3>🔬 Zone 4 — Quality Lab</h3><ul><li>Phosphatase: <strong>Negative</strong> (clear = pass ✅; yellow = fail ❌)</li><li>SPC: <strong>≤ 30,000/mL</strong></li><li>Coliform: <strong>Zero/mL</strong></li></ul></div>
-    <button class="btn btn-gr" style="width:100%;margin-top:4px;font-size:.98em;padding:11px;" onclick="closeIntro()">✅ Got it — Start Game!</button>
+    <div style="text-align:center;font-size:.88em;color:var(--mg);margin-bottom:13px;">Read carefully before you start — these standards guide every zone!</div>
+    <div class="std-zone sz1">
+      <h3>🌾 Zone 1 — Hygiene Rules</h3>
+      <ul>
+        <li>Milk must come from <strong>healthy udders</strong> only</li>
+        <li>Animal premises must be <strong>clean and sanitary</strong></li>
+        <li>Milk handlers must be <strong>free of disease</strong></li>
+        <li>Use <strong>sterile pails with tight lids</strong> for collection</li>
+        <li>No carriers of typhoid or streptococcal disease allowed</li>
+      </ul>
+    </div>
+    <div class="std-zone sz2">
+      <h3>🔵 Zone 2 — Methylene Blue Reduction Test</h3>
+      <ul>
+        <li>Decolorisation in <strong>less than 30 minutes</strong> → Very Poor quality</li>
+        <li>Decolorisation in <strong>30 to 120 minutes</strong> → Poor quality</li>
+        <li>Decolorisation in <strong>2 to 5 hours</strong> → Satisfactory quality</li>
+        <li>Stays blue for <strong>more than 5 hours</strong> → Good to Excellent quality</li>
+      </ul>
+    </div>
+    <div class="std-zone sz3">
+      <h3>🔥 Zone 3 — Pasteurisation Methods</h3>
+      <ul>
+        <li><strong>Holder (Vat) Method:</strong> heat to 63–66°C and hold for 30 minutes</li>
+        <li><strong>High Temperature Short Time (HTST):</strong> heat to 72°C and hold for 15 seconds</li>
+        <li><strong>Ultra High Temperature (UHT):</strong> heat to 125°C and hold for 2–4 seconds</li>
+        <li>After any method, cool milk <strong>immediately to 4°C or below</strong></li>
+        <li>Cooling to above 4°C allows microorganisms to grow</li>
+      </ul>
+    </div>
+    <div class="std-zone sz4">
+      <h3>🔬 Zone 4 — Tests for Adequate Pasteurisation</h3>
+      <ul>
+        <li>Phosphatase test: must be <strong>Negative</strong> — clear or colourless = pass ✅; yellow = fail ❌</li>
+        <li>Standard Plate Count: <strong>30,000 or fewer organisms per millilitre</strong></li>
+        <li>Coliform count: <strong>Zero per 1 millilitre</strong></li>
+      </ul>
+    </div>
+    <button class="btn btn-gr" style="width:100%;margin-top:5px;font-size:1em;padding:13px;" onclick="closeIntro()">✅ Got it — Start Game!</button>
   </div>
 </div>
 
 <!-- PER-ZONE POPUP -->
 <div class="ov" id="zone-std-ov">
-  <div class="zpop-card"><h2 id="zstd-title"></h2><div class="std-block" id="zstd-body"></div><button class="btn btn-gr" style="width:100%;" onclick="closeZoneStd()">✅ Got it — Start Zone!</button></div>
+  <div class="zpop-card">
+    <h2 id="zstd-title"></h2>
+    <div class="std-block" id="zstd-body"></div>
+    <button class="btn btn-gr" style="width:100%;font-size:.95em;" onclick="closeZoneStd()">✅ Got it — Start Zone!</button>
+  </div>
 </div>
 
 <!-- GENERAL POPUP -->
 <div class="ov" id="zpop-ov">
   <div class="gen-popup">
     <h2 id="zpop-title"></h2>
-    <p id="zpop-msg" style="color:var(--mg);font-size:.84em;text-align:center;margin-bottom:6px;"></p>
-    <p id="zpop-hint" style="display:none;font-size:.78em;color:#e67e22;font-weight:700;font-style:italic;margin-bottom:12px;text-align:center;"></p>
-    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-      <button class="btn btn-gr" id="zpop-nxt" onclick="zpopGo()" style="display:none;"></button>
-      <button class="btn btn-gy" onclick="closeZpop()">Stay Here</button>
+    <p id="zpop-msg"></p>
+    <p id="zpop-hint" style="display:none;font-size:.88em;color:#e67e22;font-weight:700;font-style:italic;margin-bottom:13px;text-align:center;"></p>
+    <div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn btn-gr" id="zpop-nxt" onclick="zpopGo()" style="display:none;font-size:.95em;"></button>
+      <button class="btn btn-gy" onclick="closeZpop()" style="font-size:.95em;">Stay Here</button>
     </div>
   </div>
 </div>
 
 <!-- LB ONLY VIEW -->
 <div class="ov" id="lb-only-ov">
-  <div style="max-width:400px;width:100%;">
+  <div style="max-width:420px;width:100%;">
     <div class="lb-card"><h3>🏆 Leaderboard</h3><div id="lb-only-list"></div></div>
-    <div style="margin-top:10px;text-align:center;"><button class="btn btn-gy" onclick="document.getElementById('lb-only-ov').classList.remove('show')">← Back</button></div>
+    <div style="margin-top:11px;text-align:center;"><button class="btn btn-gy" onclick="document.getElementById('lb-only-ov').classList.remove('show')">← Back</button></div>
   </div>
 </div>
 
@@ -228,26 +283,26 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   <div class="rov-bg"></div>
   <div class="final-wrap">
     <div class="score-card pop-in">
-      <div style="font-size:1.9em;text-align:center;margin-bottom:4px;">🎉🥛🎊</div>
+      <div style="font-size:2em;text-align:center;margin-bottom:5px;">🎉🥛🎊</div>
       <div class="congrats-line">
         <span style="color:#e74c3c;">W</span><span style="color:#e67e22;">O</span><span style="color:#f39c12;">H</span><span style="color:#27ae60;">O</span><span style="color:#2980b9;">O</span><span style="color:#8e44ad;">O</span><span style="color:#e74c3c;">O</span>!
         <span style="color:#27ae60;">C</span><span style="color:#2980b9;">O</span><span style="color:#8e44ad;">N</span><span style="color:#e74c3c;">G</span><span style="color:#e67e22;">R</span><span style="color:#f39c12;">A</span><span style="color:#27ae60;">T</span><span style="color:#2980b9;">U</span><span style="color:#8e44ad;">L</span><span style="color:#e74c3c;">A</span><span style="color:#e67e22;">T</span><span style="color:#f39c12;">I</span><span style="color:#27ae60;">O</span><span style="color:#2980b9;">N</span><span style="color:#8e44ad;">S</span>,
       </div>
       <div class="sub-line">YOU KNOW MORE ABOUT PASTEURIZATION OF 🥛<br><span style="color:#8e44ad;">THAN MOST OTHERS</span> <span style="color:#e67e22;">(PROBABLY!)</span></div>
-      <div style="font-size:.82em;text-align:center;color:var(--mg);margin-bottom:2px;">Player: <strong id="final-player-name" style="color:#2c3e50;"></strong></div>
+      <div style="font-size:.88em;text-align:center;color:var(--mg);margin-bottom:3px;">Player: <strong id="final-player-name" style="color:#2c3e50;"></strong></div>
       <div class="score-total" id="final-total">0</div>
       <div class="prow" id="rpills"></div>
       <div class="bonus-breakdown" id="bonus-breakdown"></div>
-      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
-        <button class="btn btn-gr" onclick="restartAll()" style="flex:1;">🔄 Play Again</button>
-        <button class="btn btn-or" onclick="replayZ1FromFinal()" style="flex:1;line-height:1.35;">🌾 Zone 1 Replay<br><span style="font-size:.72em;font-weight:600;">if you wanna replay</span></button>
+      <div style="display:flex;gap:9px;margin-top:13px;flex-wrap:wrap;">
+        <button class="btn btn-gr" onclick="restartAll()" style="flex:1;font-size:.95em;">🔄 Play Again</button>
+        <button class="btn btn-or" onclick="replayZ1FromFinal()" style="flex:1;font-size:.9em;line-height:1.4;">🌾 Back to Zone 1<br><span style="font-size:.78em;font-weight:600;">if you want to replay</span></button>
       </div>
     </div>
     <div class="lb-card" style="margin-top:0;">
       <h3>🏆 Leaderboard</h3>
-      <div id="lb-final-list"><div class="lb-empty">Loading...</div></div>
+      <div id="lb-final-list"><div class="lb-empty">Loading scores...</div></div>
       <div id="lb-personal-best" style="display:none;" class="lb-personal">
-        <div class="lb-personal-lbl">Your personal best</div>
+        <div class="lb-personal-lbl">Your personal best score</div>
         <div class="lb-personal-score" id="lb-pb-score">0</div>
       </div>
     </div>
@@ -258,26 +313,26 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 <div id="game-body" style="display:none;">
 <div class="hdr" style="position:relative;">
   <h1>🥛 The Dairy Dean</h1>
-  <p>Milk Safety Challenge — Park's Preventive &amp; Social Medicine</p>
-  <button class="snd-btn" id="snd-btn" onclick="toggleSnd()">🔊 ON</button>
+  <p>Milk Safety Challenge — Park's Preventive &amp; Social Medicine &nbsp;|&nbsp; v10</p>
+  <button class="snd-btn" id="snd-btn" onclick="toggleSnd()">🔊 Sound ON</button>
 </div>
 <div class="scorebar">
   <span class="scorebar-item">🏆 <span id="tsco">0</span> pts</span>
   <span class="scorebar-item">⏱ <span class="timer-display" id="global-timer">0:00</span></span>
-  <span class="scorebar-item">🔥 <span id="streak-disp">0</span>x</span>
+  <span class="scorebar-item">🔥 <span id="streak-disp">0</span>x streak</span>
   <span class="scorebar-item">❤️ <span id="livd">3</span></span>
 </div>
 <div class="tabs">
-  <button class="tab-btn active" id="tab1" onclick="sw(1)">🌾 Z1</button>
-  <button class="tab-btn" id="tab2" onclick="sw(2)" disabled>🔵 Z2</button>
-  <button class="tab-btn" id="tab3" onclick="sw(3)" disabled>🔥 Z3</button>
-  <button class="tab-btn" id="tab4" onclick="sw(4)" disabled>🔬 Z4</button>
+  <button class="tab-btn active" id="tab1" onclick="sw(1)">🌾 Zone 1</button>
+  <button class="tab-btn" id="tab2" onclick="sw(2)" disabled>🔵 Zone 2</button>
+  <button class="tab-btn" id="tab3" onclick="sw(3)" disabled>🔥 Zone 3</button>
+  <button class="tab-btn" id="tab4" onclick="sw(4)" disabled>🔬 Zone 4</button>
 </div>
 
 <!-- ZONE 1 -->
 <div id="zone1" class="zone active">
-  <div class="zh"><h2>🌾 Zone 1: The Hygiene Scramble</h2><p>Catch safe items, dodge contaminants — reach 250 pts! Build streaks for bonus!</p></div>
-  <div class="tip">📖 <strong>Park's Rule:</strong> Sanitary premises (🧹), disease-free handlers (🧤), sterile pails (🥛). <span style="color:#e67e22;font-weight:700;">🔥 Streak bonus: +5 per consecutive catch!</span></div>
+  <div class="zh"><h2>🌾 Zone 1: The Hygiene Scramble</h2><p>Catch safe items and dodge contaminants — reach 250 points to proceed!</p></div>
+  <div class="tip">📖 <strong>Park's Rule:</strong> Milk must come from sanitary premises (🧹), be handled by disease-free workers (🧤), and collected in sterile pails (🥛). Catching items in a row builds a streak for bonus points!</div>
   <div class="gcv" id="gcv">
     <div class="z1sc">🎯 <span id="z1s">0</span>/250</div>
     <div class="z1lv">❤️ <span id="z1l">3</span></div>
@@ -285,116 +340,170 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
     <div class="bgnd"></div>
     <div class="bkt" id="bkt">🪣</div>
     <div class="z1info" id="z1info">
-      <div style="font-size:1.15em;font-weight:800;margin-bottom:5px;color:#2c3e50;">🌾 Hygiene Scramble</div>
-      <div style="font-size:.78em;margin-bottom:7px;line-height:1.85;color:#2c3e50;">
-        <span style="color:#1a7a43;font-weight:800;">✅ CATCH:</span> 🥛+15 &nbsp;🧹+20 &nbsp;🧤+10<br>
-        <span style="color:#c0392b;font-weight:800;">❌ DODGE:</span> 🪰 &nbsp;💩 &nbsp;🤧
+      <div style="font-size:1.2em;font-weight:800;margin-bottom:6px;color:#2c3e50;">🌾 Hygiene Scramble</div>
+      <div style="font-size:.88em;margin-bottom:9px;line-height:1.9;color:#2c3e50;">
+        <span style="color:#1a7a43;font-weight:800;">✅ CATCH:</span> 🥛 Sterile Pail +15 &nbsp;🧹 Clean Premises +20 &nbsp;🧤 Gloves +10<br>
+        <span style="color:#c0392b;font-weight:800;">❌ DODGE:</span> 🪰 Fly &nbsp;💩 Waste &nbsp;🤧 Sick Cow
       </div>
-      <div style="font-size:.72em;color:#6d4c00;margin-bottom:8px;">🔥 Consecutive catches = streak bonus!</div>
-      <button class="btn btn-gr" style="font-size:.93em;padding:8px 20px;" onclick="startZ1()">▶ Start!</button>
+      <div style="font-size:.8em;color:#6d4c00;margin-bottom:9px;">🔥 Consecutive catches build a streak for bonus points!</div>
+      <button class="btn btn-gr" style="font-size:1em;padding:9px 22px;" onclick="startZ1()">▶ Start!</button>
     </div>
   </div>
-  <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">
-    <div class="chip sf">🥛 +15</div><div class="chip sf">🧹 +20</div><div class="chip sf">🧤 +10</div>
-    <div class="chip dg">🪰 −life</div><div class="chip dg">💩 −life</div><div class="chip dg">🤧 −life</div>
-    <div class="chip" style="border-color:#f9c74f;color:#b7a100;">🔥 streak +5/catch</div>
-    <div class="chip" style="border-color:#27ae60;color:#1a7a43;">❤️ remaining +25 each</div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;">
+    <div class="chip sf">🥛 Sterile Pail +15</div><div class="chip sf">🧹 Clean Premises +20</div><div class="chip sf">🧤 Gloves +10</div>
+    <div class="chip dg">🪰 Fly −1 life</div><div class="chip dg">💩 Waste −1 life</div><div class="chip dg">🤧 Sick Cow −1 life</div>
+    <div class="chip" style="border-color:#f9c74f;color:#b7a100;">🔥 Streak: +5 points per consecutive catch</div>
+    <div class="chip" style="border-color:#27ae60;color:#1a7a43;">❤️ Each life remaining at end = +25 points</div>
   </div>
-  <div style="display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap;">
+  <div style="display:flex;gap:9px;margin-top:10px;align-items:center;flex-wrap:wrap;">
     <button class="btn btn-gr" onclick="startZ1()">↺ Restart</button>
-    <div id="z1done" style="display:none;flex:1;background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:8px;font-weight:700;font-size:.8em;color:#1a7a43;">
+    <div id="z1done" style="display:none;flex:1;background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:10px;font-weight:700;font-size:.9em;color:#1a7a43;">
       🎉 Zone 1 Complete!
-      <button class="btn btn-gr" style="margin-left:8px;padding:5px 11px;font-size:.8em;" onclick="jumpTo(2)">→ Zone 2</button>
+      <button class="btn btn-gr" style="margin-left:9px;padding:7px 13px;font-size:.88em;" onclick="jumpTo(2)">→ Go to Zone 2</button>
     </div>
   </div>
 </div>
 
 <!-- ZONE 2 -->
 <div id="zone2" class="zone">
-  <div class="nav-banner gr"><span style="font-weight:700;font-size:.81em;">✅ Zone 1 cleared!</span><button class="next-btn gr" id="z2nb" onclick="jumpTo(3)" disabled>Next: Zone 3 🔥 →</button></div>
-  <div class="zh"><h2>🔵 Zone 2: Methylene Blue Test</h2><p>Watch tubes — tap a tube then tap a bucket to classify!</p></div>
-  <div class="tip">📖 <strong>MBRT:</strong> &lt;30 min → Very Poor | 30–120 min → Poor | 2–5 hrs → Satisfactory | &gt;5 hrs → Good/Excellent. <span style="color:#e67e22;font-weight:700;">⚡ Reveal early for speed bonus!</span></div>
-  <div id="mb-start-prompt" style="background:linear-gradient(135deg,#1a5276,#2980b9);border-radius:10px;padding:16px;text-align:center;color:#fff;margin:9px 0;">
-    <p style="font-family:'Fredoka One',cursive;font-size:1.25em;margin-bottom:5px;">🔬 Ready to Test?</p>
-    <span style="font-size:.8em;opacity:.88;">Click <strong>New Batch</strong> to begin watching!</span>
+  <div class="nav-banner gr"><span style="font-weight:700;font-size:.9em;">✅ Zone 1 cleared!</span><button class="next-btn gr" id="z2nb" onclick="jumpTo(3)" disabled>Next: Zone 3 🔥 →</button></div>
+  <div class="zh"><h2>🔵 Zone 2: Test for Microorganisms in Milk — Methylene Blue Reduction Test</h2><p>Watch the tubes change colour — then classify each sample into its quality grade!</p></div>
+  <div class="tip">📖 <strong>Methylene Blue Reduction Test (MBRT):</strong> The faster the blue colour disappears (decolorises), the more microorganisms are present, meaning poorer milk quality.<br>
+  • Less than 30 minutes → <strong>Very Poor</strong><br>
+  • 30 to 120 minutes → <strong>Poor</strong><br>
+  • 2 to 5 hours → <strong>Satisfactory</strong><br>
+  • More than 5 hours (stays blue) → <strong>Good to Excellent</strong><br>
+  <span style="color:#e67e22;">⚡ Reveal the tubes early (before all decolorise) to earn a speed bonus!</span></div>
+  <div id="mb-start-prompt" style="background:linear-gradient(135deg,#1a5276,#2980b9);border-radius:10px;padding:18px;text-align:center;color:#fff;margin:10px 0;">
+    <p style="font-family:'Fredoka One',cursive;font-size:1.4em;margin-bottom:7px;">🔬 Ready to Test?</p>
+    <span style="font-size:.9em;opacity:.9;">Tap <strong>New Batch</strong> to start watching the tubes!</span>
   </div>
-  <div id="mb-phase-watch" style="display:none;margin-bottom:10px;">
-    <div class="mb-hint">👀 Watch the tubes decolourise. The Reveal button unlocks after 30 simulated minutes.</div>
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
-      <span id="mbclk" style="font-weight:700;font-size:.88em;color:#1a5276;">⏱ 0 min</span>
-      <span id="mb-speed-hint" style="font-size:.72em;color:#e67e22;font-weight:700;flex:1;"></span>
+  <div id="mb-phase-watch" style="display:none;margin-bottom:11px;">
+    <div class="mb-hint">👀 Watch the tubes — the blue colour fades as microorganisms reduce the dye. Reveal when you are ready to classify!</div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:7px;flex-wrap:wrap;">
+      <span id="mbclk" style="font-weight:700;font-size:.95em;color:#1a5276;">⏱ 0 minutes</span>
+      <span id="mb-speed-hint" style="font-size:.8em;color:#e67e22;font-weight:700;flex:1;"></span>
     </div>
-    <div style="margin:10px 0;">
+    <div style="margin:11px 0;">
       <button id="reveal-btn" onclick="revealDrag()" disabled
-        style="background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border:none;border-radius:12px;padding:14px 28px;font-family:'Fredoka One',cursive;font-size:1.2em;cursor:pointer;box-shadow:0 5px 0 #1a3a52;width:100%;opacity:.4;pointer-events:none;transition:opacity .3s;">
-        🔬 Reveal &amp; Classify
+        style="background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border:none;border-radius:12px;padding:15px 28px;font-family:'Fredoka One',cursive;font-size:1.25em;cursor:not-allowed;box-shadow:0 5px 0 #1a3a52;width:100%;opacity:.4;transition:opacity .3s;">
+        🔬 Reveal &amp; Classify Tubes
       </button>
-      <div id="reveal-btn-sub" style="font-size:.73em;color:#7f8c8d;margin-top:5px;text-align:center;">Waiting for tubes to decolorise...</div>
+      <div id="reveal-btn-sub" style="font-size:.8em;color:#7f8c8d;margin-top:6px;text-align:center;">Waiting for tubes to begin decolorising — please wait for 30 simulated minutes...</div>
     </div>
-    <div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;" id="mbc"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;" id="mbc"></div>
   </div>
-  <div id="mb-phase-drag" style="display:none;margin-bottom:10px;">
-    <div style="background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:10px;padding:10px 13px;font-size:.8em;font-weight:700;margin-bottom:10px;text-align:center;line-height:1.6;">
-      👆 <strong>Tap a tube</strong> to select it (glows blue) → <strong>tap a bucket</strong> to place it
+  <div id="mb-phase-drag" style="display:none;margin-bottom:11px;">
+    <div style="background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:10px;padding:11px 14px;font-size:.88em;font-weight:700;margin-bottom:11px;text-align:center;line-height:1.65;">
+      👆 <strong>Tap a tube</strong> to select it (it will glow blue) → then <strong>tap a quality bucket</strong> below to place it there
     </div>
-    <div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:12px;" id="mb-drag-tubes"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:13px;" id="mb-drag-tubes"></div>
     <div class="mb-buckets">
-      <div class="mb-bucket q-vp" id="bkt-vp" ondragover="dOver(event)" ondrop="dDrop(event,'vp')" onclick="bucketTap('vp')"><div class="mb-bucket-lbl">Very Poor 🔴</div><div class="mb-bucket-time">&lt;30 min</div><div class="mb-bucket-contents" id="bkt-vp-c"></div></div>
-      <div class="mb-bucket q-po" id="bkt-po" ondragover="dOver(event)" ondrop="dDrop(event,'po')" onclick="bucketTap('po')"><div class="mb-bucket-lbl">Poor 🟠</div><div class="mb-bucket-time">30–120 min</div><div class="mb-bucket-contents" id="bkt-po-c"></div></div>
-      <div class="mb-bucket q-sa" id="bkt-sa" ondragover="dOver(event)" ondrop="dDrop(event,'sa')" onclick="bucketTap('sa')"><div class="mb-bucket-lbl">Satisfactory 🟡</div><div class="mb-bucket-time">2–5 hrs</div><div class="mb-bucket-contents" id="bkt-sa-c"></div></div>
-      <div class="mb-bucket q-go" id="bkt-go" ondragover="dOver(event)" ondrop="dDrop(event,'go')" onclick="bucketTap('go')"><div class="mb-bucket-lbl">Good/Excellent 🟢</div><div class="mb-bucket-time">&gt;5 hrs</div><div class="mb-bucket-contents" id="bkt-go-c"></div></div>
+      <div class="mb-bucket q-vp" id="bkt-vp" ondragover="dOver(event)" ondrop="dDrop(event,'vp')" onclick="bucketTap('vp')">
+        <div class="mb-bucket-lbl">Very Poor 🔴</div><div class="mb-bucket-time">Less than 30 minutes</div><div class="mb-bucket-contents" id="bkt-vp-c"></div>
+      </div>
+      <div class="mb-bucket q-po" id="bkt-po" ondragover="dOver(event)" ondrop="dDrop(event,'po')" onclick="bucketTap('po')">
+        <div class="mb-bucket-lbl">Poor 🟠</div><div class="mb-bucket-time">30 to 120 minutes</div><div class="mb-bucket-contents" id="bkt-po-c"></div>
+      </div>
+      <div class="mb-bucket q-sa" id="bkt-sa" ondragover="dOver(event)" ondrop="dDrop(event,'sa')" onclick="bucketTap('sa')">
+        <div class="mb-bucket-lbl">Satisfactory 🟡</div><div class="mb-bucket-time">2 to 5 hours</div><div class="mb-bucket-contents" id="bkt-sa-c"></div>
+      </div>
+      <div class="mb-bucket q-go" id="bkt-go" ondragover="dOver(event)" ondrop="dDrop(event,'go')" onclick="bucketTap('go')">
+        <div class="mb-bucket-lbl">Good / Excellent 🟢</div><div class="mb-bucket-time">More than 5 hours</div><div class="mb-bucket-contents" id="bkt-go-c"></div>
+      </div>
     </div>
-    <div style="display:flex;gap:8px;margin-top:9px;align-items:center;flex-wrap:wrap;">
-      <button class="btn btn-bl" onclick="checkDrag()" id="check-drag-btn" disabled>✅ Check Answers</button>
-      <span id="drag-progress" style="font-size:.78em;color:var(--mg);">Tap a tube to begin</span>
+    <div style="display:flex;gap:9px;margin-top:10px;align-items:center;flex-wrap:wrap;">
+      <button class="btn btn-bl" onclick="checkDrag()" id="check-drag-btn" disabled>✅ Check My Answers</button>
+      <span id="drag-progress" style="font-size:.84em;color:var(--mg);">Tap a tube to begin</span>
     </div>
-    <div id="mb-result-row" style="margin-top:9px;"></div>
+    <div id="mb-result-row" style="margin-top:10px;"></div>
   </div>
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;"><button class="btn btn-bl" onclick="startMB()">▶ New Batch</button></div>
-  <div id="mbfb" style="margin-top:8px;"></div>
+  <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:5px;"><button class="btn btn-bl" onclick="startMB()">▶ New Batch</button></div>
+  <div id="mbfb" style="margin-top:9px;"></div>
 </div>
 
 <!-- ZONE 3 -->
 <div id="zone3" class="zone">
-  <div class="nav-banner gr"><span style="font-weight:700;font-size:.81em;">✅ Zone 2 cleared!</span><button class="next-btn gr" id="z3nb" onclick="jumpTo(4)" disabled>Next: Zone 4 🔬 →</button></div>
-  <div class="zh"><h2>🔥 Zone 3: The Thermal Chamber</h2><p>Set temp → start hold → stop at the right time!</p></div>
-  <div class="tip">📖 LTLT = 63–66°C / 30 min | HTST = 72°C / 15 sec | Cool to &lt;5°C. <span style="color:#e67e22;font-weight:700;">🎯 Precision stop = bonus!</span></div>
-  <div class="tv" id="tv"><div class="hp" id="hp"></div><div class="tmk"><div class="tmf" id="tmf"></div></div></div>
-  <div style="margin:7px 0;">
-    <label style="font-weight:700;font-size:.85em;display:block;margin-bottom:4px;">🌡️ Temperature: <strong><span id="z3tv">20</span>°C</strong></label>
-    <input type="range" id="z3sl" min="0" max="100" value="20" oninput="updT()">
+  <div class="nav-banner gr"><span style="font-weight:700;font-size:.9em;">✅ Zone 2 cleared!</span><button class="next-btn gr" id="z3nb" onclick="jumpTo(4)" disabled>Next: Zone 4 🔬 →</button></div>
+  <div class="zh"><h2>🔥 Zone 3: The Thermal Chamber — Pasteurisation</h2><p>Select a pasteurisation method, set the temperature, heat the milk, then cool it immediately!</p></div>
+  <div class="tip">📖 <strong>Park's Pasteurisation Methods:</strong><br>
+  • <strong>Holder (Vat) Method:</strong> heat to 63–66°C and hold for exactly 30 minutes<br>
+  • <strong>High Temperature Short Time (HTST):</strong> heat to 72°C and hold for exactly 15 seconds<br>
+  • <strong>Ultra High Temperature (UHT):</strong> heat to 125°C and hold for 2 to 4 seconds<br>
+  ⚠️ After any method, milk must be cooled <strong>immediately to 4°C or below</strong>. Milk held above 4°C allows microorganisms to grow.<br>
+  <span style="color:#e67e22;">🎯 Stop the timer as close to the target time as possible to earn a precision bonus!</span></div>
+
+  <!-- METHOD SELECTION BUTTONS -->
+  <div id="z3-method-select">
+    <div style="font-weight:800;font-size:.95em;margin-bottom:9px;color:#2c3e50;">Step 1 — Select a pasteurisation method:</div>
+    <div class="z3-method-btns">
+      <button class="z3-method-btn" id="mbtn-holder" onclick="selectMethod('HOLDER')">
+        <div class="method-name">🌡️ Holder (Vat) Method</div>
+        <div class="method-detail">Heat to 63–66°C • Hold for 30 minutes</div>
+      </button>
+      <button class="z3-method-btn" id="mbtn-htst" onclick="selectMethod('HTST')">
+        <div class="method-name">⚡ High Temperature Short Time (HTST)</div>
+        <div class="method-detail">Heat to 72°C • Hold for 15 seconds</div>
+      </button>
+      <button class="z3-method-btn" id="mbtn-uht" onclick="selectMethod('UHT')">
+        <div class="method-name">🔥 Ultra High Temperature (UHT)</div>
+        <div class="method-detail">Heat to 125°C • Hold for 2–4 seconds</div>
+      </button>
+    </div>
   </div>
-  <div class="z3sb" id="z3sb" style="background:#ecf0f1;color:#7f8c8d;">Adjust temperature to begin</div>
+
+  <!-- SLIDER (shown after method selected) -->
+  <div id="z3-slider-section" style="display:none;">
+    <div style="font-weight:800;font-size:.95em;margin-bottom:9px;color:#2c3e50;">Step 2 — Adjust the temperature using the slider:</div>
+    <div class="slider-wrap">
+      <label>🌡️ Temperature: <strong><span id="z3tv">20</span>°C</strong></label>
+      <input type="range" id="z3sl" min="0" max="150" value="20" oninput="updT()">
+    </div>
+    <div class="z3sb" id="z3sb" style="background:#ecf0f1;color:#7f8c8d;">Slide the temperature to the correct range for your selected method</div>
+    <div id="z3-heat-btn-wrap" style="display:none;margin-top:10px;">
+      <button class="btn btn-re" style="width:100%;font-size:1.05em;padding:13px;" onclick="startHold()">🔥 Start Heating</button>
+    </div>
+  </div>
+
+  <div class="tv" id="tv"><div class="hp" id="hp"></div><div class="tmk"><div class="tmf" id="tmf"></div></div></div>
+
+  <!-- HOLD TIMER -->
   <div class="z3tb" id="z3tb">
     <div class="z3th" id="z3th"></div>
     <div class="z3clk" id="z3clk">0:00</div>
     <div class="z3bw"><div class="z3br" id="z3br"></div></div>
-    <div style="text-align:center;margin-top:8px;"><button class="btn btn-re" onclick="stopHold()">⏹ Stop Hold Now</button></div>
+    <div style="text-align:center;margin-top:10px;">
+      <button class="btn btn-re" style="font-size:1em;padding:11px 24px;" onclick="stopHold()">⏹ Stop Heating Now</button>
+    </div>
   </div>
-  <div id="z3res" style="margin-top:8px;"></div>
-  <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
-    <button class="btn btn-or" id="z3hb" onclick="startHold()" disabled>⏱ Start Hold</button>
-    <button class="btn btn-bl" id="z3cb" style="display:none;" onclick="coolDown()">❄️ Cool to &lt;5°C</button>
-    <button class="btn btn-gr" onclick="resetZ3()">↺ Reset</button>
+
+  <div id="z3res" style="margin-top:9px;"></div>
+  <div style="margin-top:11px;display:flex;gap:9px;flex-wrap:wrap;">
+    <button class="btn btn-bl" id="z3cb" style="display:none;font-size:1em;padding:11px 18px;" onclick="coolDown()">❄️ Cool the Milk Now</button>
+    <button class="btn btn-gr" onclick="resetZ3()" style="font-size:.95em;">↺ Reset</button>
   </div>
 </div>
 
 <!-- ZONE 4 -->
 <div id="zone4" class="zone">
-  <div class="nav-banner pu"><span style="font-weight:700;font-size:.81em;">✅ Zone 3 cleared! Final check.</span><button class="next-btn pu" id="z4fb" onclick="showFinalScreen()" disabled>🎓 Finish Game</button></div>
-  <div class="zh"><h2>🔬 Zone 4: The Quality Lab</h2><p>First-try correct answers = 2× score bonus!</p></div>
-  <div class="tip">📖 Phosphatase → <strong>Negative</strong> (clear = ✅; yellow = ❌) | SPC ≤ 30,000/mL | Coliform = Zero/mL. <span style="color:#e67e22;font-weight:700;">🎯 First-try = 2× pts!</span></div>
+  <div class="nav-banner pu"><span style="font-weight:700;font-size:.9em;">✅ Zone 3 cleared! Final tests.</span><button class="next-btn pu" id="z4fb" onclick="showFinalScreen()" disabled>🎓 Finish Game</button></div>
+  <div class="zh"><h2>🔬 Zone 4: Tests for Adequate Pasteurisation</h2><p>Examine each test result carefully — pass or reject each one!</p></div>
+  <div class="tip">📖 <strong>Park's Quality Standards for Pasteurised Milk:</strong><br>
+  • <strong>Phosphatase Test:</strong> Must be <strong>Negative</strong> — clear or colourless tube = adequate pasteurisation ✅; yellow tube = pasteurisation failed ❌<br>
+  • <strong>Standard Plate Count:</strong> Must be <strong>30,000 or fewer organisms per millilitre</strong><br>
+  • <strong>Coliform Count:</strong> Must be <strong>Zero per 1 millilitre</strong><br>
+  <span style="color:#e67e22;">🎯 Answering correctly on your first attempt earns double points (2×)!</span></div>
   <div class="lbs" id="lbs"></div>
-  <div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-    <button class="btn btn-pu" onclick="genBatch()">🔄 New Batch</button>
-    <span id="z4msg" style="font-weight:700;font-size:.8em;"></span>
+  <div style="margin-top:11px;display:flex;gap:9px;align-items:center;flex-wrap:wrap;">
+    <button class="btn btn-pu" onclick="genBatch()" style="font-size:.95em;">🔄 New Batch</button>
+    <span id="z4msg" style="font-weight:700;font-size:.88em;"></span>
   </div>
 </div>
-</div>
+</div><!-- end game-body -->
 <div class="fb" id="fb"></div>
 
 <script>
-// AUDIO
+// ===== AUDIO =====
 let sndOn=true,actx=null;
 function getAC(){if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();return actx;}
 function tone(f,t,d,v=.36){if(!sndOn||f===0)return;try{const c=getAC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.type=t;o.frequency.value=f;g.gain.setValueAtTime(v,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+d);o.start();o.stop(c.currentTime+d);}catch(e){}}
@@ -411,9 +520,9 @@ function sndCool(){[1047,880,659].forEach((f,i)=>setTimeout(()=>tone(f,'sine',.1
 function sndClk(){tone(740,'sine',.05,.1);}
 function sndFail(){[280,190,140].forEach((f,i)=>setTimeout(()=>tone(f,'sawtooth',.2,.22),i*105));}
 function sndBonus(){[784,880,1047,1175].forEach((f,i)=>setTimeout(()=>tone(f,'sine',.3,.22),i*80));}
-function toggleSnd(){sndOn=!sndOn;document.getElementById('snd-btn').textContent=sndOn?'🔊 ON':'🔇 OFF';if(sndOn){sndClk();if(!bgmPlaying)startBGM();}else stopBGM();}
+function toggleSnd(){sndOn=!sndOn;document.getElementById('snd-btn').textContent=sndOn?'🔊 Sound ON':'🔇 Sound OFF';if(sndOn){sndClk();if(!bgmPlaying)startBGM();}else stopBGM();}
 
-// BGM
+// ===== BGM =====
 const C4=261.6,D4=293.7,E4=329.6,G4=392,A4=440,B4=493.9,R=0;const BEAT=500;
 const BGM_SONGS=[
   [[G4,.5],[G4,.5],[G4,.5],[D4,.5],[E4,.5],[E4,.5],[D4,1],[R,.2],[B4,.5],[B4,.5],[A4,.5],[A4,.5],[G4,1.5],[R,.2],[D4,.5],[D4,.5],[G4,.5],[G4,.5],[G4,.5],[G4,.5],[G4,1],[R,.2],[B4,.5],[B4,.5],[A4,.5],[A4,.5],[G4,1.5],[R,.2],[D4,.5],[D4,.5],[R,.2],[D4,.5],[D4,.5],[R,.2],[G4,.5],[G4,.5],[R,.2],[G4,.5],[G4,.5],[R,.2],[D4,.5],[D4,.5],[D4,.5],[D4,.5],[D4,.5],[D4,.5],[G4,.5],[G4,.5],[G4,.5],[G4,.5],[G4,.75],[R,.25],[G4,.5],[G4,.5],[G4,.5],[D4,.5],[E4,.5],[E4,.5],[D4,1],[R,.2],[B4,.5],[B4,.5],[A4,.5],[A4,.5],[G4,2],[R,.5]],
@@ -424,48 +533,19 @@ function playBGMNote(){if(!sndOn||!bgmPlaying)return;const song=BGM_SONGS[bgmSon
 function startBGM(){if(bgmPlaying)return;bgmPlaying=true;bgmNote=0;bgmSong=0;playBGMNote();}
 function stopBGM(){bgmPlaying=false;if(bgmTo){clearTimeout(bgmTo);bgmTo=null;}}
 
-// CONFETTI
+// ===== CONFETTI =====
 const cvs=document.getElementById('confetti-canvas');const ctx2=cvs.getContext('2d');
 let confParts=[],confAnim=null;
 const CCOLS=['#e74c3c','#f9c74f','#27ae60','#2980b9','#8e44ad','#e67e22','#fff','#ff69b4'];
 function launchConfetti(){cvs.width=window.innerWidth;cvs.height=window.innerHeight;confParts=[];for(let i=0;i<220;i++){confParts.push({x:Math.random()*cvs.width,y:Math.random()*cvs.height-cvs.height,w:6+Math.random()*9,h:10+Math.random()*13,col:CCOLS[Math.floor(Math.random()*CCOLS.length)],rot:Math.random()*360,rotV:(Math.random()-.5)*6,vx:(Math.random()-.5)*3,vy:2+Math.random()*4,alpha:1});}let run=true;function draw(){if(!run)return;ctx2.clearRect(0,0,cvs.width,cvs.height);let alive=false;confParts.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.rot+=p.rotV;if(p.y>cvs.height*.88)p.alpha-=.013;if(p.alpha>0)alive=true;ctx2.save();ctx2.globalAlpha=Math.max(0,p.alpha);ctx2.translate(p.x+p.w/2,p.y+p.h/2);ctx2.rotate(p.rot*Math.PI/180);ctx2.fillStyle=p.col;ctx2.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx2.restore();});if(alive)confAnim=requestAnimationFrame(draw);else ctx2.clearRect(0,0,cvs.width,cvs.height);}if(confAnim)cancelAnimationFrame(confAnim);confAnim=requestAnimationFrame(draw);}
 
-// LEADERBOARD — JSONBin.io
+// ===== LEADERBOARD (JSONBin) =====
 const JB_KEY='$2a$10$YobXcWW3rnVD73zr/wuxNOXGbd0CeWkOj9FQsTGOaXI4ItxB9S1SO';
 const JB_BIN='69bf6d3ec3097a1dd549682a';
 const JB_URL='https://api.jsonbin.io/v3/b/'+JB_BIN;
-
-async function lbLoad(){
-  try{
-    const r=await fetch(JB_URL+'/latest',{headers:{'X-Master-Key':JB_KEY,'X-Bin-Meta':false}});
-    if(!r.ok)return[];
-    const data=await r.json();
-    return Array.isArray(data.scores)?data.scores:[];
-  }catch(e){return[];}
-}
-
-async function lbSave(name,score){
-  try{
-    const existing=await lbLoad();
-    existing.push({name,score,date:new Date().toLocaleDateString()});
-    existing.sort((a,b)=>b.score-a.score);
-    const top20=existing.slice(0,20);
-    await fetch(JB_URL,{
-      method:'PUT',
-      headers:{'Content-Type':'application/json','X-Master-Key':JB_KEY},
-      body:JSON.stringify({scores:top20})
-    });
-    return top20;
-  }catch(e){return[];}
-}
-
-async function lbGetPB(name){
-  try{
-    const entries=await lbLoad();
-    const mine=entries.filter(e=>e.name.toLowerCase()===name.toLowerCase());
-    return mine.length?Math.max(...mine.map(e=>e.score)):0;
-  }catch(e){return 0;}
-}
+async function lbLoad(){try{const r=await fetch(JB_URL+'/latest',{headers:{'X-Master-Key':JB_KEY,'X-Bin-Meta':false}});if(!r.ok)return[];const data=await r.json();return Array.isArray(data.scores)?data.scores:[];}catch(e){return[];}}
+async function lbSave(name,score){try{const existing=await lbLoad();existing.push({name,score,date:new Date().toLocaleDateString()});existing.sort((a,b)=>b.score-a.score);const top20=existing.slice(0,20);await fetch(JB_URL,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':JB_KEY},body:JSON.stringify({scores:top20})});return top20;}catch(e){return[];}}
+async function lbGetPB(name){try{const entries=await lbLoad();const mine=entries.filter(e=>e.name.toLowerCase()===name.toLowerCase());return mine.length?Math.max(...mine.map(e=>e.score)):0;}catch(e){return 0;}}
 function renderLeaderboard(entries,playerName,containerId){
   const el=document.getElementById(containerId);
   if(!entries||!entries.length){el.innerHTML='<div class="lb-empty">No scores yet — be the first! 🥛</div>';return;}
@@ -477,40 +557,34 @@ function renderLeaderboard(entries,playerName,containerId){
   }).join('');
 }
 
-// STATE
+// ===== STATE =====
 let playerName='Player';
 let S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,z2RevealTime:0};
 let mb={run:false,iv:null,el:0,smp:[],placed:{},dragId:null,selectedTube:null};
 let zpopNextZone=0,z3Iv=null,zoneStdSeen={1:false,2:false,3:false,4:false};
 
-// WELCOME
-function startWithName(){
-  const n=document.getElementById('player-name').value.trim();
-  if(!n){document.getElementById('player-name').style.borderColor='#e74c3c';return;}
-  playerName=n;
-  document.getElementById('welcome-ov').classList.remove('show');
-  document.getElementById('intro-ov').classList.add('show');
-}
+// ===== WELCOME =====
+function startWithName(){const n=document.getElementById('player-name').value.trim();if(!n){document.getElementById('player-name').style.borderColor='#e74c3c';return;}playerName=n;document.getElementById('welcome-ov').classList.remove('show');document.getElementById('intro-ov').classList.add('show');}
 document.getElementById('player-name').addEventListener('keydown',e=>{if(e.key==='Enter')startWithName();});
 async function viewLeaderboardOnly(){const entries=await lbLoad();renderLeaderboard(entries,'','lb-only-list');document.getElementById('lb-only-ov').classList.add('show');}
 
-// ZONE STANDARDS
+// ===== ZONE STANDARDS =====
 const ZONE_STDS={
-  1:{title:'🌾 Zone 1 — Park\'s Hygiene Rules',color:'#eafaf1',border:'#27ae60',html:'<ul style="padding-left:15px;line-height:1.85;font-size:.79em;"><li>Milk from <strong>healthy udders</strong> only</li><li>Sanitary animal premises essential</li><li>Handlers must be <strong>disease-free</strong></li><li>Use <strong>sterile, tight-lidded pails</strong></li></ul>'},
-  2:{title:'🔵 Zone 2 — MBRT Standards',color:'#e8f4fd',border:'#2980b9',html:'<ul style="padding-left:15px;line-height:1.85;font-size:.79em;"><li><strong>&lt;30 min</strong> → Very Poor 🔴</li><li><strong>30–120 min</strong> → Poor 🟠</li><li><strong>2–5 hrs</strong> → Satisfactory 🟡</li><li><strong>&gt;5 hrs</strong> → Good/Excellent 🟢</li></ul>'},
-  3:{title:'🔥 Zone 3 — Pasteurisation',color:'#fef5e7',border:'#e67e22',html:'<ul style="padding-left:15px;line-height:1.85;font-size:.79em;"><li>Holder/LTLT: <strong>63–66°C for 30 min</strong></li><li>HTST: <strong>72°C for 15 sec</strong></li><li>Cool to <strong>&lt;5°C</strong> immediately after</li></ul>'},
-  4:{title:'🔬 Zone 4 — Quality Standards',color:'#f5eef8',border:'#8e44ad',html:'<ul style="padding-left:15px;line-height:1.85;font-size:.79em;"><li>Phosphatase: <strong>Negative</strong> (clear = ✅; yellow = ❌)</li><li>SPC: <strong>≤ 30,000/mL</strong></li><li>Coliform: <strong>Zero/mL</strong></li></ul>'}
+  1:{title:'🌾 Zone 1 — Hygiene Rules',color:'#eafaf1',border:'#27ae60',html:'<ul style="padding-left:16px;line-height:1.9;font-size:.9em;"><li>Milk from <strong>healthy udders</strong> only</li><li>Animal premises must be clean and sanitary</li><li>Handlers must be <strong>free of disease</strong></li><li>Use <strong>sterile pails with tight lids</strong></li><li>No carriers of typhoid or streptococcal disease</li></ul>'},
+  2:{title:'🔵 Zone 2 — Methylene Blue Reduction Test',color:'#e8f4fd',border:'#2980b9',html:'<ul style="padding-left:16px;line-height:1.9;font-size:.9em;"><li>Less than <strong>30 minutes</strong> to decolorise → Very Poor quality 🔴</li><li><strong>30 to 120 minutes</strong> → Poor quality 🟠</li><li><strong>2 to 5 hours</strong> → Satisfactory quality 🟡</li><li>More than <strong>5 hours</strong> (stays blue) → Good to Excellent 🟢</li></ul>'},
+  3:{title:'🔥 Zone 3 — Pasteurisation Methods',color:'#fef5e7',border:'#e67e22',html:'<ul style="padding-left:16px;line-height:1.9;font-size:.9em;"><li><strong>Holder (Vat) Method:</strong> 63–66°C for 30 minutes</li><li><strong>High Temperature Short Time (HTST):</strong> 72°C for 15 seconds</li><li><strong>Ultra High Temperature (UHT):</strong> 125°C for 2–4 seconds</li><li>Cool milk <strong>immediately to 4°C or below</strong> after heating</li></ul>'},
+  4:{title:'🔬 Zone 4 — Tests for Adequate Pasteurisation',color:'#f5eef8',border:'#8e44ad',html:'<ul style="padding-left:16px;line-height:1.9;font-size:.9em;"><li><strong>Phosphatase Test:</strong> Must be Negative (clear = ✅; yellow = ❌)</li><li><strong>Standard Plate Count:</strong> 30,000 or fewer per millilitre</li><li><strong>Coliform Count:</strong> Zero per 1 millilitre</li></ul>'}
 };
 function closeIntro(){document.getElementById('intro-ov').classList.remove('show');document.getElementById('game-body').style.display='block';if(sndOn)startBGM();showZoneStd(1);}
-function showZoneStd(n){if(zoneStdSeen[n])return;zoneStdSeen[n]=true;const s=ZONE_STDS[n];document.getElementById('zstd-title').textContent=s.title;const b=document.getElementById('zstd-body');b.style.background=s.color;b.style.borderLeft='4px solid '+s.border;b.style.borderRadius='8px';b.style.padding='9px 11px';b.innerHTML=s.html;document.getElementById('zone-std-ov').classList.add('show');}
+function showZoneStd(n){if(zoneStdSeen[n])return;zoneStdSeen[n]=true;const s=ZONE_STDS[n];document.getElementById('zstd-title').textContent=s.title;const b=document.getElementById('zstd-body');b.style.background=s.color;b.style.borderLeft='4px solid '+s.border;b.style.borderRadius='8px';b.style.padding='10px 13px';b.innerHTML=s.html;document.getElementById('zone-std-ov').classList.add('show');}
 function closeZoneStd(){document.getElementById('zone-std-ov').classList.remove('show');}
 
-// GLOBAL TIMER
+// ===== GLOBAL TIMER =====
 function startGlobalTimer(){if(S.globalStart)return;S.globalStart=Date.now();S.globalTimerIv=setInterval(()=>{S.globalElapsed=Math.floor((Date.now()-S.globalStart)/1000);const m=Math.floor(S.globalElapsed/60),s=S.globalElapsed%60;document.getElementById('global-timer').textContent=m+':'+(s<10?'0':'')+s;},500);}
 function stopGlobalTimer(){if(S.globalTimerIv){clearInterval(S.globalTimerIv);S.globalTimerIv=null;}}
 function calcSpeedBonus(){const t=S.globalElapsed;if(t<=240)return 150;if(t<=360)return 100;if(t<=480)return 50;return 0;}
 
-// NAV
+// ===== NAV =====
 function sw(n,fromJump){
   if(!fromJump)sndClk();
   if(document.getElementById('zone2').classList.contains('active')&&n!==2)stopMB();
@@ -525,15 +599,15 @@ function jumpTo(n){sndClk();stopMB();sw(n,true);}
 function unlock(n){document.getElementById('tab'+n).disabled=false;}
 function updHUD(){document.getElementById('tsco').textContent=S.tsco;document.getElementById('livd').textContent=S.lives;document.getElementById('streak-disp').textContent=S.z1streak;}
 function addSco(p){S.tsco+=p;updHUD();}
-function showFB(msg,ok,type){const b=document.getElementById('fb');b.textContent=msg;b.className='fb show '+(type==='bonus'?'bonus':ok?'ok':'bad');setTimeout(()=>b.className='fb',2600);}
+function showFB(msg,ok,type){const b=document.getElementById('fb');b.textContent=msg;b.className='fb show '+(type==='bonus'?'bonus':ok?'ok':'bad');setTimeout(()=>b.className='fb',2700);}
 function showZpop(title,msg,nextZone,hint){zpopNextZone=nextZone;document.getElementById('zpop-title').textContent=title;document.getElementById('zpop-msg').textContent=msg;const hEl=document.getElementById('zpop-hint');if(hint){hEl.textContent=hint;hEl.style.display='block';}else{hEl.style.display='none';}const nb=document.getElementById('zpop-nxt');if(nextZone){nb.textContent='→ Go to Zone '+nextZone;nb.style.display='inline-block';}else{nb.style.display='none';}document.getElementById('zpop-ov').classList.add('show');}
 function zpopGo(){closeZpop();if(zpopNextZone)jumpTo(zpopNextZone);}
 function closeZpop(){document.getElementById('zpop-ov').classList.remove('show');}
 
-// ZONE 1
+// ===== ZONE 1 =====
 const SAFE=['🥛','🧹','🧤'],DNG=['🪰','💩','🤧'];
 const PTS={'🥛':15,'🧹':20,'🧤':10,'🪰':-1,'💩':-1,'🤧':-1};
-const LBL={'🥛':'Sterile Pail','🧹':'Clean Premises','🧤':'Gloves','🪰':'Fly!','💩':'Waste!','🤧':'Sick Cow!'};
+const LBL={'🥛':'Sterile Pail','🧹':'Clean Premises','🧤':'Gloves','🪰':'Fly contamination!','💩':'Waste contamination!','🤧':'Sick Cow!'};
 function startZ1(){
   const info=document.getElementById('z1info');if(info)info.style.display='none';
   document.getElementById('z1done').style.display='none';
@@ -541,18 +615,17 @@ function startZ1(){
   document.getElementById('z1s').textContent='0';document.getElementById('z1l').textContent='3';
   document.getElementById('z1streak').style.display='none';
   const cv=document.getElementById('gcv');cv.addEventListener('mousemove',mvZ1);cv.addEventListener('touchmove',tchZ1,{passive:false});
-  if(S.z1af)cancelAnimationFrame(S.z1af);
-  if(!bgmPlaying&&sndOn)startBGM();startGlobalTimer();
+  if(S.z1af)cancelAnimationFrame(S.z1af);if(!bgmPlaying&&sndOn)startBGM();startGlobalTimer();
   let last=0,si=1150;
   function loop(ts){if(!S.z1run)return;if(ts-last>si){spawnZ1();last=ts;si=Math.max(640,si-7);}updZ1();S.z1af=requestAnimationFrame(loop);}
   S.z1af=requestAnimationFrame(loop);
 }
-function mvZ1(e){const r=document.getElementById('gcv').getBoundingClientRect();S.z1bx=Math.max(5,Math.min(95,((e.clientX-r.left)/r.width)*100));document.getElementById('bkt').style.left='calc('+S.z1bx+'% - 27px)';}
-function tchZ1(e){e.preventDefault();const r=document.getElementById('gcv').getBoundingClientRect();S.z1bx=Math.max(5,Math.min(95,((e.touches[0].clientX-r.left)/r.width)*100));document.getElementById('bkt').style.left='calc('+S.z1bx+'% - 27px)';}
+function mvZ1(e){const r=document.getElementById('gcv').getBoundingClientRect();S.z1bx=Math.max(5,Math.min(95,((e.clientX-r.left)/r.width)*100));document.getElementById('bkt').style.left='calc('+S.z1bx+'% - 28px)';}
+function tchZ1(e){e.preventDefault();const r=document.getElementById('gcv').getBoundingClientRect();S.z1bx=Math.max(5,Math.min(95,((e.touches[0].clientX-r.left)/r.width)*100));document.getElementById('bkt').style.left='calc('+S.z1bx+'% - 28px)';}
 function spawnZ1(){const cv=document.getElementById('gcv');const all=[...SAFE,...DNG];const em=all[Math.floor(Math.random()*all.length)];const el=document.createElement('div');el.className='fitem';el.textContent=em;const xp=5+Math.random()*90;el.style.left=xp+'%';el.style.top='0px';cv.appendChild(el);S.z1it.push({el,xp,y:0,sp:1.3+Math.random()*1.3,em});}
 function spawnFL(xp,y,txt,col){const cv=document.getElementById('gcv');const el=document.createElement('div');el.className='cfl';el.textContent=txt;el.style.left='calc('+xp+'% - 18px)';el.style.top=(y-16)+'px';el.style.color=col;cv.appendChild(el);setTimeout(()=>el.remove(),680);}
 function updZ1(){
-  const cv=document.getElementById('gcv');const H=cv.clientHeight,bY=H-48,bL=S.z1bx-5,bR=S.z1bx+5;
+  const cv=document.getElementById('gcv');const H=cv.clientHeight,bY=H-50,bL=S.z1bx-5,bR=S.z1bx+5;
   S.z1it=S.z1it.filter(it=>{
     it.y+=it.sp;it.el.style.top=it.y+'px';
     if(it.y>=bY-8&&it.y<=bY+22&&it.xp>=bL&&it.xp<=bR){
@@ -564,7 +637,7 @@ function updZ1(){
         const sd=document.getElementById('z1streak');const sn=document.getElementById('z1streak-num');
         if(S.z1streak>=2){sd.style.display='block';sn.textContent=S.z1streak;sndStreak();}
         updHUD();spawnFL(it.xp,it.y,sb>0?'+'+total+' (🔥+'+sb+')':'+'+p,sb>0?'#f9c74f':'#f9e04b');
-        if(sb>0)showFB('🔥 Streak x'+S.z1streak+'! +'+total+' pts',true,'bonus');else showFB('✅ '+LBL[it.em]+'! +'+p+' pts',true);
+        if(sb>0)showFB('🔥 Streak x'+S.z1streak+'! +'+total+' points',true,'bonus');else showFB('✅ '+LBL[it.em]+'! +'+p+' points',true);
         if(S.z1s>=250&&!S.zd[0])endZ1(true);
       }else{
         S.z1streak=0;document.getElementById('z1streak').style.display='none';updHUD();
@@ -581,19 +654,19 @@ function endZ1(win){
   S.z1run=false;if(S.z1af)cancelAnimationFrame(S.z1af);S.z1it.forEach(i=>i.el.remove());S.z1it=[];
   const info=document.getElementById('z1info');if(info)info.style.display='block';
   if(win){
-    const lb=S.z1l*25;if(lb>0){S.bonusLives=lb;addSco(lb);sndBonus();showFB('❤️ '+S.z1l+' lives remaining! +'+lb+' bonus pts!',true,'bonus');}
+    const lb=S.z1l*25;if(lb>0){S.bonusLives=lb;addSco(lb);sndBonus();showFB('❤️ '+S.z1l+' lives remaining! +'+lb+' bonus points!',true,'bonus');}
     S.zd[0]=true;updHUD();sndDone();unlock(2);document.getElementById('tab1').innerHTML='🌾 Z1 ✅';document.getElementById('z1done').style.display='flex';
-    if(info)info.innerHTML='<div style="font-size:1.1em;font-weight:800;margin-bottom:4px;">🎉 Zone 1 Done!</div><div style="font-size:.78em;color:#5d3a00;">Click below or use tab!</div>';
-    setTimeout(()=>showZpop('🎉 Zone 1 Complete!','Hygiene Champion! 🔥 Max streak: '+S.z1maxStreak,2,null),3000);
+    if(info)info.innerHTML='<div style="font-size:1.15em;font-weight:800;margin-bottom:5px;">🎉 Zone 1 Complete!</div><div style="font-size:.88em;color:#5d3a00;">Click the button below or use the tab above!</div>';
+    setTimeout(()=>showZpop('🎉 Zone 1 Complete!','Hygiene Champion! 🔥 Maximum streak: '+S.z1maxStreak,2,null),3000);
   }else{
-    sndFail();if(info)info.innerHTML='<div style="font-size:1.05em;font-weight:800;margin-bottom:7px;">💀 Game Over!</div><button class="btn btn-gr" onclick="startZ1()">↺ Try Again</button>';
-    showFB('Out of lives! Restart to try again.',false);
+    sndFail();if(info)info.innerHTML='<div style="font-size:1.1em;font-weight:800;margin-bottom:8px;">💀 Game Over!</div><button class="btn btn-gr" onclick="startZ1()">↺ Try Again</button>';
+    showFB('Out of lives! Tap Restart to try again.',false);
   }
 }
 
-// ZONE 2 — TAP-FIRST SYSTEM
+// ===== ZONE 2 =====
 function getBucket(da){if(da<30)return'vp';if(da<120)return'po';if(da<300)return'sa';return'go';}
-const MB_POOL=[{label:'Sample A',da:15,q:'Very Poor'},{label:'Sample B',da:90,q:'Poor'},{label:'Sample C',da:240,q:'Satisfactory'},{label:'Sample D',da:420,q:'Good/Excellent'}];
+const MB_POOL=[{label:'Sample A',da:15,q:'Very Poor'},{label:'Sample B',da:90,q:'Poor'},{label:'Sample C',da:240,q:'Satisfactory'},{label:'Sample D',da:420,q:'Good / Excellent'}];
 function stopMB(){if(mb.iv){clearInterval(mb.iv);mb.iv=null;}mb.run=false;}
 function startMB(){
   sndClk();stopMB();
@@ -601,22 +674,25 @@ function startMB(){
   document.getElementById('mb-phase-watch').style.display='block';
   document.getElementById('mb-phase-drag').style.display='none';
   document.getElementById('mbfb').innerHTML='';
-  document.getElementById('mbclk').textContent='⏱ 0 min';
+  document.getElementById('mbclk').textContent='⏱ 0 minutes';
   document.getElementById('mb-speed-hint').textContent='';
   const rb=document.getElementById('reveal-btn');
-  rb.disabled=true;rb.classList.remove('ready');rb.style.opacity='.4';rb.style.pointerEvents='none';rb.style.cursor='not-allowed';
-  document.getElementById('reveal-btn-sub').textContent='Waiting for tubes to decolorise...';
+  rb.disabled=true;rb.classList.remove('ready');rb.style.opacity='.4';rb.style.cursor='not-allowed';
+  document.getElementById('reveal-btn-sub').textContent='Waiting for tubes to begin decolorising — please wait for 30 simulated minutes...';
   mb.el=0;mb.placed={};mb.dragId=null;mb.selectedTube=null;
   mb.smp=[...MB_POOL].sort(()=>Math.random()-.5).slice(0,3);
   renderMBWatch();mb.run=true;
+  // faster timer: 72ms per simulated minute
   mb.iv=setInterval(()=>{
-    mb.el++;document.getElementById('mbclk').textContent='⏱ '+mb.el+' min';updMBWatch();
+    mb.el++;
+    document.getElementById('mbclk').textContent='⏱ '+mb.el+' minute'+(mb.el===1?'':'s');
+    updMBWatch();
     if(mb.el%5===0)sndTick();
-    if(mb.el===30){const rb2=document.getElementById('reveal-btn');rb2.disabled=false;rb2.classList.add('ready');rb2.style.opacity='1';rb2.style.pointerEvents='auto';rb2.style.cursor='pointer';document.getElementById('reveal-btn-sub').textContent='✅ Ready! Tap to classify the tubes.';}
+    if(mb.el===30){const rb2=document.getElementById('reveal-btn');rb2.disabled=false;rb2.classList.add('ready');rb2.style.opacity='1';rb2.style.cursor='pointer';document.getElementById('reveal-btn-sub').textContent='✅ Ready! Tap to reveal and classify the tubes.';}
     const allDeco=mb.smp.every(s=>mb.el>=s.da);
-    if(allDeco&&mb.el<450)document.getElementById('mb-speed-hint').textContent='⚡ All decolorized! Reveal now for a speed bonus!';
+    if(allDeco&&mb.el<450)document.getElementById('mb-speed-hint').textContent='⚡ All tubes decolorised! Reveal now for a speed bonus!';
     if(mb.el>=480)stopMB();
-  },98);
+  },72);
 }
 function renderMBWatch(){
   const c=document.getElementById('mbc');c.innerHTML='';
@@ -625,7 +701,7 @@ function renderMBWatch(){
 function updMBWatch(){
   mb.smp.forEach((s,i)=>{
     const f=document.getElementById('mwf'+i);if(!f)return;
-    if(mb.el>=s.da){const p=Math.min(1,(mb.el-s.da)/30);const r2=Math.round(52+(236-52)*p),g=Math.round(152+(240-152)*p),b2=Math.round(185+(250-185)*p);f.style.background=`rgb(${r2},${g},${b2})`;document.getElementById('mwt'+i).textContent='Decolorized @ '+s.da+'m';sndBub();}
+    if(mb.el>=s.da){const p=Math.min(1,(mb.el-s.da)/30);const r2=Math.round(52+(236-52)*p),g=Math.round(152+(240-152)*p),b2=Math.round(185+(250-185)*p);f.style.background=`rgb(${r2},${g},${b2})`;document.getElementById('mwt'+i).textContent='Decolorised at '+s.da+' min';sndBub();}
     else{const int=Math.max(20,100-(mb.el/s.da)*30);f.style.background=`hsl(207,70%,${int}%)`;}
   });
 }
@@ -634,15 +710,12 @@ function revealDrag(){
   document.getElementById('mb-phase-watch').style.display='none';
   document.getElementById('mb-phase-drag').style.display='block';
   ['vp','po','sa','go'].forEach(k=>{document.getElementById('bkt-'+k+'-c').innerHTML='';});
-  mb.placed={};mb.selectedTube=null;mb.dragId=null;
-  updateDragProgress();
+  mb.placed={};mb.selectedTube=null;mb.dragId=null;updateDragProgress();
   const row=document.getElementById('mb-drag-tubes');row.innerHTML='';
   mb.smp.forEach((s,i)=>{
-    const srcFill=document.getElementById('mwf'+i);
-    const bg=srcFill?srcFill.style.background:'#ecf0f1';
-    const el=document.createElement('div');el.className='mb-card';el.id='dtube'+i;
-    el.setAttribute('draggable','true');
-    el.innerHTML=`<div class="mb-tube-sm" style="position:relative;"><div style="position:absolute;bottom:0;left:0;right:0;height:90%;background:${bg};"></div></div><div class="mb-card-lbl">${s.label}</div><div class="mb-card-time">${mb.el>=s.da?'Decolorized @ '+s.da+'m':'Still blue @ '+mb.el+'m'}</div>`;
+    const srcFill=document.getElementById('mwf'+i);const bg=srcFill?srcFill.style.background:'#ecf0f1';
+    const el=document.createElement('div');el.className='mb-card';el.id='dtube'+i;el.setAttribute('draggable','true');
+    el.innerHTML=`<div class="mb-tube-sm" style="position:relative;"><div style="position:absolute;bottom:0;left:0;right:0;height:90%;background:${bg};"></div></div><div class="mb-card-lbl">${s.label}</div><div class="mb-card-time">${mb.el>=s.da?'Decolorised at '+s.da+' min':'Still blue at '+mb.el+' min'}</div>`;
     el.addEventListener('dragstart',e=>{mb.dragId=i;el.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(i));});
     el.addEventListener('dragend',()=>el.classList.remove('dragging'));
     el.addEventListener('click',e=>{e.stopPropagation();tubeTap(i);});
@@ -652,22 +725,14 @@ function revealDrag(){
 function tubeTap(idx){
   if(Object.values(mb.placed).includes(idx))return;
   mb.smp.forEach((_,i)=>{const c=document.getElementById('dtube'+i);if(c)c.classList.remove('selected');});
-  if(mb.selectedTube===idx){
-    mb.selectedTube=null;mb.dragId=null;
-    ['vp','po','sa','go'].forEach(k=>{const bk=document.getElementById('bkt-'+k);if(bk)bk.classList.remove('bucket-highlight');});
-    updateDragProgress();return;
-  }
+  if(mb.selectedTube===idx){mb.selectedTube=null;mb.dragId=null;['vp','po','sa','go'].forEach(k=>{const bk=document.getElementById('bkt-'+k);if(bk)bk.classList.remove('bucket-highlight');});updateDragProgress();return;}
   mb.selectedTube=idx;mb.dragId=idx;
   const card=document.getElementById('dtube'+idx);if(card)card.classList.add('selected');
   ['vp','po','sa','go'].forEach(k=>{const bk=document.getElementById('bkt-'+k);if(bk)bk.classList.add('bucket-highlight');});
-  document.getElementById('drag-progress').textContent='✅ '+mb.smp[idx].label+' selected — tap a bucket below!';
+  document.getElementById('drag-progress').textContent='✅ '+mb.smp[idx].label+' selected — now tap a quality bucket below!';
   sndClk();
 }
-function bucketTap(bktKey){
-  const idx=mb.selectedTube!==null?mb.selectedTube:(mb.dragId!==null?mb.dragId:null);
-  if(idx===null)return;
-  placeTube(idx,bktKey);
-}
+function bucketTap(bktKey){const idx=mb.selectedTube!==null?mb.selectedTube:(mb.dragId!==null?mb.dragId:null);if(idx===null)return;placeTube(idx,bktKey);}
 function placeTube(idx,bktKey){
   Object.keys(mb.placed).forEach(k=>{if(mb.placed[k]===idx){delete mb.placed[k];document.getElementById('bkt-'+k+'-c').querySelectorAll('[data-idx="'+idx+'"]').forEach(el=>el.remove());}});
   mb.placed[bktKey]=idx;
@@ -682,123 +747,226 @@ function dOver(e){e.preventDefault();e.currentTarget.classList.add('drag-over');
 function dDrop(e,bktKey){e.preventDefault();e.currentTarget.classList.remove('drag-over');const idx=mb.dragId!==null?mb.dragId:mb.selectedTube;if(idx===null)return;placeTube(idx,bktKey);}
 function updateDragProgress(){
   const placed=Object.keys(mb.placed).length,total=mb.smp.length;
-  if(placed>=total){document.getElementById('drag-progress').textContent='All placed! Click Check Answers ✅';document.getElementById('check-drag-btn').disabled=false;}
-  else if(mb.selectedTube!==null){document.getElementById('drag-progress').textContent='✅ '+mb.smp[mb.selectedTube].label+' selected — tap a bucket!';}
+  if(placed>=total){document.getElementById('drag-progress').textContent='All tubes placed! Click Check My Answers ✅';document.getElementById('check-drag-btn').disabled=false;}
+  else if(mb.selectedTube!==null){document.getElementById('drag-progress').textContent='✅ '+mb.smp[mb.selectedTube].label+' selected — tap a quality bucket!';}
   else{document.getElementById('drag-progress').textContent='Tap a tube to select it ('+placed+'/'+total+' placed)';document.getElementById('check-drag-btn').disabled=true;}
 }
 function checkDrag(){
-  sndClk();let correct=0;const res=[];const bktLabels={vp:'Very Poor',po:'Poor',sa:'Satisfactory',go:'Good/Excellent'};
+  sndClk();let correct=0;const res=[];const bktLabels={vp:'Very Poor',po:'Poor',sa:'Satisfactory',go:'Good / Excellent'};
   mb.smp.forEach((s,i)=>{const cb=getBucket(s.da);const pb=Object.keys(mb.placed).find(k=>mb.placed[k]===i);const ok=pb===cb;if(ok)correct++;res.push({label:s.label,ok,placed:bktLabels[pb]||'—',correct:bktLabels[cb]});});
   const allDeco=mb.smp.every(s=>S.z2RevealTime>=s.da);
-  const speedBonus=(!allDeco&&correct===mb.smp.length)?60:0;
-  if(speedBonus>0)S.bonusStreak+=speedBonus;
+  const speedBonus=(!allDeco&&correct===mb.smp.length)?60:0;if(speedBonus>0)S.bonusStreak+=speedBonus;
   const pts=correct*40+speedBonus;addSco(pts);
-  let html='';res.forEach(r=>{const col=r.ok?'#eafaf1':'#fdf0f0';const bc=r.ok?'#27ae60':'#e74c3c';html+=`<span class="mb-result-chip" style="background:${col};border:1.5px solid ${bc};color:${bc};">${r.ok?'✅':'❌'} ${r.label}: ${r.placed}${r.ok?'':' → '+r.correct}</span>`;});
-  let bonusTxt=speedBonus>0?`<div style="color:#e67e22;font-weight:800;font-size:.8em;margin-top:4px;">⚡ Early reveal bonus! +${speedBonus} pts</div>`:'';
-  document.getElementById('mb-result-row').innerHTML=`<div style="line-height:2;">${html}</div><div style="margin-top:5px;font-size:.8em;font-weight:700;color:#1a5276;">${correct}/${mb.smp.length} correct — +${pts} pts</div>${bonusTxt}`;
-  if(correct===mb.smp.length){sndDone();if(speedBonus>0){sndBonus();showFB('⚡ Perfect + early reveal! +'+pts+' pts!',true,'bonus');}else showFB('🎉 Perfect score on MBRT!',true);}else sndWrong();
-  if(!S.zd[1]&&correct>0){S.zd[1]=true;updHUD();unlock(3);document.getElementById('tab2').innerHTML='🔵 Z2 ✅';document.getElementById('z2nb').disabled=false;}
+  let html='';res.forEach(r=>{const col=r.ok?'#eafaf1':'#fdf0f0';const bc=r.ok?'#27ae60':'#e74c3c';html+=`<span class="mb-result-chip" style="background:${col};border:1.5px solid ${bc};color:${bc};">${r.ok?'✅':'❌'} ${r.label}: ${r.placed}${r.ok?'':' → correct answer: '+r.correct}</span>`;});
+  let bonusTxt=speedBonus>0?`<div style="color:#e67e22;font-weight:800;font-size:.88em;margin-top:5px;">⚡ Early reveal bonus! +${speedBonus} points</div>`:'';
+  document.getElementById('mb-result-row').innerHTML=`<div style="line-height:2.1;">${html}</div><div style="margin-top:6px;font-size:.88em;font-weight:700;color:#1a5276;">${correct} out of ${mb.smp.length} correct — +${pts} points</div>${bonusTxt}`;
+  if(correct===mb.smp.length){sndDone();if(speedBonus>0){sndBonus();showFB('⚡ Perfect score and early reveal! +'+pts+' points!',true,'bonus');}else showFB('🎉 Perfect score on the Methylene Blue Reduction Test!',true);}else sndWrong();
+  if(!S.zd[1]&&correct>0){S.zd[1]=true;updHUD();unlock(3);document.getElementById('tab2').innerHTML='🔵 Zone 2 ✅';document.getElementById('z2nb').disabled=false;}
   document.getElementById('check-drag-btn').disabled=true;
-  document.getElementById('mbfb').innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:8px;font-size:.8em;margin-top:6px;">${correct}/${mb.smp.length} correct (+${pts} pts). 👉 <strong>Next: Zone 3 →</strong></div>`;
-  if(S.zd[1])setTimeout(()=>showZpop('🔵 Zone 2 Complete!','MBRT mastered! Time to pasteurise.',3,null),2500);
+  document.getElementById('mbfb').innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:10px;font-size:.88em;margin-top:7px;">${correct} out of ${mb.smp.length} correct (+${pts} points). 👉 Click <strong>Next: Zone 3</strong> above!</div>`;
+  if(S.zd[1])setTimeout(()=>showZpop('🔵 Zone 2 Complete!','Methylene Blue Reduction Test mastered! Time to pasteurise.',3,null),2500);
 }
 
-// ZONE 3
-const Z3W={LTLT:{target:30,lo:27,hi:33,unit:'min',label:'Holder/LTLT — stop at exactly 30 min'},HTST:{target:15,lo:12,hi:18,unit:'sec',label:'HTST — stop at exactly 15 sec'}};
+// ===== ZONE 3 =====
+// Method configs: target, toleranceLow, toleranceHigh, tempMin, tempMax, unit, intervalMs
+const Z3_METHODS={
+  HOLDER:{name:'Holder (Vat) Method',temp:'63–66°C',target:30,lo:27,hi:33,unit:'min',tMin:63,tMax:66,intervalMs:500,label:'Holder (Vat): stop at exactly 30 minutes'},
+  HTST:{name:'High Temperature Short Time (HTST)',temp:'72°C',target:15,lo:12,hi:18,unit:'sec',tMin:70,tMax:74,intervalMs:100,label:'HTST: stop at exactly 15 seconds'},
+  UHT:{name:'Ultra High Temperature (UHT)',temp:'125°C',target:3,lo:2,hi:4,unit:'sec',tMin:123,tMax:127,intervalMs:200,label:'UHT: stop between 2 and 4 seconds'}
+};
+let selectedMethod=null;
+
+function selectMethod(key){
+  selectedMethod=key;
+  ['HOLDER','HTST','UHT'].forEach(k=>{document.getElementById('mbtn-'+k.toLowerCase()).classList.remove('selected');});
+  document.getElementById('mbtn-'+key.toLowerCase()).classList.add('selected');
+  // Show slider section
+  document.getElementById('z3-slider-section').style.display='block';
+  const m=Z3_METHODS[key];
+  const sl=document.getElementById('z3sl');
+  const midTemp=Math.round((m.tMin+m.tMax)/2);
+  sl.min=0;sl.max=150;sl.value=midTemp;
+  document.getElementById('z3tv').textContent=midTemp;
+  updT();
+  sndClk();
+}
+
 function updT(){
-  const t=parseInt(document.getElementById('z3sl').value);S.z3m=null;document.getElementById('z3tv').textContent=t;
-  const vis=document.getElementById('tv'),fill=document.getElementById('tmf'),sb=document.getElementById('z3sb'),hb=document.getElementById('z3hb'),hp=document.getElementById('hp');hp.innerHTML='';sndHeat();
-  if(t>=63&&t<=66){S.z3m='LTLT';vis.style.background='linear-gradient(180deg,#ffecd2,#fcb69f)';fill.style.background='rgba(255,200,140,.7)';sb.style.cssText='background:#fff3e0;color:#e67e22;border-radius:10px;padding:10px;font-weight:700;text-align:center;margin:8px 0;';sb.textContent='🟠 Holder/LTLT — 63–66°C. Start hold, stop at 30 min!';hb.disabled=false;addPt(hp,'#e67e22',8);}
-  else if(t===72){S.z3m='HTST';vis.style.background='linear-gradient(180deg,#ff9a9e,#fecfef)';fill.style.background='rgba(255,140,140,.7)';sb.style.cssText='background:#fdf0f0;color:#e74c3c;border-radius:10px;padding:10px;font-weight:700;text-align:center;margin:8px 0;';sb.textContent='🔴 HTST — 72°C. Start hold, stop at 15 sec!';hb.disabled=false;addPt(hp,'#e74c3c',16);}
-  else if(t>72){vis.style.background='linear-gradient(180deg,#c0392b,#e74c3c)';fill.style.background='rgba(255,50,50,.8)';sb.style.cssText='background:#fdf0f0;color:#c0392b;border-radius:10px;padding:10px;font-weight:700;text-align:center;margin:8px 0;';sb.textContent='⚠️ Overheating! Nutrient loss above 72°C!';hb.disabled=true;addPt(hp,'#f00',22);}
-  else if(t<=5){vis.style.background='linear-gradient(180deg,#a8edea,#d0ecfe)';fill.style.background='rgba(100,190,255,.5)';sb.style.cssText='background:#e8f8f5;color:#2980b9;border-radius:10px;padding:10px;font-weight:700;text-align:center;margin:8px 0;';sb.textContent='❄️ <5°C — cooling/storage temp.';hb.disabled=true;}
-  else{vis.style.background='#dfe6e9';fill.style.background='#fff';sb.style.cssText='background:#ecf0f1;color:#7f8c8d;border-radius:10px;padding:10px;font-weight:700;text-align:center;margin:8px 0;';sb.textContent='🌡️ Adjust to 63–66°C or 72°C to pasteurise.';hb.disabled=true;}
+  if(!selectedMethod)return;
+  const t=parseInt(document.getElementById('z3sl').value);
+  document.getElementById('z3tv').textContent=t;
+  const m=Z3_METHODS[selectedMethod];
+  const vis=document.getElementById('tv'),fill=document.getElementById('tmf'),sb=document.getElementById('z3sb'),hp=document.getElementById('hp');
+  hp.innerHTML='';sndHeat();
+  const inRange=(t>=m.tMin&&t<=m.tMax);
+  // Colour temperature visual
+  if(selectedMethod==='HOLDER'){vis.style.background='linear-gradient(180deg,#ffecd2,#fcb69f)';fill.style.background=inRange?'rgba(255,180,80,.8)':'rgba(200,200,200,.5)';}
+  else if(selectedMethod==='HTST'){vis.style.background='linear-gradient(180deg,#ff9a9e,#fecfef)';fill.style.background=inRange?'rgba(255,100,100,.8)':'rgba(200,200,200,.5)';}
+  else{vis.style.background='linear-gradient(180deg,#c0392b,#e74c3c)';fill.style.background=inRange?'rgba(220,50,50,.9)':'rgba(200,200,200,.5)';}
+  if(inRange){
+    sb.style.cssText='background:#fff3e0;color:#d35400;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;';
+    sb.textContent='✅ Temperature in correct range for '+m.name+'! Now press Start Heating.';
+    document.getElementById('z3-heat-btn-wrap').style.display='block';
+    addPt(hp,selectedMethod==='HOLDER'?'#e67e22':selectedMethod==='HTST'?'#e74c3c':'#c0392b',selectedMethod==='UHT'?22:selectedMethod==='HTST'?14:8);
+  }else{
+    sb.style.cssText='background:#fdf0f0;color:#c0392b;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;';
+    sb.textContent='🌡️ Adjust to '+m.temp+' for '+m.name;
+    document.getElementById('z3-heat-btn-wrap').style.display='none';
+  }
 }
 function addPt(c,col,n){for(let i=0;i<n;i++){const p=document.createElement('div');p.className='pt';p.style.background=col;p.style.left=(10+Math.random()*80)+'%';p.style.bottom=(5+Math.random()*30)+'%';p.style.animationDelay=(Math.random()*2)+'s';p.style.animationDuration=(.85+Math.random()*.85)+'s';c.appendChild(p);}}
-function startHold(){
-  if(!S.z3m||S.z3hr)return;sndClk();S.z3hr=true;S.z3el=0;
-  if(!S.z3methods.includes(S.z3m))S.z3methods.push(S.z3m);
-  document.getElementById('z3hb').disabled=true;document.getElementById('z3sl').disabled=true;document.getElementById('z3tb').classList.add('vis');
-  const w=Z3W[S.z3m];document.getElementById('z3th').textContent='🎯 '+w.label+' — press Stop at the right moment!';
-  const clk=document.getElementById('z3clk'),bar=document.getElementById('z3br');
-  if(S.z3m==='HTST'){let el=0;if(z3Iv)clearInterval(z3Iv);z3Iv=setInterval(()=>{el+=0.1;S.z3el=el;clk.textContent=el.toFixed(1)+'s';const pct=Math.min(100,(el/w.target)*100);bar.style.width=pct+'%';bar.style.background=el<w.lo?'#3498db':el<=w.hi?'#27ae60':'#e74c3c';if(el%1<0.12)sndTick();if(el>w.target*2.8)stopHold();},100);}
-  else{let sm=0;if(z3Iv)clearTimeout(z3Iv);function tick(){sm++;S.z3el=sm;clk.textContent=sm+':00 min';const pct=Math.min(100,(sm/w.target)*100);bar.style.width=pct+'%';bar.style.background=sm<w.lo?'#3498db':sm<=w.hi?'#27ae60':'#e74c3c';if(sm%5===0)sndTick();if(sm>w.target*2.8){stopHold();return;}if(S.z3hr)z3Iv=setTimeout(tick,sm>30?80:500);}z3Iv=setTimeout(tick,500);}
-}
-function calcPrecisionBonus(e,w){const diff=Math.abs(e-w.target);if(diff<=1)return 50;if(diff<=2)return 25;return 0;}
-function stopHold(){
-  if(!S.z3hr)return;if(S.z3m==='HTST')clearInterval(z3Iv);else clearTimeout(z3Iv);z3Iv=null;S.z3hr=false;
-  document.getElementById('z3sl').disabled=false;document.getElementById('z3tb').classList.remove('vis');
-  const w=Z3W[S.z3m],e=S.z3el,resEl=document.getElementById('z3res');
-  const ok=e>=w.lo&&e<=w.hi;const disp=S.z3m==='HTST'?e.toFixed(1)+' sec':Math.round(e)+' min';
-  if(ok){
-    const prec=calcPrecisionBonus(e,w);S.bonusPrecision=Math.max(S.bonusPrecision,prec);
-    sndDone();S.z3hc=true;document.getElementById('z3cb').style.display='inline-block';
-    resEl.innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:8px;font-size:.82em;">✅ Perfect hold! <strong>${disp}</strong>${prec>0?' 🎯 +'+prec+' precision bonus!':''} Now cool! ❄️</div>`;
-    if(prec>0){addSco(prec);sndBonus();showFB('🎯 Precision hold! +'+prec+' bonus pts!',true,'bonus');}else showFB('✅ Hold correct! Cool to <5°C!',true);
-  }else if(e<w.lo){sndFail();S.wrongAnswers++;resEl.innerHTML=`<div style="background:#fdf0f0;border:2px solid #e74c3c;border-radius:8px;padding:8px;font-size:.82em;">❌ Too short! ${disp} — min ${w.lo} ${w.unit}. Pathogens survive! Reset.</div>`;showFB('❌ Too short!',false);document.getElementById('z3hb').disabled=false;}
-  else{sndFail();S.wrongAnswers++;resEl.innerHTML=`<div style="background:#fdf0f0;border:2px solid #e74c3c;border-radius:8px;padding:8px;font-size:.82em;">❌ Too long! ${disp} — max ${w.hi} ${w.unit}. Nutrient damage! Reset.</div>`;showFB('❌ Too long!',false);document.getElementById('z3hb').disabled=false;}
-}
-function coolDown(){
-  if(!S.z3hc)return;S.z3cd=true;sndCool();document.getElementById('z3sl').value=4;updT();addSco(80);document.getElementById('z3cb').style.display='none';
-  document.getElementById('z3res').innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:8px;font-size:.82em;">🎉 Zone 3 Complete! Chilled to &lt;5°C. (+80 pts)</div>`;
-  if(!S.zd[2]){S.zd[2]=true;updHUD();unlock(4);document.getElementById('tab3').innerHTML='🔥 Z3 ✅';document.getElementById('z3nb').disabled=false;}
-  showFB('🎉 Zone 3 Done!',true);
-  const hint=S.z3methods.length<2?'💡 Did you try both methods?':null;
-  setTimeout(()=>showZpop('🔥 Zone 3 Complete!','Milk safely pasteurised and chilled!',4,hint),3000);
-}
-function resetZ3(){sndClk();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}S.z3m=null;S.z3hr=false;S.z3el=0;S.z3hc=false;S.z3cd=false;document.getElementById('z3sl').value=20;document.getElementById('z3sl').disabled=false;document.getElementById('z3tb').classList.remove('vis');document.getElementById('z3res').innerHTML='';document.getElementById('z3hb').disabled=true;document.getElementById('z3cb').style.display='none';document.getElementById('z3clk').textContent='0:00';document.getElementById('z3br').style.width='0%';updT();}
 
-// ZONE 4
+function startHold(){
+  if(!selectedMethod||S.z3hr)return;sndClk();
+  S.z3m=selectedMethod;S.z3hr=true;S.z3el=0;
+  if(!S.z3methods.includes(S.z3m))S.z3methods.push(S.z3m);
+  document.getElementById('z3-heat-btn-wrap').style.display='none';
+  document.getElementById('z3sl').disabled=true;
+  document.getElementById('z3tb').classList.add('vis');
+  const m=Z3_METHODS[S.z3m];
+  document.getElementById('z3th').textContent='🎯 '+m.label+' — press Stop Heating at the right moment!';
+  const clk=document.getElementById('z3clk'),bar=document.getElementById('z3br');
+
+  if(S.z3m==='HOLDER'){
+    // Minutes simulation: each 0.5s = 1 simulated minute, speeds up after target
+    let sm=0;if(z3Iv)clearTimeout(z3Iv);
+    function tick(){sm++;S.z3el=sm;clk.textContent=sm+':00 min';
+      const pct=Math.min(100,(sm/m.target)*100);bar.style.width=pct+'%';
+      bar.style.background=sm<m.lo?'#3498db':sm<=m.hi?'#27ae60':'#e74c3c';
+      if(sm%5===0)sndTick();if(sm>m.target*2.8){stopHold();return;}
+      if(S.z3hr)z3Iv=setTimeout(tick,sm>m.target?80:m.intervalMs);}
+    z3Iv=setTimeout(tick,m.intervalMs);
+  }else{
+    // Real-time seconds (HTST fast, UHT slower)
+    let el=0;if(z3Iv)clearInterval(z3Iv);
+    z3Iv=setInterval(()=>{
+      el+=0.1;S.z3el=el;clk.textContent=el.toFixed(1)+' sec';
+      const pct=Math.min(100,(el/m.target)*100);bar.style.width=pct+'%';
+      bar.style.background=el<m.lo?'#3498db':el<=m.hi?'#27ae60':'#e74c3c';
+      if(el%1<0.12)sndTick();if(el>m.target*2.8)stopHold();
+    },m.intervalMs);
+  }
+}
+
+function calcPrecisionBonus(e,m){const diff=Math.abs(e-m.target);if(diff<=1)return 50;if(diff<=2)return 25;return 0;}
+function stopHold(){
+  if(!S.z3hr)return;
+  if(S.z3m==='HOLDER')clearTimeout(z3Iv);else clearInterval(z3Iv);
+  z3Iv=null;S.z3hr=false;
+  document.getElementById('z3sl').disabled=false;document.getElementById('z3tb').classList.remove('vis');
+  const m=Z3_METHODS[S.z3m],e=S.z3el,resEl=document.getElementById('z3res');
+  const ok=e>=m.lo&&e<=m.hi;
+  const disp=S.z3m==='HOLDER'?Math.round(e)+' minutes':e.toFixed(1)+' seconds';
+  if(ok){
+    const prec=calcPrecisionBonus(e,m);S.bonusPrecision=Math.max(S.bonusPrecision,prec);sndDone();S.z3hc=true;
+    resEl.innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:10px;font-size:.9em;">✅ Correct hold time! <strong>${disp}</strong> — within the valid window.${prec>0?' 🎯 Precision bonus: +'+prec+' points!':''}</div>`;
+    if(prec>0){addSco(prec);sndBonus();showFB('🎯 Precision hold! +'+prec+' bonus points!',true,'bonus');}else showFB('✅ Correct hold time!',true);
+    // Show cool down popup and button
+    setTimeout(()=>{
+      showZpop('🧊 Now Let\'s Cool the Milk!','The milk has been pasteurised. You must cool it immediately to 4°C or below to prevent microorganisms from growing.',null,null);
+      document.getElementById('z3cb').style.display='inline-block';
+    },600);
+  }else if(e<m.lo){
+    sndFail();S.wrongAnswers++;
+    resEl.innerHTML=`<div style="background:#fdf0f0;border:2px solid #e74c3c;border-radius:8px;padding:10px;font-size:.9em;">❌ Too short! You stopped at <strong>${disp}</strong> — the minimum is ${m.lo} ${m.unit}. Pathogens may still survive! Reset and try again.</div>`;
+    showFB('❌ Hold time too short — pathogens may survive!',false);
+    document.getElementById('z3-heat-btn-wrap').style.display='block';
+  }else{
+    sndFail();S.wrongAnswers++;
+    resEl.innerHTML=`<div style="background:#fdf0f0;border:2px solid #e74c3c;border-radius:8px;padding:10px;font-size:.9em;">❌ Too long! You went to <strong>${disp}</strong> — the maximum is ${m.hi} ${m.unit}. Nutrient damage may occur! Reset and try again.</div>`;
+    showFB('❌ Hold time too long — nutrient damage!',false);
+    document.getElementById('z3-heat-btn-wrap').style.display='block';
+  }
+}
+
+function coolDown(){
+  if(!S.z3hc)return;
+  closeZpop();S.z3cd=true;sndCool();
+  document.getElementById('z3sl').value=4;
+  // Update visual
+  const vis=document.getElementById('tv'),fill=document.getElementById('tmf'),sb=document.getElementById('z3sb'),hp=document.getElementById('hp');
+  hp.innerHTML='';vis.style.background='linear-gradient(180deg,#a8edea,#d0ecfe)';fill.style.background='rgba(100,190,255,.5)';
+  sb.style.cssText='background:#e8f8f5;color:#2980b9;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;';
+  sb.textContent='❄️ Milk cooled to 4°C or below — safe for storage!';
+  addSco(80);document.getElementById('z3cb').style.display='none';
+  document.getElementById('z3res').innerHTML=`<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:10px;font-size:.9em;">🎉 Zone 3 Complete! Milk pasteurised and chilled to ≤4°C. (+80 points)</div>`;
+  if(!S.zd[2]){S.zd[2]=true;updHUD();unlock(4);document.getElementById('tab3').innerHTML='🔥 Zone 3 ✅';document.getElementById('z3nb').disabled=false;}
+  showFB('🎉 Zone 3 Complete! Milk safely chilled.',true);
+  const hint=S.z3methods.length<3?'💡 Did you try all three pasteurisation methods? Reset and try the others!':null;
+  setTimeout(()=>showZpop('🔥 Zone 3 Complete!','Milk safely pasteurised and cooled to 4°C or below!',4,hint),3000);
+}
+
+function resetZ3(){
+  sndClk();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}
+  S.z3m=null;S.z3hr=false;S.z3el=0;S.z3hc=false;S.z3cd=false;selectedMethod=null;
+  document.getElementById('z3sl').value=20;document.getElementById('z3sl').disabled=false;
+  document.getElementById('z3tb').classList.remove('vis');document.getElementById('z3res').innerHTML='';
+  document.getElementById('z3cb').style.display='none';document.getElementById('z3clk').textContent='0:00';document.getElementById('z3br').style.width='0%';
+  document.getElementById('z3-slider-section').style.display='none';document.getElementById('z3-heat-btn-wrap').style.display='none';
+  document.getElementById('z3tv').textContent='20';
+  ['mbtn-holder','mbtn-htst','mbtn-uht'].forEach(id=>{const b=document.getElementById(id);if(b)b.classList.remove('selected');});
+  const vis=document.getElementById('tv'),fill=document.getElementById('tmf'),sb=document.getElementById('z3sb'),hp=document.getElementById('hp');
+  hp.innerHTML='';vis.style.background='#dfe6e9';fill.style.background='#fff';
+  sb.style.cssText='background:#ecf0f1;color:#7f8c8d;border-radius:10px;padding:12px;font-weight:700;text-align:center;margin:8px 0;font-size:.95em;';
+  sb.textContent='Select a pasteurisation method above to begin';
+}
+
+// ===== ZONE 4 =====
 function genBatch(){sndClk();const spcCount=Math.floor(Math.random()*80000)+1000;const coliCount=Math.random()>.5?Math.floor(Math.random()*5)+1:0;S.z4b={phosFail:Math.random()>.5,spcCount,spcHigh:spcCount>30000,coliCount,coliPresent:coliCount>0};S.z4a={};S.z4firstTry={phos:true,spc:true,coli:true};document.getElementById('z4msg').textContent='';document.getElementById('z4fb').disabled=true;renderLab();}
 function renderLab(){
   const con=document.getElementById('lbs'),b=S.z4b;const phosCol=b.phosFail?'#f1c40f':'#ecf0f1';
   let spcDots='';const dd=Math.min(56,Math.round((b.spcCount/81000)*56));for(let i=0;i<dd;i++)spcDots+=`<div class="bd" style="width:3px;height:3px;background:#2c3e50;left:${4+Math.random()*64}px;top:${4+Math.random()*64}px;"></div>`;
   let colDots='';for(let i=0;i<Math.min(b.coliCount,5);i++)colDots+=`<div class="bd" style="width:9px;height:9px;background:#e74c3c;left:${10+Math.random()*50}px;top:${10+Math.random()*50}px;"></div>`;
   con.innerHTML=`
-    <div class="ls"><h4>🧪 Phosphatase</h4><div class="ltb"><div class="ltf" style="background:${phosCol}"></div></div><div class="lbtns"><button class="lbtn lbtn-p" onclick="z4ans('phos',true)">✅ Pass</button><button class="lbtn lbtn-r" onclick="z4ans('phos',false)">❌ Reject</button></div><div id="r-phos" style="font-size:.69em;margin-top:4px;font-weight:700;min-height:20px;"></div></div>
-    <div class="ls"><h4>🔬 SPC</h4><div class="mvw">${spcDots}</div><div class="spc-num">${b.spcCount.toLocaleString()}<span style="font-size:.4em;font-family:Nunito;font-weight:700;">/mL</span></div><div class="lbtns"><button class="lbtn lbtn-p" onclick="z4ans('spc',true)">✅ Pass</button><button class="lbtn lbtn-r" onclick="z4ans('spc',false)">❌ Reject</button></div><div id="r-spc" style="font-size:.69em;margin-top:4px;font-weight:700;min-height:20px;"></div></div>
-    <div class="ls"><h4>🦠 Coliform</h4><div class="mvw">${colDots}</div><div class="col-num" style="color:${b.coliCount>0?'#e74c3c':'#27ae60'};">${b.coliCount}<span style="font-size:.4em;font-family:Nunito;font-weight:700;">/mL</span></div><div class="lbtns"><button class="lbtn lbtn-p" onclick="z4ans('coli',true)">✅ Pass</button><button class="lbtn lbtn-r" onclick="z4ans('coli',false)">❌ Reject</button></div><div id="r-coli" style="font-size:.69em;margin-top:4px;font-weight:700;min-height:20px;"></div></div>`;
+    <div class="ls"><h4>🧪 Phosphatase Test</h4><div class="ltb"><div class="ltf" style="background:${phosCol}"></div></div><div style="font-size:.78em;color:var(--mg);margin-bottom:4px;">Clear = negative ✅<br>Yellow = positive ❌</div><div class="lbtns"><button class="lbtn lbtn-p" onclick="z4ans('phos',true)">✅ Pass</button><button class="lbtn lbtn-r" onclick="z4ans('phos',false)">❌ Reject</button></div><div id="r-phos" style="font-size:.78em;margin-top:5px;font-weight:700;min-height:22px;"></div></div>
+    <div class="ls"><h4>🔬 Standard Plate Count</h4><div class="mvw">${spcDots}</div><div class="spc-num">${b.spcCount.toLocaleString()}<span style="font-size:.4em;font-family:Nunito;font-weight:700;"> per mL</span></div><div class="lbtns"><button class="lbtn lbtn-p" onclick="z4ans('spc',true)">✅ Pass</button><button class="lbtn lbtn-r" onclick="z4ans('spc',false)">❌ Reject</button></div><div id="r-spc" style="font-size:.78em;margin-top:5px;font-weight:700;min-height:22px;"></div></div>
+    <div class="ls"><h4>🦠 Coliform Count</h4><div class="mvw">${colDots}</div><div class="col-num" style="color:${b.coliCount>0?'#e74c3c':'#27ae60'};">${b.coliCount}<span style="font-size:.4em;font-family:Nunito;font-weight:700;"> per mL</span></div><div class="lbtns"><button class="lbtn lbtn-p" onclick="z4ans('coli',true)">✅ Pass</button><button class="lbtn lbtn-r" onclick="z4ans('coli',false)">❌ Reject</button></div><div id="r-coli" style="font-size:.78em;margin-top:5px;font-weight:700;min-height:22px;"></div></div>`;
 }
 function z4ans(test,userPass){
   const b=S.z4b;if(S.z4a[test])return;
   let sp=false;if(test==='phos')sp=!b.phosFail;if(test==='spc')sp=!b.spcHigh;if(test==='coli')sp=!b.coliPresent;
-  const ok=(userPass===sp);
-  if(!ok){S.z4firstTry[test]=false;S.wrongAnswers++;}
+  const ok=(userPass===sp);if(!ok){S.z4firstTry[test]=false;S.wrongAnswers++;}
   S.z4a[test]=true;
   const res=document.getElementById('r-'+test);
   let pts=0,bonusTxt='';
-  if(ok){pts=S.z4firstTry[test]?60:30;if(pts===60)bonusTxt=' 🎯 2×!';}
-  let exp='';if(test==='phos')exp=b.phosFail?'Yellow → failed → REJECT':'Clear → negative → PASS';if(test==='spc')exp=b.spcHigh?b.spcCount.toLocaleString()+'/mL > 30,000 → REJECT':b.spcCount.toLocaleString()+'/mL ≤ 30,000 → PASS';if(test==='coli')exp=b.coliCount>0?b.coliCount+'/mL → REJECT':'0/mL → PASS';
+  if(ok){pts=S.z4firstTry[test]?60:30;if(pts===60)bonusTxt=' 🎯 First try — double points!';}
+  let exp='';
+  if(test==='phos')exp=b.phosFail?'Yellow tube → pasteurisation failed → Reject':'Clear tube → negative → Pass';
+  if(test==='spc')exp=b.spcHigh?b.spcCount.toLocaleString()+' per mL is above 30,000 → Reject':b.spcCount.toLocaleString()+' per mL is within limit → Pass';
+  if(test==='coli')exp=b.coliCount>0?b.coliCount+' coliforms per mL → zero tolerance → Reject':'Zero coliforms detected → Pass';
   res.style.color=ok?'#27ae60':'#e74c3c';res.textContent=(ok?'✅ ':'❌ ')+exp+bonusTxt;
   if(ok){addSco(pts);if(pts===60)sndBonus();else sndOk();}else sndWrong();
-  showFB(ok?(pts===60?'🎯 First-try! +'+pts+' pts (2×)':'✅ '+exp):'❌ '+exp,ok,ok&&pts===60?'bonus':null);
+  showFB(ok?(pts===60?'🎯 First try correct! +'+pts+' points (double!)':'✅ '+exp):'❌ '+exp,ok,ok&&pts===60?'bonus':null);
   const allDone=['phos','spc','coli'].every(k=>S.z4a[k]);
-  if(allDone){if(!S.zd[3]){S.zd[3]=true;updHUD();document.getElementById('tab4').innerHTML='🔬 Z4 ✅';}document.getElementById('z4fb').disabled=false;document.getElementById('z4msg').textContent='🎉 All done! Click Finish Game ↑';}
+  if(allDone){
+    if(!S.zd[3]){S.zd[3]=true;updHUD();document.getElementById('tab4').innerHTML='🔬 Zone 4 ✅';}
+    document.getElementById('z4fb').disabled=false;document.getElementById('z4msg').textContent='🎉 All three tests done!';
+    setTimeout(showFinalScreen,300);
+  }
 }
 
-// FINAL
+// ===== FINAL SCREEN =====
 async function showFinalScreen(){
   stopGlobalTimer();sndClk();
   S.bonusSpeed=calcSpeedBonus();
   if(S.wrongAnswers===0&&S.zd.every(Boolean))S.bonusPerfect=100;
   const z4AccBonus=['phos','spc','coli'].filter(k=>S.z4firstTry[k]&&S.z4a[k]).length*30;
   S.bonusAccuracy=z4AccBonus;
-  if(S.bonusSpeed>0)addSco(S.bonusSpeed);
-  if(S.bonusPerfect>0)addSco(S.bonusPerfect);
+  if(S.bonusSpeed>0)addSco(S.bonusSpeed);if(S.bonusPerfect>0)addSco(S.bonusPerfect);
   const finalScore=S.tsco;
   document.getElementById('final-player-name').textContent=playerName;
   document.getElementById('final-total').textContent=finalScore+' pts';
   document.getElementById('rpills').innerHTML=S.zd.map(d=>`<div class="ppill ${d?'done':'fail'}"></div>`).join('');
   const rows=[
     {label:'🌾 Zone 1 base score',val:S.z1s,always:true},
-    {label:'🔥 Max streak bonus (x'+S.z1maxStreak+')',val:S.bonusStreak||0,earned:S.z1maxStreak>=2},
-    {label:'❤️ Lives remaining ('+S.z1l+' × 25)',val:S.bonusLives,earned:S.bonusLives>0},
-    {label:'🔵 Zone 2 classifications',val:null,always:true},
+    {label:'🔥 Maximum streak bonus (x'+S.z1maxStreak+')',val:S.bonusStreak||0,earned:S.z1maxStreak>=2},
+    {label:'❤️ Lives remaining ('+S.z1l+' × 25 points)',val:S.bonusLives,earned:S.bonusLives>0},
+    {label:'🔵 Zone 2 classifications score',val:null,always:true},
     {label:'🎯 Zone 3 precision bonus',val:S.bonusPrecision,earned:S.bonusPrecision>0},
-    {label:'🔬 Zone 4 first-try 2× bonus',val:S.bonusAccuracy,earned:S.bonusAccuracy>0},
-    {label:'⚡ Speed bonus ('+S.globalElapsed+'s total)',val:S.bonusSpeed,earned:S.bonusSpeed>0},
-    {label:'🏆 Perfect game bonus',val:S.bonusPerfect,earned:S.bonusPerfect>0},
-    {label:'TOTAL',val:finalScore,always:true},
+    {label:'🔬 Zone 4 first-try double points',val:S.bonusAccuracy,earned:S.bonusAccuracy>0},
+    {label:'⚡ Speed bonus ('+S.globalElapsed+' seconds total)',val:S.bonusSpeed,earned:S.bonusSpeed>0},
+    {label:'🏆 Perfect game bonus (zero wrong answers)',val:S.bonusPerfect,earned:S.bonusPerfect>0},
+    {label:'TOTAL SCORE',val:finalScore,always:true},
   ];
   document.getElementById('bonus-breakdown').innerHTML=rows.map(r=>{if(r.val===null)return'';const cls=r.earned?'bonus-earned':'bonus-missed';const valTxt=r.val!==null?(r.earned||r.always?'+'+r.val+' pts':'—'):'';return`<div class="bonus-row"><span>${r.label}</span><span class="${r.always?'':cls}">${valTxt}</span></div>`;}).join('');
   const entries=await lbSave(playerName,finalScore);
@@ -808,27 +976,33 @@ async function showFinalScreen(){
   document.getElementById('rov').classList.add('show');
   launchConfetti();[0,160,320,480,640].forEach(d=>setTimeout(sndDone,d));
 }
-function replayZ1FromFinal(){sndClk();document.getElementById('rov').classList.remove('show');closeZpop();stopMB();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}S.z1s=0;S.z1l=3;S.z1run=false;S.z1it=[];S.lives=3;S.z1streak=0;document.getElementById('z1s').textContent='0';document.getElementById('z1l').textContent='3';document.getElementById('z1done').style.display='none';sw(1,true);const info=document.getElementById('z1info');if(info){info.style.display='block';info.innerHTML='<div style="font-size:1.15em;font-weight:800;margin-bottom:5px;color:#2c3e50;">🌾 Hygiene Scramble</div><div style="font-size:.78em;margin-bottom:7px;line-height:1.85;color:#2c3e50;"><span style="color:#1a7a43;font-weight:800;">✅ CATCH:</span> 🥛+15 &nbsp;🧹+20 &nbsp;🧤+10<br><span style="color:#c0392b;font-weight:800;">❌ DODGE:</span> 🪰 &nbsp;💩 &nbsp;🤧</div><div style="font-size:.72em;color:#6d4c00;margin-bottom:8px;">🔥 Consecutive catches = streak bonus!</div><button class="btn btn-gr" style="font-size:.93em;padding:8px 20px;" onclick="startZ1()">▶ Start!</button>';}}
+function replayZ1FromFinal(){sndClk();document.getElementById('rov').classList.remove('show');closeZpop();stopMB();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}S.z1s=0;S.z1l=3;S.z1run=false;S.z1it=[];S.lives=3;S.z1streak=0;document.getElementById('z1s').textContent='0';document.getElementById('z1l').textContent='3';document.getElementById('z1done').style.display='none';sw(1,true);const info=document.getElementById('z1info');if(info){info.style.display='block';info.innerHTML='<div style="font-size:1.2em;font-weight:800;margin-bottom:6px;color:#2c3e50;">🌾 Hygiene Scramble</div><div style="font-size:.88em;margin-bottom:9px;line-height:1.9;color:#2c3e50;"><span style="color:#1a7a43;font-weight:800;">✅ CATCH:</span> 🥛 Sterile Pail +15 &nbsp;🧹 Clean Premises +20 &nbsp;🧤 Gloves +10<br><span style="color:#c0392b;font-weight:800;">❌ DODGE:</span> 🪰 Fly &nbsp;💩 Waste &nbsp;🤧 Sick Cow</div><div style="font-size:.8em;color:#6d4c00;margin-bottom:9px;">🔥 Consecutive catches build a streak for bonus points!</div><button class="btn btn-gr" style="font-size:1em;padding:9px 22px;" onclick="startZ1()">▶ Start!</button>';}}
 function restartAll(){
   sndClk();stopMB();stopGlobalTimer();if(z3Iv){clearInterval(z3Iv);clearTimeout(z3Iv);z3Iv=null;}
   S={tsco:0,lives:3,zd:[false,false,false,false],z1s:0,z1l:3,z1run:false,z1it:[],z1af:null,z1bx:50,z1streak:0,z1maxStreak:0,z3m:null,z3hr:false,z3el:0,z3hc:false,z3cd:false,z4b:null,z4a:{},z4firstTry:{phos:true,spc:true,coli:true},z3methods:[],bonusSpeed:0,bonusStreak:0,bonusLives:0,bonusAccuracy:0,bonusPrecision:0,bonusPerfect:0,wrongAnswers:0,globalStart:null,globalElapsed:0,globalTimerIv:null,z2RevealTime:0};
-  mb={run:false,iv:null,el:0,smp:[],placed:{},dragId:null,selectedTube:null};
+  mb={run:false,iv:null,el:0,smp:[],placed:{},dragId:null,selectedTube:null};selectedMethod=null;
   document.getElementById('rov').classList.remove('show');closeZpop();
-  ['🌾 Z1','🔵 Z2','🔥 Z3','🔬 Z4'].forEach((l,i)=>{const t=document.getElementById('tab'+(i+1));t.innerHTML=l;t.disabled=(i>0);});
+  ['🌾 Zone 1','🔵 Zone 2','🔥 Zone 3','🔬 Zone 4'].forEach((l,i)=>{const t=document.getElementById('tab'+(i+1));t.innerHTML=l;t.disabled=(i>0);});
   document.getElementById('z1done').style.display='none';
   ['z2nb','z3nb'].forEach(id=>document.getElementById(id).disabled=true);
   document.getElementById('z4fb').disabled=true;
   document.getElementById('mb-start-prompt').style.display='block';
-  document.getElementById('mb-phase-watch').style.display='none';
-  document.getElementById('mb-phase-drag').style.display='none';
+  document.getElementById('mb-phase-watch').style.display='none';document.getElementById('mb-phase-drag').style.display='none';
   document.getElementById('mbc').innerHTML='';document.getElementById('mbfb').innerHTML='';
-  document.getElementById('mbclk').textContent='⏱ 0 min';document.getElementById('global-timer').textContent='0:00';document.getElementById('streak-disp').textContent='0';
+  document.getElementById('mbclk').textContent='⏱ 0 minutes';
+  document.getElementById('global-timer').textContent='0:00';document.getElementById('streak-disp').textContent='0';
   zoneStdSeen={1:false,2:false,3:false,4:false};
   updHUD();resetZ3();genBatch();sw(1,true);if(!bgmPlaying&&sndOn)startBGM();
-  const info=document.getElementById('z1info');if(info){info.style.display='block';info.innerHTML='<div style="font-size:1.15em;font-weight:800;margin-bottom:5px;color:#2c3e50;">🌾 Hygiene Scramble</div><div style="font-size:.78em;margin-bottom:7px;line-height:1.85;color:#2c3e50;"><span style="color:#1a7a43;font-weight:800;">✅ CATCH:</span> 🥛+15 &nbsp;🧹+20 &nbsp;🧤+10<br><span style="color:#c0392b;font-weight:800;">❌ DODGE:</span> 🪰 &nbsp;💩 &nbsp;🤧</div><div style="font-size:.72em;color:#6d4c00;margin-bottom:8px;">🔥 Consecutive catches = streak bonus!</div><button class="btn btn-gr" style="font-size:.93em;padding:8px 20px;" onclick="startZ1()">▶ Start!</button>';}
+  const info=document.getElementById('z1info');if(info){info.style.display='block';info.innerHTML='<div style="font-size:1.2em;font-weight:800;margin-bottom:6px;color:#2c3e50;">🌾 Hygiene Scramble</div><div style="font-size:.88em;margin-bottom:9px;line-height:1.9;color:#2c3e50;"><span style="color:#1a7a43;font-weight:800;">✅ CATCH:</span> 🥛 Sterile Pail +15 &nbsp;🧹 Clean Premises +20 &nbsp;🧤 Gloves +10<br><span style="color:#c0392b;font-weight:800;">❌ DODGE:</span> 🪰 Fly &nbsp;💩 Waste &nbsp;🤧 Sick Cow</div><div style="font-size:.8em;color:#6d4c00;margin-bottom:9px;">🔥 Consecutive catches build a streak for bonus points!</div><button class="btn btn-gr" style="font-size:1em;padding:9px 22px;" onclick="startZ1()">▶ Start!</button>';}
 }
 genBatch();updHUD();
+// Zone 2 "New Batch" popup on first visit
+function onZ2FirstVisit(){setTimeout(()=>{showZpop('🔬 Start the Methylene Blue Reduction Test','Tap the New Batch button below to begin watching the tubes decolorise!',null,null);},400);}
 document.addEventListener('click',()=>{if(!bgmPlaying&&sndOn)startBGM();},{once:true});
+// Override sw to trigger Z2 first-visit popup
+const _sw=sw;
+let z2Visited=false;
+window.sw=function(n,fromJump){_sw(n,fromJump);if(n===2&&!z2Visited){z2Visited=true;onZ2FirstVisit();}};
 </script>
 </body>
 </html>
