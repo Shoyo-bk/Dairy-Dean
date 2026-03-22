@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dairy Dean — Live Leaderboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#1a7a43,#2c3e50 50%,#6c3483);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:24px 16px;color:#fff;}
+.top-bar{width:100%;max-width:700px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
+.title-block{text-align:left;}
+.title-block h1{font-family:'Fredoka One',cursive;font-size:2.2em;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4);}
+.title-block p{font-size:.88em;color:rgba(255,255,255,.75);margin-top:2px;}
+.refresh-info{text-align:right;font-size:.8em;color:rgba(255,255,255,.6);line-height:1.6;}
+.refresh-bar{height:4px;background:rgba(255,255,255,.15);border-radius:2px;width:140px;margin-top:5px;}
+.refresh-bar-fill{height:100%;background:#2ecc71;border-radius:2px;transition:width .5s linear;}
+.lb-wrap{width:100%;max-width:700px;background:rgba(255,255,255,.07);backdrop-filter:blur(8px);border-radius:20px;padding:22px 20px;border:1.5px solid rgba(255,255,255,.15);}
+.lb-header{display:grid;grid-template-columns:44px 1fr 100px;gap:10px;padding:0 10px 10px;border-bottom:1.5px solid rgba(255,255,255,.15);font-size:.78em;font-weight:800;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;}
+.lb-row{display:grid;grid-template-columns:44px 1fr 100px;gap:10px;align-items:center;padding:12px 10px;border-radius:12px;margin-bottom:8px;transition:all .4s;border:1.5px solid transparent;}
+.lb-row.gold{background:rgba(249,196,79,.18);border-color:rgba(249,196,79,.45);}
+.lb-row.silver{background:rgba(189,195,199,.12);border-color:rgba(189,195,199,.3);}
+.lb-row.bronze{background:rgba(230,126,34,.15);border-color:rgba(230,126,34,.35);}
+.lb-row.other{background:rgba(255,255,255,.06);}
+@keyframes newEntry{0%{transform:translateX(-20px);opacity:0;}100%{transform:translateX(0);opacity:1;}}
+.lb-row.new{animation:newEntry .5s ease-out;}
+.lb-rank{font-family:'Fredoka One',cursive;font-size:1.5em;text-align:center;}
+.lb-name{font-weight:700;font-size:1.05em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lb-score{font-family:'Fredoka One',cursive;font-size:1.4em;color:#2ecc71;text-align:right;}
+.lb-empty{text-align:center;color:rgba(255,255,255,.4);font-size:1em;padding:40px 0;}
+.footer{margin-top:18px;text-align:center;font-size:.8em;color:rgba(255,255,255,.4);}
+.footer a{color:rgba(255,255,255,.6);text-decoration:none;}
+.pulse{animation:pulse 1.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.6;}50%{opacity:1;}}
+.cow{font-size:1.4em;margin-right:6px;}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="title-block">
+    <h1>🥛 The Dairy Dean</h1>
+    <p>Live Leaderboard — Park's Preventive &amp; Social Medicine &nbsp;|&nbsp; v11</p>
+  </div>
+  <div class="refresh-info">
+    <div id="last-updated">Loading scores...</div>
+    <div>Auto-refreshes every 30 seconds</div>
+    <div class="refresh-bar"><div class="refresh-bar-fill" id="refresh-fill" style="width:100%;"></div></div>
+  </div>
+</div>
+
+<div class="lb-wrap">
+  <div class="lb-header">
+    <div>Rank</div><div>Player</div><div style="text-align:right;">Score</div>
+  </div>
+  <div id="lb-list"><div class="lb-empty pulse">🥛 Milking your data...</div></div>
+</div>
+
+<div class="footer">
+  Play at <a href="index.html">shoyo-bk.github.io/Dairy-Dean/</a> &nbsp;|&nbsp; Scores refresh every 30 seconds
+</div>
+
+<script>
+const JB_KEY='$2a$10$YobXcWW3rnVD73zr/wuxNOXGbd0CeWkOj9FQsTGOaXI4ItxB9S1SO';
+const JB_BIN='69bf6d3ec3097a1dd549682a';
+const JB_URL='https://api.jsonbin.io/v3/b/'+JB_BIN;
+const REFRESH_MS=30000;
+let prevEntries=[];
+
+async function loadLB(){
+  try{
+    const r=await fetch(JB_URL+'/latest',{headers:{'X-Master-Key':JB_KEY,'X-Bin-Meta':false}});
+    if(!r.ok)return[];
+    const data=await r.json();
+    return Array.isArray(data.scores)?data.scores:[];
+  }catch(e){return[];}
+}
+
+function renderLB(entries){
+  const list=document.getElementById('lb-list');
+  if(!entries||!entries.length){list.innerHTML='<div class="lb-empty">No scores yet — get playing! 🥛</div>';return;}
+  const medals=['🥇','🥈','🥉'];
+  const top10=entries.slice(0,10);
+  // Check for new entries
+  const prevNames=prevEntries.map(e=>e.name.toLowerCase());
+  list.innerHTML=top10.map((e,i)=>{
+    const isNew=!prevNames.includes(e.name.toLowerCase());
+    const cls=i===0?'gold':i===1?'silver':i===2?'bronze':'other';
+    return`<div class="lb-row ${cls}${isNew?' new':''}">
+      <div class="lb-rank">${medals[i]||'#'+(i+1)}</div>
+      <div class="lb-name"><span class="cow">🐄</span>${e.name}</div>
+      <div class="lb-score">${e.score}</div>
+    </div>`;
+  }).join('');
+  prevEntries=[...entries];
+  const now=new Date();document.getElementById('last-updated').textContent='Last updated: '+now.toLocaleTimeString();
+}
+
+let refreshTimer=null;
+function startRefreshBar(){
+  if(refreshTimer)clearInterval(refreshTimer);
+  const fill=document.getElementById('refresh-fill');
+  fill.style.width='100%';
+  let elapsed=0;
+  refreshTimer=setInterval(()=>{elapsed+=500;const pct=Math.max(0,100-(elapsed/REFRESH_MS*100));fill.style.width=pct+'%';},500);
+}
+
+async function refresh(){
+  startRefreshBar();
+  const entries=await loadLB();
+  renderLB(entries);
+  setTimeout(refresh,REFRESH_MS);
+}
+
+refresh();
+</script>
+</body>
+</html>
