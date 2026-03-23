@@ -716,7 +716,7 @@ function launchConfetti(full){
 
 // ===== LEADERBOARD (JSONBin) =====
 const LB_EXPIRY_DAYS=7;
-const JB_KEY='$2a$10$YobXcWW3rnVD73zr/wuxNOXGbd0CeWkOj9FQsTGOaXI4ItxB9S1SO';
+const JB_KEY='$2a$10$L6RTkrcRAx7PyBX0a3a9Iu0zsFTUB32Gn863re.pCdw5D.ZYTyQ3u';
 const JB_BIN='69bf6d3ec3097a1dd549682a';
 const JB_URL='https://api.jsonbin.io/v3/b/'+JB_BIN;
 async function lbLoad(){try{const r=await fetch(JB_URL+'/latest',{headers:{'X-Master-Key':JB_KEY,'X-Bin-Meta':false}});if(!r.ok)return[];const data=await r.json();return Array.isArray(data.scores)?data.scores:[];}catch(e){return[];}}
